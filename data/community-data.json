@@ -1,0 +1,4986 @@
+[
+  {
+    "name": "Abingdon",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 28.6
+  },
+  {
+    "name": "Addison village",
+    "county": null,
+    "affordability_pct": 42.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 318,
+    "home_value_change_pct": 71.1
+  },
+  {
+    "name": "Albers village",
+    "county": null,
+    "affordability_pct": 80.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 58.5
+  },
+  {
+    "name": "Aledo",
+    "county": null,
+    "affordability_pct": 86.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 22.7
+  },
+  {
+    "name": "Algonquin village",
+    "county": null,
+    "affordability_pct": 28.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1137,
+    "home_value_change_pct": 81.4
+  },
+  {
+    "name": "Alsip village",
+    "county": null,
+    "affordability_pct": 77.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 104.9
+  },
+  {
+    "name": "Altamont",
+    "county": null,
+    "affordability_pct": 87.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 45,
+    "home_value_change_pct": 55.4
+  },
+  {
+    "name": "Alton",
+    "county": null,
+    "affordability_pct": 84.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 153,
+    "home_value_change_pct": 74.8
+  },
+  {
+    "name": "Amboy",
+    "county": null,
+    "affordability_pct": 81.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 101.7
+  },
+  {
+    "name": "Anna",
+    "county": null,
+    "affordability_pct": 74.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 17,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Antioch village",
+    "county": null,
+    "affordability_pct": 46.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 332,
+    "home_value_change_pct": 86.0
+  },
+  {
+    "name": "Arcola",
+    "county": null,
+    "affordability_pct": 88.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 33,
+    "home_value_change_pct": 82.5
+  },
+  {
+    "name": "Arlington Heights village",
+    "county": null,
+    "affordability_pct": 19.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1258,
+    "home_value_change_pct": 56.9
+  },
+  {
+    "name": "Arthur village",
+    "county": null,
+    "affordability_pct": 80.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 68,
+    "home_value_change_pct": 79.6
+  },
+  {
+    "name": "Ashland village",
+    "county": null,
+    "affordability_pct": 88.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Assumption",
+    "county": null,
+    "affordability_pct": 83.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 57.0
+  },
+  {
+    "name": "Astoria town",
+    "county": null,
+    "affordability_pct": 95.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Athens",
+    "county": null,
+    "affordability_pct": 89.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Atlanta",
+    "county": null,
+    "affordability_pct": 88.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 47.9
+  },
+  {
+    "name": "Auburn",
+    "county": null,
+    "affordability_pct": 88.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 28,
+    "home_value_change_pct": 37.7
+  },
+  {
+    "name": "Aurora",
+    "county": null,
+    "affordability_pct": 55.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 2129,
+    "home_value_change_pct": 112.7
+  },
+  {
+    "name": "Aviston village",
+    "county": null,
+    "affordability_pct": 71.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 131,
+    "home_value_change_pct": 64.4
+  },
+  {
+    "name": "Bannockburn village",
+    "county": null,
+    "affordability_pct": 11.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 27.3
+  },
+  {
+    "name": "Barrington Hills village",
+    "county": null,
+    "affordability_pct": 3.4,
+    "is_exempt": false,
+    "units_built_2014_2024": 60,
+    "home_value_change_pct": 36.1
+  },
+  {
+    "name": "Barrington village",
+    "county": null,
+    "affordability_pct": 12.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 166,
+    "home_value_change_pct": 39.6
+  },
+  {
+    "name": "Barry",
+    "county": null,
+    "affordability_pct": 80.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Bartlett village",
+    "county": null,
+    "affordability_pct": 17.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 304,
+    "home_value_change_pct": 68.0
+  },
+  {
+    "name": "Bartonville village",
+    "county": null,
+    "affordability_pct": 85.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": 41.5
+  },
+  {
+    "name": "Batavia",
+    "county": null,
+    "affordability_pct": 23.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 690,
+    "home_value_change_pct": 69.9
+  },
+  {
+    "name": "Beach Park village",
+    "county": null,
+    "affordability_pct": 76.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 81,
+    "home_value_change_pct": 113.0
+  },
+  {
+    "name": "Beardstown",
+    "county": null,
+    "affordability_pct": 89.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Beckemeyer village",
+    "county": null,
+    "affordability_pct": 89.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Beecher village",
+    "county": null,
+    "affordability_pct": 75.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 162,
+    "home_value_change_pct": 75.7
+  },
+  {
+    "name": "Beecher village",
+    "county": null,
+    "affordability_pct": 75.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 162,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Belleville",
+    "county": null,
+    "affordability_pct": 85.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 347,
+    "home_value_change_pct": 60.9
+  },
+  {
+    "name": "Bellevue village",
+    "county": null,
+    "affordability_pct": 78.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 85,
+    "home_value_change_pct": 45.4
+  },
+  {
+    "name": "Bellwood village",
+    "county": null,
+    "affordability_pct": 80.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 111,
+    "home_value_change_pct": 215.7
+  },
+  {
+    "name": "Belvidere",
+    "county": null,
+    "affordability_pct": 80.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 253,
+    "home_value_change_pct": 113.0
+  },
+  {
+    "name": "Bement village",
+    "county": null,
+    "affordability_pct": 90.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Benld",
+    "county": null,
+    "affordability_pct": 95.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 40.8
+  },
+  {
+    "name": "Bensenville village",
+    "county": null,
+    "affordability_pct": 52.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 61,
+    "home_value_change_pct": 86.7
+  },
+  {
+    "name": "Benton",
+    "county": null,
+    "affordability_pct": 74.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 54,
+    "home_value_change_pct": 2.5
+  },
+  {
+    "name": "Berkeley village",
+    "county": null,
+    "affordability_pct": 83.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": 129.3
+  },
+  {
+    "name": "Berwyn",
+    "county": null,
+    "affordability_pct": 54.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 54,
+    "home_value_change_pct": 115.0
+  },
+  {
+    "name": "Bethalto village",
+    "county": null,
+    "affordability_pct": 82.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 160,
+    "home_value_change_pct": 68.4
+  },
+  {
+    "name": "Bethany village",
+    "county": null,
+    "affordability_pct": 92.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 83.5
+  },
+  {
+    "name": "Bloomingdale village",
+    "county": null,
+    "affordability_pct": 26.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 278,
+    "home_value_change_pct": 69.6
+  },
+  {
+    "name": "Bloomington",
+    "county": null,
+    "affordability_pct": 70.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1402,
+    "home_value_change_pct": 48.4
+  },
+  {
+    "name": "Blue Island",
+    "county": null,
+    "affordability_pct": 83.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 167.2
+  },
+  {
+    "name": "Blue Mound village",
+    "county": null,
+    "affordability_pct": 86.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 39.3
+  },
+  {
+    "name": "Bolingbrook village",
+    "county": null,
+    "affordability_pct": 40.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1534,
+    "home_value_change_pct": 92.9
+  },
+  {
+    "name": "Bourbonnais village",
+    "county": null,
+    "affordability_pct": 46.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 334,
+    "home_value_change_pct": 67.9
+  },
+  {
+    "name": "Bradley village",
+    "county": null,
+    "affordability_pct": 62.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 265,
+    "home_value_change_pct": 79.1
+  },
+  {
+    "name": "Braidwood",
+    "county": null,
+    "affordability_pct": 81.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 116,
+    "home_value_change_pct": 89.5
+  },
+  {
+    "name": "Breese",
+    "county": null,
+    "affordability_pct": 83.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 144,
+    "home_value_change_pct": 60.1
+  },
+  {
+    "name": "Bridgeview village",
+    "county": null,
+    "affordability_pct": 68.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 87.9
+  },
+  {
+    "name": "Brighton village",
+    "county": null,
+    "affordability_pct": 88.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 36,
+    "home_value_change_pct": 58.4
+  },
+  {
+    "name": "Broadview village",
+    "county": null,
+    "affordability_pct": 83.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 70,
+    "home_value_change_pct": 166.9
+  },
+  {
+    "name": "Brookfield village",
+    "county": null,
+    "affordability_pct": 34.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 67,
+    "home_value_change_pct": 70.6
+  },
+  {
+    "name": "Buffalo Grove village",
+    "county": null,
+    "affordability_pct": 14.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 271,
+    "home_value_change_pct": 60.1
+  },
+  {
+    "name": "Bull Valley village",
+    "county": null,
+    "affordability_pct": 2.7,
+    "is_exempt": false,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": 66.3
+  },
+  {
+    "name": "Burbank",
+    "county": null,
+    "affordability_pct": 64.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 115,
+    "home_value_change_pct": 94.6
+  },
+  {
+    "name": "Burnham village",
+    "county": null,
+    "affordability_pct": 83.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 299.7
+  },
+  {
+    "name": "Burr Ridge village",
+    "county": null,
+    "affordability_pct": 4.5,
+    "is_exempt": false,
+    "units_built_2014_2024": 276,
+    "home_value_change_pct": 35.3
+  },
+  {
+    "name": "Byron",
+    "county": null,
+    "affordability_pct": 80.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 67,
+    "home_value_change_pct": 60.0
+  },
+  {
+    "name": "Cahokia village",
+    "county": null,
+    "affordability_pct": 72.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Cairo",
+    "county": null,
+    "affordability_pct": 91.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Caledonia village",
+    "county": null,
+    "affordability_pct": 64.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 80.9
+  },
+  {
+    "name": "Calumet City",
+    "county": null,
+    "affordability_pct": 79.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 200.7
+  },
+  {
+    "name": "Calumet Park village",
+    "county": null,
+    "affordability_pct": 83.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 211.9
+  },
+  {
+    "name": "Cambria village",
+    "county": null,
+    "affordability_pct": 66.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 368,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Cambridge village",
+    "county": null,
+    "affordability_pct": 92.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 49.0
+  },
+  {
+    "name": "Camp Point village",
+    "county": null,
+    "affordability_pct": 87.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Campton Hills village",
+    "county": null,
+    "affordability_pct": 2.4,
+    "is_exempt": false,
+    "units_built_2014_2024": 174,
+    "home_value_change_pct": 63.9
+  },
+  {
+    "name": "Canton",
+    "county": null,
+    "affordability_pct": 87.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 46.3
+  },
+  {
+    "name": "Capron village",
+    "county": null,
+    "affordability_pct": 80.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 117.2
+  },
+  {
+    "name": "Carbon Cliff village",
+    "county": null,
+    "affordability_pct": 81.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Carbondale",
+    "county": null,
+    "affordability_pct": 53.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 223,
+    "home_value_change_pct": -2.8
+  },
+  {
+    "name": "Carlinville",
+    "county": null,
+    "affordability_pct": 82.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": 19.0
+  },
+  {
+    "name": "Carlyle",
+    "county": null,
+    "affordability_pct": 82.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 29,
+    "home_value_change_pct": 53.2
+  },
+  {
+    "name": "Carmi",
+    "county": null,
+    "affordability_pct": 75.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Carol Stream village",
+    "county": null,
+    "affordability_pct": 34.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 94,
+    "home_value_change_pct": 81.0
+  },
+  {
+    "name": "Carpentersville village",
+    "county": null,
+    "affordability_pct": 69.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 31,
+    "home_value_change_pct": 128.9
+  },
+  {
+    "name": "Carrollton",
+    "county": null,
+    "affordability_pct": 85.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 72,
+    "home_value_change_pct": 48.5
+  },
+  {
+    "name": "Carterville",
+    "county": null,
+    "affordability_pct": 53.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 157,
+    "home_value_change_pct": 57.0
+  },
+  {
+    "name": "Carthage",
+    "county": null,
+    "affordability_pct": 87.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 30,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Cary village",
+    "county": null,
+    "affordability_pct": 35.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 316,
+    "home_value_change_pct": 81.8
+  },
+  {
+    "name": "Casey",
+    "county": null,
+    "affordability_pct": 96.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 39.5
+  },
+  {
+    "name": "Caseyville village",
+    "county": null,
+    "affordability_pct": 82.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 243,
+    "home_value_change_pct": 79.8
+  },
+  {
+    "name": "Catlin village",
+    "county": null,
+    "affordability_pct": 79.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 62.8
+  },
+  {
+    "name": "Centralia",
+    "county": null,
+    "affordability_pct": 79.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 75,
+    "home_value_change_pct": 122.1
+  },
+  {
+    "name": "Centreville",
+    "county": null,
+    "affordability_pct": 89.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Cerro Gordo village",
+    "county": null,
+    "affordability_pct": 79.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": 55.2
+  },
+  {
+    "name": "Champaign",
+    "county": null,
+    "affordability_pct": 48.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 7324,
+    "home_value_change_pct": 52.4
+  },
+  {
+    "name": "Channahon village",
+    "county": null,
+    "affordability_pct": 42.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 850,
+    "home_value_change_pct": 83.3
+  },
+  {
+    "name": "Charleston",
+    "county": null,
+    "affordability_pct": 62.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 48,
+    "home_value_change_pct": 39.1
+  },
+  {
+    "name": "Chatham village",
+    "county": null,
+    "affordability_pct": 54.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 813,
+    "home_value_change_pct": 52.9
+  },
+  {
+    "name": "Chatsworth town",
+    "county": null,
+    "affordability_pct": 92.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 62.1
+  },
+  {
+    "name": "Chenoa",
+    "county": null,
+    "affordability_pct": 94.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 17,
+    "home_value_change_pct": 60.0
+  },
+  {
+    "name": "Chester",
+    "county": null,
+    "affordability_pct": 85.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 40.1
+  },
+  {
+    "name": "Chicago",
+    "county": null,
+    "affordability_pct": 47.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 68491,
+    "home_value_change_pct": 55.7
+  },
+  {
+    "name": "Chicago Heights",
+    "county": null,
+    "affordability_pct": 84.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 204.1
+  },
+  {
+    "name": "Chicago Ridge village",
+    "county": null,
+    "affordability_pct": 73.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 40,
+    "home_value_change_pct": 106.8
+  },
+  {
+    "name": "Chillicothe",
+    "county": null,
+    "affordability_pct": 82.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 115,
+    "home_value_change_pct": 37.9
+  },
+  {
+    "name": "Chrisman",
+    "county": null,
+    "affordability_pct": 79.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Christopher",
+    "county": null,
+    "affordability_pct": 80.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": -23.4
+  },
+  {
+    "name": "Cicero town",
+    "county": null,
+    "affordability_pct": 72.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": 179.7
+  },
+  {
+    "name": "Clarendon Hills village",
+    "county": null,
+    "affordability_pct": 14.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 198,
+    "home_value_change_pct": 42.8
+  },
+  {
+    "name": "Clifton village",
+    "county": null,
+    "affordability_pct": 77.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 76.2
+  },
+  {
+    "name": "Coal Valley village",
+    "county": null,
+    "affordability_pct": 61.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 67,
+    "home_value_change_pct": 50.0
+  },
+  {
+    "name": "Cobden village",
+    "county": null,
+    "affordability_pct": 80.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Colfax village",
+    "county": null,
+    "affordability_pct": 94.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 54.9
+  },
+  {
+    "name": "Collinsville",
+    "county": null,
+    "affordability_pct": 85.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 197,
+    "home_value_change_pct": 71.7
+  },
+  {
+    "name": "Colona",
+    "county": null,
+    "affordability_pct": 83.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 58,
+    "home_value_change_pct": 54.6
+  },
+  {
+    "name": "Columbia",
+    "county": null,
+    "affordability_pct": 46.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 446,
+    "home_value_change_pct": 69.5
+  },
+  {
+    "name": "Cortland town",
+    "county": null,
+    "affordability_pct": 70.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 151,
+    "home_value_change_pct": 121.8
+  },
+  {
+    "name": "Country Club Hills",
+    "county": null,
+    "affordability_pct": 77.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 123.4
+  },
+  {
+    "name": "Countryside",
+    "county": null,
+    "affordability_pct": 49.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 74,
+    "home_value_change_pct": 68.3
+  },
+  {
+    "name": "Crainville village",
+    "county": null,
+    "affordability_pct": 62.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 95,
+    "home_value_change_pct": 58.6
+  },
+  {
+    "name": "Crest Hill",
+    "county": null,
+    "affordability_pct": 73.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 39,
+    "home_value_change_pct": 100.4
+  },
+  {
+    "name": "Crestwood village",
+    "county": null,
+    "affordability_pct": 78.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 64,
+    "home_value_change_pct": 59.2
+  },
+  {
+    "name": "Crete village",
+    "county": null,
+    "affordability_pct": 73.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 23,
+    "home_value_change_pct": 76.1
+  },
+  {
+    "name": "Creve Coeur village",
+    "county": null,
+    "affordability_pct": 92.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 48.3
+  },
+  {
+    "name": "Crystal Lake",
+    "county": null,
+    "affordability_pct": 42.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 1221,
+    "home_value_change_pct": 88.0
+  },
+  {
+    "name": "Cuba",
+    "county": null,
+    "affordability_pct": 94.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 54.0
+  },
+  {
+    "name": "Danvers village",
+    "county": null,
+    "affordability_pct": 92.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 49.4
+  },
+  {
+    "name": "Danville",
+    "county": null,
+    "affordability_pct": 74.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 30,
+    "home_value_change_pct": 37.3
+  },
+  {
+    "name": "Darien",
+    "county": null,
+    "affordability_pct": 20.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 191,
+    "home_value_change_pct": 52.8
+  },
+  {
+    "name": "Davis Junction village",
+    "county": null,
+    "affordability_pct": 88.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 73,
+    "home_value_change_pct": 64.5
+  },
+  {
+    "name": "De Pue village",
+    "county": null,
+    "affordability_pct": 92.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "De Soto village",
+    "county": null,
+    "affordability_pct": 67.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 21.7
+  },
+  {
+    "name": "Decatur",
+    "county": null,
+    "affordability_pct": 78.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 53,
+    "home_value_change_pct": 38.3
+  },
+  {
+    "name": "Deer Park village",
+    "county": null,
+    "affordability_pct": 1.9,
+    "is_exempt": false,
+    "units_built_2014_2024": 442,
+    "home_value_change_pct": 40.1
+  },
+  {
+    "name": "Deerfield village",
+    "county": null,
+    "affordability_pct": 4.8,
+    "is_exempt": false,
+    "units_built_2014_2024": 680,
+    "home_value_change_pct": 37.5
+  },
+  {
+    "name": "DeKalb",
+    "county": null,
+    "affordability_pct": 73.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 467,
+    "home_value_change_pct": 78.2
+  },
+  {
+    "name": "Delavan",
+    "county": null,
+    "affordability_pct": 90.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": 51.5
+  },
+  {
+    "name": "Des Plaines",
+    "county": null,
+    "affordability_pct": 40.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 987,
+    "home_value_change_pct": 79.4
+  },
+  {
+    "name": "Diamond village",
+    "county": null,
+    "affordability_pct": 78.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 49,
+    "home_value_change_pct": 57.4
+  },
+  {
+    "name": "Divernon village",
+    "county": null,
+    "affordability_pct": 87.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 26.9
+  },
+  {
+    "name": "Dixmoor village",
+    "county": null,
+    "affordability_pct": 74.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Dixon",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 133,
+    "home_value_change_pct": 116.3
+  },
+  {
+    "name": "Dolton village",
+    "county": null,
+    "affordability_pct": 80.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 220.5
+  },
+  {
+    "name": "Downers Grove village",
+    "county": null,
+    "affordability_pct": 23.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 812,
+    "home_value_change_pct": 51.5
+  },
+  {
+    "name": "Downs village",
+    "county": null,
+    "affordability_pct": 54.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 47.8
+  },
+  {
+    "name": "Dunlap village",
+    "county": null,
+    "affordability_pct": 45.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 40.0
+  },
+  {
+    "name": "Dupo village",
+    "county": null,
+    "affordability_pct": 92.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 50.4
+  },
+  {
+    "name": "Durand village",
+    "county": null,
+    "affordability_pct": 83.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 108.5
+  },
+  {
+    "name": "Dwight village",
+    "county": null,
+    "affordability_pct": 81.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 59,
+    "home_value_change_pct": 78.1
+  },
+  {
+    "name": "Earlville",
+    "county": null,
+    "affordability_pct": 89.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 89.2
+  },
+  {
+    "name": "East Alton village",
+    "county": null,
+    "affordability_pct": 92.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": 79.4
+  },
+  {
+    "name": "East Dubuque",
+    "county": null,
+    "affordability_pct": 78.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": 74.5
+  },
+  {
+    "name": "East Dundee village",
+    "county": null,
+    "affordability_pct": 59.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 68,
+    "home_value_change_pct": 87.6
+  },
+  {
+    "name": "East Hazel Crest village",
+    "county": null,
+    "affordability_pct": 70.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 185.0
+  },
+  {
+    "name": "East Moline",
+    "county": null,
+    "affordability_pct": 81.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 49,
+    "home_value_change_pct": 46.2
+  },
+  {
+    "name": "East Peoria",
+    "county": null,
+    "affordability_pct": 75.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 219,
+    "home_value_change_pct": 35.2
+  },
+  {
+    "name": "East St. Louis",
+    "county": null,
+    "affordability_pct": 85.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 557,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Edinburg village",
+    "county": null,
+    "affordability_pct": 84.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": 59.5
+  },
+  {
+    "name": "Edwardsville",
+    "county": null,
+    "affordability_pct": 45.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 761,
+    "home_value_change_pct": 67.4
+  },
+  {
+    "name": "Effingham",
+    "county": null,
+    "affordability_pct": 85.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 373,
+    "home_value_change_pct": 61.0
+  },
+  {
+    "name": "El Paso",
+    "county": null,
+    "affordability_pct": 86.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 26,
+    "home_value_change_pct": 21.9
+  },
+  {
+    "name": "Elburn village",
+    "county": null,
+    "affordability_pct": 36.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 607,
+    "home_value_change_pct": 89.0
+  },
+  {
+    "name": "Elgin",
+    "county": null,
+    "affordability_pct": 61.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 2624,
+    "home_value_change_pct": 111.2
+  },
+  {
+    "name": "Elmhurst",
+    "county": null,
+    "affordability_pct": 9.4,
+    "is_exempt": false,
+    "units_built_2014_2024": 1435,
+    "home_value_change_pct": 43.2
+  },
+  {
+    "name": "Elmwood",
+    "county": null,
+    "affordability_pct": 82.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 47.1
+  },
+  {
+    "name": "Elmwood Park village",
+    "county": null,
+    "affordability_pct": 40.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 88,
+    "home_value_change_pct": 91.1
+  },
+  {
+    "name": "Elwood village",
+    "county": null,
+    "affordability_pct": 88.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 25,
+    "home_value_change_pct": 75.1
+  },
+  {
+    "name": "Energy village",
+    "county": null,
+    "affordability_pct": 73.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 48.5
+  },
+  {
+    "name": "Erie village",
+    "county": null,
+    "affordability_pct": 79.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 33.6
+  },
+  {
+    "name": "Eureka",
+    "county": null,
+    "affordability_pct": 73.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 62,
+    "home_value_change_pct": 30.7
+  },
+  {
+    "name": "Evanston",
+    "county": null,
+    "affordability_pct": 19.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 487,
+    "home_value_change_pct": 36.4
+  },
+  {
+    "name": "Evergreen Park village",
+    "county": null,
+    "affordability_pct": 61.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 42,
+    "home_value_change_pct": 95.6
+  },
+  {
+    "name": "Fairbury",
+    "county": null,
+    "affordability_pct": 83.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 59,
+    "home_value_change_pct": 57.2
+  },
+  {
+    "name": "Fairfield",
+    "county": null,
+    "affordability_pct": 82.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 15,
+    "home_value_change_pct": 8.5
+  },
+  {
+    "name": "Fairview Heights",
+    "county": null,
+    "affordability_pct": 76.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 302,
+    "home_value_change_pct": 52.5
+  },
+  {
+    "name": "Farmington",
+    "county": null,
+    "affordability_pct": 84.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 36,
+    "home_value_change_pct": 41.6
+  },
+  {
+    "name": "Fisher village",
+    "county": null,
+    "affordability_pct": 78.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 77,
+    "home_value_change_pct": 52.3
+  },
+  {
+    "name": "Flanagan village",
+    "county": null,
+    "affordability_pct": 93.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 19,
+    "home_value_change_pct": 56.9
+  },
+  {
+    "name": "Flora",
+    "county": null,
+    "affordability_pct": 82.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 65,
+    "home_value_change_pct": 54.8
+  },
+  {
+    "name": "Flossmoor village",
+    "county": null,
+    "affordability_pct": 21.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 75.9
+  },
+  {
+    "name": "Ford Heights village",
+    "county": null,
+    "affordability_pct": 84.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 386.2
+  },
+  {
+    "name": "Forest Park village",
+    "county": null,
+    "affordability_pct": 43.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 96,
+    "home_value_change_pct": 79.6
+  },
+  {
+    "name": "Forrest village",
+    "county": null,
+    "affordability_pct": 86.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 63.4
+  },
+  {
+    "name": "Forreston village",
+    "county": null,
+    "affordability_pct": 95.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 51.4
+  },
+  {
+    "name": "Forsyth village",
+    "county": null,
+    "affordability_pct": 23.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 43,
+    "home_value_change_pct": 46.2
+  },
+  {
+    "name": "Fox Lake village",
+    "county": null,
+    "affordability_pct": 72.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 141,
+    "home_value_change_pct": 125.5
+  },
+  {
+    "name": "Fox River Grove village",
+    "county": null,
+    "affordability_pct": 35.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 113,
+    "home_value_change_pct": 76.2
+  },
+  {
+    "name": "Frankfort village",
+    "county": null,
+    "affordability_pct": 6.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 1063,
+    "home_value_change_pct": 62.3
+  },
+  {
+    "name": "Franklin Grove village",
+    "county": null,
+    "affordability_pct": 83.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 88.6
+  },
+  {
+    "name": "Franklin Park village",
+    "county": null,
+    "affordability_pct": 58.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 111,
+    "home_value_change_pct": 111.7
+  },
+  {
+    "name": "Freeburg village",
+    "county": null,
+    "affordability_pct": 59.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 117,
+    "home_value_change_pct": 54.4
+  },
+  {
+    "name": "Freeport",
+    "county": null,
+    "affordability_pct": 80.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 20,
+    "home_value_change_pct": 130.4
+  },
+  {
+    "name": "Fulton",
+    "county": null,
+    "affordability_pct": 82.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 48,
+    "home_value_change_pct": 35.1
+  },
+  {
+    "name": "Galena",
+    "county": null,
+    "affordability_pct": 69.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 35,
+    "home_value_change_pct": 66.0
+  },
+  {
+    "name": "Galesburg",
+    "county": null,
+    "affordability_pct": 75.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 29,
+    "home_value_change_pct": 29.2
+  },
+  {
+    "name": "Galva",
+    "county": null,
+    "affordability_pct": 93.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 34.3
+  },
+  {
+    "name": "Gardner village",
+    "county": null,
+    "affordability_pct": 92.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 87.1
+  },
+  {
+    "name": "Geneseo",
+    "county": null,
+    "affordability_pct": 71.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 177,
+    "home_value_change_pct": 42.0
+  },
+  {
+    "name": "Geneva",
+    "county": null,
+    "affordability_pct": 7.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 402,
+    "home_value_change_pct": 68.0
+  },
+  {
+    "name": "Genoa",
+    "county": null,
+    "affordability_pct": 83.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 161,
+    "home_value_change_pct": 86.6
+  },
+  {
+    "name": "Georgetown",
+    "county": null,
+    "affordability_pct": 87.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 47.1
+  },
+  {
+    "name": "Germantown Hills village",
+    "county": null,
+    "affordability_pct": 20.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 42,
+    "home_value_change_pct": 29.6
+  },
+  {
+    "name": "Germantown village",
+    "county": null,
+    "affordability_pct": 87.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 54,
+    "home_value_change_pct": 62.0
+  },
+  {
+    "name": "Gibson City",
+    "county": null,
+    "affordability_pct": 80.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 42,
+    "home_value_change_pct": 52.3
+  },
+  {
+    "name": "Gifford village",
+    "county": null,
+    "affordability_pct": 79.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 45.5
+  },
+  {
+    "name": "Gilberts village",
+    "county": null,
+    "affordability_pct": 39.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 565,
+    "home_value_change_pct": 73.2
+  },
+  {
+    "name": "Gillespie",
+    "county": null,
+    "affordability_pct": 95.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 48,
+    "home_value_change_pct": 34.4
+  },
+  {
+    "name": "Gilman",
+    "county": null,
+    "affordability_pct": 87.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": 79.2
+  },
+  {
+    "name": "Glasford village",
+    "county": null,
+    "affordability_pct": 91.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 56.7
+  },
+  {
+    "name": "Glen Carbon village",
+    "county": null,
+    "affordability_pct": 43.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 351,
+    "home_value_change_pct": 63.9
+  },
+  {
+    "name": "Glen Ellyn village",
+    "county": null,
+    "affordability_pct": 16.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 279,
+    "home_value_change_pct": 50.3
+  },
+  {
+    "name": "Glencoe village",
+    "county": null,
+    "affordability_pct": 2.7,
+    "is_exempt": false,
+    "units_built_2014_2024": 182,
+    "home_value_change_pct": 49.2
+  },
+  {
+    "name": "Glendale Heights village",
+    "county": null,
+    "affordability_pct": 53.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 114.9
+  },
+  {
+    "name": "Glenview village",
+    "county": null,
+    "affordability_pct": 8.8,
+    "is_exempt": false,
+    "units_built_2014_2024": 1200,
+    "home_value_change_pct": 41.7
+  },
+  {
+    "name": "Glenwood village",
+    "county": null,
+    "affordability_pct": 83.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 175.7
+  },
+  {
+    "name": "Godfrey village",
+    "county": null,
+    "affordability_pct": 75.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 274,
+    "home_value_change_pct": 64.9
+  },
+  {
+    "name": "Goreville village",
+    "county": null,
+    "affordability_pct": 77.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Granite City",
+    "county": null,
+    "affordability_pct": 92.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 84,
+    "home_value_change_pct": 82.7
+  },
+  {
+    "name": "Grant Park village",
+    "county": null,
+    "affordability_pct": 65.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 57.1
+  },
+  {
+    "name": "Granville village",
+    "county": null,
+    "affordability_pct": 93.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 115.8
+  },
+  {
+    "name": "Grayslake village",
+    "county": null,
+    "affordability_pct": 26.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 161,
+    "home_value_change_pct": 74.6
+  },
+  {
+    "name": "Green Oaks village",
+    "county": null,
+    "affordability_pct": 18.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 59,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Greenfield",
+    "county": null,
+    "affordability_pct": 84.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Greenville",
+    "county": null,
+    "affordability_pct": 93.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 135,
+    "home_value_change_pct": 53.0
+  },
+  {
+    "name": "Gridley village",
+    "county": null,
+    "affordability_pct": 92.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 64.4
+  },
+  {
+    "name": "Griggsville",
+    "county": null,
+    "affordability_pct": 86.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Gurnee village",
+    "county": null,
+    "affordability_pct": 32.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 141,
+    "home_value_change_pct": 69.9
+  },
+  {
+    "name": "Hainesville village",
+    "county": null,
+    "affordability_pct": 72.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": 106.6
+  },
+  {
+    "name": "Hamilton",
+    "county": null,
+    "affordability_pct": 83.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Hampshire village",
+    "county": null,
+    "affordability_pct": 27.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 848,
+    "home_value_change_pct": 93.5
+  },
+  {
+    "name": "Hampton village",
+    "county": null,
+    "affordability_pct": 70.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 39.9
+  },
+  {
+    "name": "Hanover Park village",
+    "county": null,
+    "affordability_pct": 56.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 124.0
+  },
+  {
+    "name": "Harristown village",
+    "county": null,
+    "affordability_pct": 91.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": 41.2
+  },
+  {
+    "name": "Hartford village",
+    "county": null,
+    "affordability_pct": 89.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 93.8
+  },
+  {
+    "name": "Harvard",
+    "county": null,
+    "affordability_pct": 81.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 84,
+    "home_value_change_pct": 105.6
+  },
+  {
+    "name": "Harvey",
+    "county": null,
+    "affordability_pct": 81.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 91,
+    "home_value_change_pct": 247.9
+  },
+  {
+    "name": "Harwood Heights village",
+    "county": null,
+    "affordability_pct": 39.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 68.7
+  },
+  {
+    "name": "Havana",
+    "county": null,
+    "affordability_pct": 85.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": -2.5
+  },
+  {
+    "name": "Hawthorn Woods village",
+    "county": null,
+    "affordability_pct": 2.8,
+    "is_exempt": false,
+    "units_built_2014_2024": 642,
+    "home_value_change_pct": 44.7
+  },
+  {
+    "name": "Hazel Crest village",
+    "county": null,
+    "affordability_pct": 72.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 202.4
+  },
+  {
+    "name": "Hebron village",
+    "county": null,
+    "affordability_pct": 80.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 26,
+    "home_value_change_pct": 92.2
+  },
+  {
+    "name": "Henry",
+    "county": null,
+    "affordability_pct": 90.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 30,
+    "home_value_change_pct": 64.0
+  },
+  {
+    "name": "Herrin",
+    "county": null,
+    "affordability_pct": 72.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 258,
+    "home_value_change_pct": 43.2
+  },
+  {
+    "name": "Herscher village",
+    "county": null,
+    "affordability_pct": 79.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": 50.5
+  },
+  {
+    "name": "Heyworth village",
+    "county": null,
+    "affordability_pct": 74.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 76,
+    "home_value_change_pct": 44.5
+  },
+  {
+    "name": "Hickory Hills",
+    "county": null,
+    "affordability_pct": 51.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 55,
+    "home_value_change_pct": 82.4
+  },
+  {
+    "name": "Highland",
+    "county": null,
+    "affordability_pct": 80.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 344,
+    "home_value_change_pct": 67.6
+  },
+  {
+    "name": "Highland Park",
+    "county": null,
+    "affordability_pct": 6.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 811,
+    "home_value_change_pct": 41.8
+  },
+  {
+    "name": "Highwood",
+    "county": null,
+    "affordability_pct": 19.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 178,
+    "home_value_change_pct": 50.5
+  },
+  {
+    "name": "Hillcrest village",
+    "county": null,
+    "affordability_pct": 83.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Hillside village",
+    "county": null,
+    "affordability_pct": 61.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 45,
+    "home_value_change_pct": 128.4
+  },
+  {
+    "name": "Hinckley village",
+    "county": null,
+    "affordability_pct": 57.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": 92.7
+  },
+  {
+    "name": "Hinsdale village",
+    "county": null,
+    "affordability_pct": 3.7,
+    "is_exempt": false,
+    "units_built_2014_2024": 473,
+    "home_value_change_pct": 25.0
+  },
+  {
+    "name": "Hodgkins village",
+    "county": null,
+    "affordability_pct": 81.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 40,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Hoffman Estates village",
+    "county": null,
+    "affordability_pct": 26.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 269,
+    "home_value_change_pct": 76.0
+  },
+  {
+    "name": "Homer Glen village",
+    "county": null,
+    "affordability_pct": 7.4,
+    "is_exempt": false,
+    "units_built_2014_2024": 555,
+    "home_value_change_pct": 62.0
+  },
+  {
+    "name": "Homer village",
+    "county": null,
+    "affordability_pct": 85.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 50.0
+  },
+  {
+    "name": "Hometown",
+    "county": null,
+    "affordability_pct": 88.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 178.5
+  },
+  {
+    "name": "Homewood village",
+    "county": null,
+    "affordability_pct": 70.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 105.5
+  },
+  {
+    "name": "Hoopeston",
+    "county": null,
+    "affordability_pct": 78.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 32,
+    "home_value_change_pct": 32.2
+  },
+  {
+    "name": "Hudson village",
+    "county": null,
+    "affordability_pct": 73.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 19,
+    "home_value_change_pct": 46.3
+  },
+  {
+    "name": "Huntley village",
+    "county": null,
+    "affordability_pct": 32.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1479,
+    "home_value_change_pct": 82.4
+  },
+  {
+    "name": "Ina village",
+    "county": null,
+    "affordability_pct": 91.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Indian Head Park village",
+    "county": null,
+    "affordability_pct": 48.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": 54.4
+  },
+  {
+    "name": "Inverness village",
+    "county": null,
+    "affordability_pct": 1.4,
+    "is_exempt": false,
+    "units_built_2014_2024": 45,
+    "home_value_change_pct": 37.5
+  },
+  {
+    "name": "Island Lake village",
+    "county": null,
+    "affordability_pct": 58.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 138,
+    "home_value_change_pct": 115.7
+  },
+  {
+    "name": "Itasca village",
+    "county": null,
+    "affordability_pct": 16.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 567,
+    "home_value_change_pct": 52.7
+  },
+  {
+    "name": "Jacksonville",
+    "county": null,
+    "affordability_pct": 81.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 78,
+    "home_value_change_pct": 34.6
+  },
+  {
+    "name": "Jerome village",
+    "county": null,
+    "affordability_pct": 89.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 61.9
+  },
+  {
+    "name": "Jerseyville",
+    "county": null,
+    "affordability_pct": 91.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 397,
+    "home_value_change_pct": 53.9
+  },
+  {
+    "name": "Johnsburg village",
+    "county": null,
+    "affordability_pct": 30.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 120,
+    "home_value_change_pct": 92.8
+  },
+  {
+    "name": "Johnston City",
+    "county": null,
+    "affordability_pct": 89.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": 25.9
+  },
+  {
+    "name": "Joliet",
+    "county": null,
+    "affordability_pct": 68.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 2805,
+    "home_value_change_pct": 110.7
+  },
+  {
+    "name": "Jonesboro",
+    "county": null,
+    "affordability_pct": 85.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Justice village",
+    "county": null,
+    "affordability_pct": 65.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 49,
+    "home_value_change_pct": 101.6
+  },
+  {
+    "name": "Kankakee",
+    "county": null,
+    "affordability_pct": 71.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 183,
+    "home_value_change_pct": 93.1
+  },
+  {
+    "name": "Kenilworth village",
+    "county": null,
+    "affordability_pct": 1.6,
+    "is_exempt": false,
+    "units_built_2014_2024": 15,
+    "home_value_change_pct": 43.6
+  },
+  {
+    "name": "Kewanee",
+    "county": null,
+    "affordability_pct": 90.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 17,
+    "home_value_change_pct": 22.4
+  },
+  {
+    "name": "Kildeer village",
+    "county": null,
+    "affordability_pct": 0.4,
+    "is_exempt": false,
+    "units_built_2014_2024": 296,
+    "home_value_change_pct": 34.0
+  },
+  {
+    "name": "Kincaid village",
+    "county": null,
+    "affordability_pct": 80.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": 45.0
+  },
+  {
+    "name": "Kingston village",
+    "county": null,
+    "affordability_pct": 77.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 90.0
+  },
+  {
+    "name": "Kirkland village",
+    "county": null,
+    "affordability_pct": 80.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 113.5
+  },
+  {
+    "name": "Knoxville",
+    "county": null,
+    "affordability_pct": 70.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 40.5
+  },
+  {
+    "name": "La Grange Park village",
+    "county": null,
+    "affordability_pct": 13.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 101,
+    "home_value_change_pct": 52.7
+  },
+  {
+    "name": "La Grange village",
+    "county": null,
+    "affordability_pct": 13.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 165,
+    "home_value_change_pct": 42.6
+  },
+  {
+    "name": "Lacon",
+    "county": null,
+    "affordability_pct": 86.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 40.7
+  },
+  {
+    "name": "Ladd village",
+    "county": null,
+    "affordability_pct": 84.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 83,
+    "home_value_change_pct": 53.7
+  },
+  {
+    "name": "Lake Barrington village",
+    "county": null,
+    "affordability_pct": 14.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 88,
+    "home_value_change_pct": 34.1
+  },
+  {
+    "name": "Lake Bluff village",
+    "county": null,
+    "affordability_pct": 2.9,
+    "is_exempt": false,
+    "units_built_2014_2024": 47,
+    "home_value_change_pct": 47.2
+  },
+  {
+    "name": "Lake Forest",
+    "county": null,
+    "affordability_pct": 5.8,
+    "is_exempt": false,
+    "units_built_2014_2024": 461,
+    "home_value_change_pct": 32.1
+  },
+  {
+    "name": "Lake in the Hills village",
+    "county": null,
+    "affordability_pct": 44.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 149,
+    "home_value_change_pct": 104.9
+  },
+  {
+    "name": "Lake Villa village",
+    "county": null,
+    "affordability_pct": 15.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 48,
+    "home_value_change_pct": 79.3
+  },
+  {
+    "name": "Lake Zurich village",
+    "county": null,
+    "affordability_pct": 11.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 299,
+    "home_value_change_pct": 50.0
+  },
+  {
+    "name": "Lakemoor village",
+    "county": null,
+    "affordability_pct": 42.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 158,
+    "home_value_change_pct": 89.9
+  },
+  {
+    "name": "Lakewood village",
+    "county": null,
+    "affordability_pct": 4.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 155,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Lanark",
+    "county": null,
+    "affordability_pct": 90.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 64.4
+  },
+  {
+    "name": "Lansing village",
+    "county": null,
+    "affordability_pct": 81.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 136.8
+  },
+  {
+    "name": "LaSalle",
+    "county": null,
+    "affordability_pct": 79.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 34,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Lawrenceville",
+    "county": null,
+    "affordability_pct": 79.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 589,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Le Roy",
+    "county": null,
+    "affordability_pct": 92.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": 44.9
+  },
+  {
+    "name": "Lebanon",
+    "county": null,
+    "affordability_pct": 78.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 81,
+    "home_value_change_pct": 47.8
+  },
+  {
+    "name": "Leland Grove",
+    "county": null,
+    "affordability_pct": 35.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 34.5
+  },
+  {
+    "name": "Lemont village",
+    "county": null,
+    "affordability_pct": 11.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1096,
+    "home_value_change_pct": 60.1
+  },
+  {
+    "name": "Lena village",
+    "county": null,
+    "affordability_pct": 76.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 144.2
+  },
+  {
+    "name": "Lewistown",
+    "county": null,
+    "affordability_pct": 92.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 40.2
+  },
+  {
+    "name": "Lexington",
+    "county": null,
+    "affordability_pct": 83.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 31,
+    "home_value_change_pct": 45.3
+  },
+  {
+    "name": "Libertyville village",
+    "county": null,
+    "affordability_pct": 9.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 343,
+    "home_value_change_pct": 38.3
+  },
+  {
+    "name": "Lily Lake village",
+    "county": null,
+    "affordability_pct": 2.5,
+    "is_exempt": false,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 70.1
+  },
+  {
+    "name": "Limestone village",
+    "county": null,
+    "affordability_pct": 61.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": 65.4
+  },
+  {
+    "name": "Lincoln",
+    "county": null,
+    "affordability_pct": 84.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 25,
+    "home_value_change_pct": 34.0
+  },
+  {
+    "name": "Lincolnshire village",
+    "county": null,
+    "affordability_pct": 2.2,
+    "is_exempt": false,
+    "units_built_2014_2024": 480,
+    "home_value_change_pct": 40.2
+  },
+  {
+    "name": "Lincolnwood village",
+    "county": null,
+    "affordability_pct": 6.7,
+    "is_exempt": false,
+    "units_built_2014_2024": 34,
+    "home_value_change_pct": 53.7
+  },
+  {
+    "name": "Lindenhurst village",
+    "county": null,
+    "affordability_pct": 30.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 234,
+    "home_value_change_pct": 77.9
+  },
+  {
+    "name": "Lisle village",
+    "county": null,
+    "affordability_pct": 19.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 257,
+    "home_value_change_pct": 59.1
+  },
+  {
+    "name": "Lockport",
+    "county": null,
+    "affordability_pct": 34.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 1477,
+    "home_value_change_pct": 63.1
+  },
+  {
+    "name": "Lombard village",
+    "county": null,
+    "affordability_pct": 33.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 1055,
+    "home_value_change_pct": 58.6
+  },
+  {
+    "name": "Long Creek village",
+    "county": null,
+    "affordability_pct": 74.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Long Grove village",
+    "county": null,
+    "affordability_pct": 4.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 58,
+    "home_value_change_pct": 39.1
+  },
+  {
+    "name": "Loves Park",
+    "county": null,
+    "affordability_pct": 72.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 483,
+    "home_value_change_pct": 103.1
+  },
+  {
+    "name": "Lovington village",
+    "county": null,
+    "affordability_pct": 96.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 81.5
+  },
+  {
+    "name": "Lynwood village",
+    "county": null,
+    "affordability_pct": 74.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 210,
+    "home_value_change_pct": 105.4
+  },
+  {
+    "name": "Lyons village",
+    "county": null,
+    "affordability_pct": 69.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 17,
+    "home_value_change_pct": 122.4
+  },
+  {
+    "name": "Machesney Park village",
+    "county": null,
+    "affordability_pct": 76.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 189,
+    "home_value_change_pct": 121.8
+  },
+  {
+    "name": "Mackinaw village",
+    "county": null,
+    "affordability_pct": 83.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 46.9
+  },
+  {
+    "name": "Macomb",
+    "county": null,
+    "affordability_pct": 61.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 14.1
+  },
+  {
+    "name": "Macon",
+    "county": null,
+    "affordability_pct": 83.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 40.4
+  },
+  {
+    "name": "Madison",
+    "county": null,
+    "affordability_pct": 88.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 119.5
+  },
+  {
+    "name": "Mahomet village",
+    "county": null,
+    "affordability_pct": 19.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1113,
+    "home_value_change_pct": 56.6
+  },
+  {
+    "name": "Malta village",
+    "county": null,
+    "affordability_pct": 87.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 95.1
+  },
+  {
+    "name": "Manhattan village",
+    "county": null,
+    "affordability_pct": 37.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 1191,
+    "home_value_change_pct": 75.4
+  },
+  {
+    "name": "Manito village",
+    "county": null,
+    "affordability_pct": 83.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 32.7
+  },
+  {
+    "name": "Manteno village",
+    "county": null,
+    "affordability_pct": 43.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 225,
+    "home_value_change_pct": 66.6
+  },
+  {
+    "name": "Marengo",
+    "county": null,
+    "affordability_pct": 86.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 150,
+    "home_value_change_pct": 94.5
+  },
+  {
+    "name": "Marion",
+    "county": null,
+    "affordability_pct": 61.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 363,
+    "home_value_change_pct": 48.6
+  },
+  {
+    "name": "Marissa village",
+    "county": null,
+    "affordability_pct": 93.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 33.8
+  },
+  {
+    "name": "Mark village",
+    "county": null,
+    "affordability_pct": 81.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Markham",
+    "county": null,
+    "affordability_pct": 76.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 39,
+    "home_value_change_pct": 246.2
+  },
+  {
+    "name": "Maroa",
+    "county": null,
+    "affordability_pct": 79.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 20,
+    "home_value_change_pct": 42.0
+  },
+  {
+    "name": "Marquette Heights",
+    "county": null,
+    "affordability_pct": 89.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 39.8
+  },
+  {
+    "name": "Marseilles",
+    "county": null,
+    "affordability_pct": 76.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 28,
+    "home_value_change_pct": 74.1
+  },
+  {
+    "name": "Marshall",
+    "county": null,
+    "affordability_pct": 89.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 79,
+    "home_value_change_pct": 39.0
+  },
+  {
+    "name": "Maryville village",
+    "county": null,
+    "affordability_pct": 58.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 327,
+    "home_value_change_pct": 75.0
+  },
+  {
+    "name": "Mascoutah",
+    "county": null,
+    "affordability_pct": 68.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 637,
+    "home_value_change_pct": 66.2
+  },
+  {
+    "name": "Mason City",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Mason City",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Matteson village",
+    "county": null,
+    "affordability_pct": 56.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 376,
+    "home_value_change_pct": 80.5
+  },
+  {
+    "name": "Mattoon",
+    "county": null,
+    "affordability_pct": 76.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 110,
+    "home_value_change_pct": 31.5
+  },
+  {
+    "name": "Maywood village",
+    "county": null,
+    "affordability_pct": 75.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 298,
+    "home_value_change_pct": 224.0
+  },
+  {
+    "name": "Mazon village",
+    "county": null,
+    "affordability_pct": 78.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 52.9
+  },
+  {
+    "name": "McCullom Lake village",
+    "county": null,
+    "affordability_pct": 74.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 144.2
+  },
+  {
+    "name": "McHenry",
+    "county": null,
+    "affordability_pct": 58.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 1519,
+    "home_value_change_pct": 93.3
+  },
+  {
+    "name": "McLeansboro",
+    "county": null,
+    "affordability_pct": 87.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": -19.8
+  },
+  {
+    "name": "Melrose Park village",
+    "county": null,
+    "affordability_pct": 58.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 60,
+    "home_value_change_pct": 107.4
+  },
+  {
+    "name": "Mendota",
+    "county": null,
+    "affordability_pct": 86.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 72.7
+  },
+  {
+    "name": "Meredosia village",
+    "county": null,
+    "affordability_pct": 95.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 21.1
+  },
+  {
+    "name": "Merrionette Park village",
+    "county": null,
+    "affordability_pct": 90.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 126.4
+  },
+  {
+    "name": "Metamora village",
+    "county": null,
+    "affordability_pct": 64.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 54,
+    "home_value_change_pct": 20.5
+  },
+  {
+    "name": "Metropolis",
+    "county": null,
+    "affordability_pct": 86.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 84,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Midlothian village",
+    "county": null,
+    "affordability_pct": 78.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": 126.0
+  },
+  {
+    "name": "Milan village",
+    "county": null,
+    "affordability_pct": 76.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 44,
+    "home_value_change_pct": 52.3
+  },
+  {
+    "name": "Milford village",
+    "county": null,
+    "affordability_pct": 92.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 41.9
+  },
+  {
+    "name": "Milledgeville village",
+    "county": null,
+    "affordability_pct": 93.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 49.9
+  },
+  {
+    "name": "Millstadt village",
+    "county": null,
+    "affordability_pct": 71.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 89,
+    "home_value_change_pct": 58.4
+  },
+  {
+    "name": "Minier village",
+    "county": null,
+    "affordability_pct": 91.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 6,
+    "home_value_change_pct": 38.0
+  },
+  {
+    "name": "Minonk",
+    "county": null,
+    "affordability_pct": 84.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 30.2
+  },
+  {
+    "name": "Minooka village",
+    "county": null,
+    "affordability_pct": 54.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 260,
+    "home_value_change_pct": 109.4
+  },
+  {
+    "name": "Mokena village",
+    "county": null,
+    "affordability_pct": 15.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 636,
+    "home_value_change_pct": 63.7
+  },
+  {
+    "name": "Moline",
+    "county": null,
+    "affordability_pct": 76.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 168,
+    "home_value_change_pct": 34.8
+  },
+  {
+    "name": "Momence",
+    "county": null,
+    "affordability_pct": 81.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 87.0
+  },
+  {
+    "name": "Monee village",
+    "county": null,
+    "affordability_pct": 71.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 51,
+    "home_value_change_pct": 75.0
+  },
+  {
+    "name": "Monmouth",
+    "county": null,
+    "affordability_pct": 91.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 47,
+    "home_value_change_pct": 33.8
+  },
+  {
+    "name": "Montgomery village",
+    "county": null,
+    "affordability_pct": 47.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 864,
+    "home_value_change_pct": 91.9
+  },
+  {
+    "name": "Monticello",
+    "county": null,
+    "affordability_pct": 60.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 181,
+    "home_value_change_pct": 44.7
+  },
+  {
+    "name": "Morris",
+    "county": null,
+    "affordability_pct": 70.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 1020,
+    "home_value_change_pct": 67.0
+  },
+  {
+    "name": "Morrison",
+    "county": null,
+    "affordability_pct": 84.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 37.8
+  },
+  {
+    "name": "Morton Grove village",
+    "county": null,
+    "affordability_pct": 16.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 175,
+    "home_value_change_pct": 69.9
+  },
+  {
+    "name": "Morton village",
+    "county": null,
+    "affordability_pct": 50.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 560,
+    "home_value_change_pct": 38.6
+  },
+  {
+    "name": "Mount Carmel",
+    "county": null,
+    "affordability_pct": 81.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 54,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Mount Carroll",
+    "county": null,
+    "affordability_pct": 89.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 48.4
+  },
+  {
+    "name": "Mount Morris village",
+    "county": null,
+    "affordability_pct": 93.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 60.8
+  },
+  {
+    "name": "Mount Olive",
+    "county": null,
+    "affordability_pct": 90.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 68.4
+  },
+  {
+    "name": "Mount Prospect village",
+    "county": null,
+    "affordability_pct": 24.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 321,
+    "home_value_change_pct": 61.2
+  },
+  {
+    "name": "Mount Pulaski",
+    "county": null,
+    "affordability_pct": 91.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 46.2
+  },
+  {
+    "name": "Mount Sterling",
+    "county": null,
+    "affordability_pct": 87.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Mount Vernon",
+    "county": null,
+    "affordability_pct": 75.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 128,
+    "home_value_change_pct": -19.3
+  },
+  {
+    "name": "Mount Zion village",
+    "county": null,
+    "affordability_pct": 58.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 142,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Moweaqua village",
+    "county": null,
+    "affordability_pct": 88.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 20,
+    "home_value_change_pct": 63.7
+  },
+  {
+    "name": "Mundelein village",
+    "county": null,
+    "affordability_pct": 35.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 874,
+    "home_value_change_pct": 71.8
+  },
+  {
+    "name": "Murphysboro",
+    "county": null,
+    "affordability_pct": 70.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": -4.5
+  },
+  {
+    "name": "Naperville",
+    "county": null,
+    "affordability_pct": 10.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 4886,
+    "home_value_change_pct": 61.4
+  },
+  {
+    "name": "Nashville",
+    "county": null,
+    "affordability_pct": 86.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 19,
+    "home_value_change_pct": 65.6
+  },
+  {
+    "name": "Nauvoo",
+    "county": null,
+    "affordability_pct": 79.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Neoga",
+    "county": null,
+    "affordability_pct": 95.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": 61.1
+  },
+  {
+    "name": "New Athens village",
+    "county": null,
+    "affordability_pct": 91.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 37.2
+  },
+  {
+    "name": "New Baden village",
+    "county": null,
+    "affordability_pct": 68.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": 64.3
+  },
+  {
+    "name": "New Berlin village",
+    "county": null,
+    "affordability_pct": 89.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": 51.3
+  },
+  {
+    "name": "New Lenox village",
+    "county": null,
+    "affordability_pct": 16.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1662,
+    "home_value_change_pct": 74.1
+  },
+  {
+    "name": "Newark village",
+    "county": null,
+    "affordability_pct": 78.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 70.2
+  },
+  {
+    "name": "Newton",
+    "county": null,
+    "affordability_pct": 92.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 11,
+    "home_value_change_pct": 68.9
+  },
+  {
+    "name": "Niles village",
+    "county": null,
+    "affordability_pct": 35.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 256,
+    "home_value_change_pct": 70.3
+  },
+  {
+    "name": "Normal town",
+    "county": null,
+    "affordability_pct": 72.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 1222,
+    "home_value_change_pct": 35.7
+  },
+  {
+    "name": "Norridge village",
+    "county": null,
+    "affordability_pct": 29.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 57,
+    "home_value_change_pct": 70.5
+  },
+  {
+    "name": "North Aurora village",
+    "county": null,
+    "affordability_pct": 34.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1221,
+    "home_value_change_pct": 78.0
+  },
+  {
+    "name": "North Barrington village",
+    "county": null,
+    "affordability_pct": 2.6,
+    "is_exempt": false,
+    "units_built_2014_2024": 54,
+    "home_value_change_pct": 37.5
+  },
+  {
+    "name": "North Chicago",
+    "county": null,
+    "affordability_pct": 60.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 49,
+    "home_value_change_pct": 278.1
+  },
+  {
+    "name": "North Pekin village",
+    "county": null,
+    "affordability_pct": 92.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 49.2
+  },
+  {
+    "name": "North Riverside village",
+    "county": null,
+    "affordability_pct": 49.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 79.2
+  },
+  {
+    "name": "North Utica village",
+    "county": null,
+    "affordability_pct": 54.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 36,
+    "home_value_change_pct": 58.4
+  },
+  {
+    "name": "Northbrook village",
+    "county": null,
+    "affordability_pct": 5.0,
+    "is_exempt": false,
+    "units_built_2014_2024": 517,
+    "home_value_change_pct": 39.7
+  },
+  {
+    "name": "Northfield village",
+    "county": null,
+    "affordability_pct": 6.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 99,
+    "home_value_change_pct": 36.4
+  },
+  {
+    "name": "Northlake",
+    "county": null,
+    "affordability_pct": 68.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 112,
+    "home_value_change_pct": 142.5
+  },
+  {
+    "name": "O'Fallon",
+    "county": null,
+    "affordability_pct": 46.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 1761,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Oak Brook village",
+    "county": null,
+    "affordability_pct": 6.6,
+    "is_exempt": false,
+    "units_built_2014_2024": 154,
+    "home_value_change_pct": 38.6
+  },
+  {
+    "name": "Oak Forest",
+    "county": null,
+    "affordability_pct": 60.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 110,
+    "home_value_change_pct": 81.7
+  },
+  {
+    "name": "Oak Lawn village",
+    "county": null,
+    "affordability_pct": 58.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 98,
+    "home_value_change_pct": 84.1
+  },
+  {
+    "name": "Oak Park village",
+    "county": null,
+    "affordability_pct": 23.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 1362,
+    "home_value_change_pct": 36.7
+  },
+  {
+    "name": "Oakbrook Terrace",
+    "county": null,
+    "affordability_pct": 12.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 20,
+    "home_value_change_pct": 49.7
+  },
+  {
+    "name": "Oakwood Hills village",
+    "county": null,
+    "affordability_pct": 48.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 100.1
+  },
+  {
+    "name": "Oakwood village",
+    "county": null,
+    "affordability_pct": 85.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 54.1
+  },
+  {
+    "name": "Odell village",
+    "county": null,
+    "affordability_pct": 90.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 57.0
+  },
+  {
+    "name": "Odin village",
+    "county": null,
+    "affordability_pct": 89.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Oglesby",
+    "county": null,
+    "affordability_pct": 88.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 62.0
+  },
+  {
+    "name": "Okawville village",
+    "county": null,
+    "affordability_pct": 84.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 22,
+    "home_value_change_pct": 47.1
+  },
+  {
+    "name": "Olney",
+    "county": null,
+    "affordability_pct": 86.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 36,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Olympia Fields village",
+    "county": null,
+    "affordability_pct": 23.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": 82.8
+  },
+  {
+    "name": "Onarga village",
+    "county": null,
+    "affordability_pct": 91.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Oquawka village",
+    "county": null,
+    "affordability_pct": 96.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Oregon",
+    "county": null,
+    "affordability_pct": 91.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 28,
+    "home_value_change_pct": 58.8
+  },
+  {
+    "name": "Orion village",
+    "county": null,
+    "affordability_pct": 84.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 51.0
+  },
+  {
+    "name": "Orland Hills village",
+    "county": null,
+    "affordability_pct": 58.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 75.3
+  },
+  {
+    "name": "Orland Park village",
+    "county": null,
+    "affordability_pct": 32.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 1088,
+    "home_value_change_pct": 62.6
+  },
+  {
+    "name": "Oswego village",
+    "county": null,
+    "affordability_pct": 29.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 2570,
+    "home_value_change_pct": 90.1
+  },
+  {
+    "name": "Ottawa",
+    "county": null,
+    "affordability_pct": 76.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 372,
+    "home_value_change_pct": 69.0
+  },
+  {
+    "name": "Palatine village",
+    "county": null,
+    "affordability_pct": 31.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 415,
+    "home_value_change_pct": 65.2
+  },
+  {
+    "name": "Palos Heights",
+    "county": null,
+    "affordability_pct": 23.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 163,
+    "home_value_change_pct": 59.0
+  },
+  {
+    "name": "Palos Hills",
+    "county": null,
+    "affordability_pct": 62.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 87,
+    "home_value_change_pct": 69.7
+  },
+  {
+    "name": "Palos Park village",
+    "county": null,
+    "affordability_pct": 17.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 57,
+    "home_value_change_pct": 56.2
+  },
+  {
+    "name": "Pana",
+    "county": null,
+    "affordability_pct": 84.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 37.1
+  },
+  {
+    "name": "Paris",
+    "county": null,
+    "affordability_pct": 82.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 110,
+    "home_value_change_pct": 20.2
+  },
+  {
+    "name": "Park City",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 88.0
+  },
+  {
+    "name": "Park Ridge",
+    "county": null,
+    "affordability_pct": 8.1,
+    "is_exempt": false,
+    "units_built_2014_2024": 336,
+    "home_value_change_pct": 46.1
+  },
+  {
+    "name": "Pawnee village",
+    "county": null,
+    "affordability_pct": 86.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 43,
+    "home_value_change_pct": 43.7
+  },
+  {
+    "name": "Paxton",
+    "county": null,
+    "affordability_pct": 83.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 23,
+    "home_value_change_pct": 61.4
+  },
+  {
+    "name": "Pecatonica village",
+    "county": null,
+    "affordability_pct": 87.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 121.0
+  },
+  {
+    "name": "Pekin",
+    "county": null,
+    "affordability_pct": 84.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 167,
+    "home_value_change_pct": 32.9
+  },
+  {
+    "name": "Peoria",
+    "county": null,
+    "affordability_pct": 67.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 432,
+    "home_value_change_pct": 42.4
+  },
+  {
+    "name": "Peoria Heights village",
+    "county": null,
+    "affordability_pct": 82.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 46,
+    "home_value_change_pct": 56.6
+  },
+  {
+    "name": "Peotone village",
+    "county": null,
+    "affordability_pct": 75.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 105,
+    "home_value_change_pct": 64.0
+  },
+  {
+    "name": "Peru",
+    "county": null,
+    "affordability_pct": 72.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 81,
+    "home_value_change_pct": 63.5
+  },
+  {
+    "name": "Petersburg",
+    "county": null,
+    "affordability_pct": 86.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Philo village",
+    "county": null,
+    "affordability_pct": 70.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 42.4
+  },
+  {
+    "name": "Phoenix village",
+    "county": null,
+    "affordability_pct": 85.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 191.6
+  },
+  {
+    "name": "Pingree Grove village",
+    "county": null,
+    "affordability_pct": 33.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 2285,
+    "home_value_change_pct": 86.4
+  },
+  {
+    "name": "Pittsfield",
+    "county": null,
+    "affordability_pct": 82.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 32,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Plainfield village",
+    "county": null,
+    "affordability_pct": 11.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 3064,
+    "home_value_change_pct": 84.2
+  },
+  {
+    "name": "Plano",
+    "county": null,
+    "affordability_pct": 71.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 388,
+    "home_value_change_pct": 136.0
+  },
+  {
+    "name": "Polo",
+    "county": null,
+    "affordability_pct": 91.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 41.4
+  },
+  {
+    "name": "Pontiac",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 38,
+    "home_value_change_pct": 49.4
+  },
+  {
+    "name": "Pontoon Beach village",
+    "county": null,
+    "affordability_pct": 80.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 74,
+    "home_value_change_pct": 80.2
+  },
+  {
+    "name": "Poplar Grove village",
+    "county": null,
+    "affordability_pct": 39.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 37,
+    "home_value_change_pct": 134.3
+  },
+  {
+    "name": "Port Byron village",
+    "county": null,
+    "affordability_pct": 49.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 20,
+    "home_value_change_pct": 52.4
+  },
+  {
+    "name": "Posen village",
+    "county": null,
+    "affordability_pct": 84.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 164.5
+  },
+  {
+    "name": "Prairie Grove village",
+    "county": null,
+    "affordability_pct": 8.1,
+    "is_exempt": false,
+    "units_built_2014_2024": 12,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Princeton",
+    "county": null,
+    "affordability_pct": 78.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 101,
+    "home_value_change_pct": 66.0
+  },
+  {
+    "name": "Princeville village",
+    "county": null,
+    "affordability_pct": 77.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 49.9
+  },
+  {
+    "name": "Prophetstown",
+    "county": null,
+    "affordability_pct": 88.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 35.1
+  },
+  {
+    "name": "Prospect Heights",
+    "county": null,
+    "affordability_pct": 39.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 50,
+    "home_value_change_pct": 83.5
+  },
+  {
+    "name": "Quincy",
+    "county": null,
+    "affordability_pct": 76.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 711,
+    "home_value_change_pct": 35.1
+  },
+  {
+    "name": "Rantoul village",
+    "county": null,
+    "affordability_pct": 75.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": 77.4
+  },
+  {
+    "name": "Red Bud",
+    "county": null,
+    "affordability_pct": 76.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 48,
+    "home_value_change_pct": 58.1
+  },
+  {
+    "name": "Richmond village",
+    "county": null,
+    "affordability_pct": 61.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 74,
+    "home_value_change_pct": 104.9
+  },
+  {
+    "name": "Richton Park village",
+    "county": null,
+    "affordability_pct": 70.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 55,
+    "home_value_change_pct": 160.7
+  },
+  {
+    "name": "River Forest village",
+    "county": null,
+    "affordability_pct": 9.7,
+    "is_exempt": false,
+    "units_built_2014_2024": 62,
+    "home_value_change_pct": 44.9
+  },
+  {
+    "name": "River Grove village",
+    "county": null,
+    "affordability_pct": 54.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 87,
+    "home_value_change_pct": 104.1
+  },
+  {
+    "name": "Riverdale village",
+    "county": null,
+    "affordability_pct": 69.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 270.1
+  },
+  {
+    "name": "Riverside village",
+    "county": null,
+    "affordability_pct": 12.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 18,
+    "home_value_change_pct": 46.3
+  },
+  {
+    "name": "Riverton village",
+    "county": null,
+    "affordability_pct": 73.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 32,
+    "home_value_change_pct": 38.5
+  },
+  {
+    "name": "Riverwoods village",
+    "county": null,
+    "affordability_pct": 1.5,
+    "is_exempt": false,
+    "units_built_2014_2024": 15,
+    "home_value_change_pct": 32.3
+  },
+  {
+    "name": "Roanoke village",
+    "county": null,
+    "affordability_pct": 77.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 32.9
+  },
+  {
+    "name": "Robbins village",
+    "county": null,
+    "affordability_pct": 82.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 115,
+    "home_value_change_pct": 314.3
+  },
+  {
+    "name": "Robinson",
+    "county": null,
+    "affordability_pct": 82.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 55,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Rochelle",
+    "county": null,
+    "affordability_pct": 78.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 128,
+    "home_value_change_pct": 56.0
+  },
+  {
+    "name": "Rochester village",
+    "county": null,
+    "affordability_pct": 51.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 187,
+    "home_value_change_pct": 49.9
+  },
+  {
+    "name": "Rock Falls",
+    "county": null,
+    "affordability_pct": 85.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 50.2
+  },
+  {
+    "name": "Rock Island",
+    "county": null,
+    "affordability_pct": 82.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 153,
+    "home_value_change_pct": 39.6
+  },
+  {
+    "name": "Rockdale village",
+    "county": null,
+    "affordability_pct": 76.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 92.3
+  },
+  {
+    "name": "Rockford",
+    "county": null,
+    "affordability_pct": 73.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 639,
+    "home_value_change_pct": 153.4
+  },
+  {
+    "name": "Rolling Meadows",
+    "county": null,
+    "affordability_pct": 38.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 179,
+    "home_value_change_pct": 83.5
+  },
+  {
+    "name": "Romeoville village",
+    "county": null,
+    "affordability_pct": 65.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 695,
+    "home_value_change_pct": 105.7
+  },
+  {
+    "name": "Roselle village",
+    "county": null,
+    "affordability_pct": 35.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 252,
+    "home_value_change_pct": 65.7
+  },
+  {
+    "name": "Rosemont village",
+    "county": null,
+    "affordability_pct": 58.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 64.4
+  },
+  {
+    "name": "Rosiclare",
+    "county": null,
+    "affordability_pct": 87.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Rossville village",
+    "county": null,
+    "affordability_pct": 81.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 68.3
+  },
+  {
+    "name": "Round Lake Beach village",
+    "county": null,
+    "affordability_pct": 77.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": 163.0
+  },
+  {
+    "name": "Round Lake Heights village",
+    "county": null,
+    "affordability_pct": 74.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 133.8
+  },
+  {
+    "name": "Round Lake Park village",
+    "county": null,
+    "affordability_pct": 89.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 333,
+    "home_value_change_pct": 153.7
+  },
+  {
+    "name": "Round Lake village",
+    "county": null,
+    "affordability_pct": 38.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 16,
+    "home_value_change_pct": 102.1
+  },
+  {
+    "name": "Roxana village",
+    "county": null,
+    "affordability_pct": 95.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 78.9
+  },
+  {
+    "name": "Royalton village",
+    "county": null,
+    "affordability_pct": 82.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Rushville",
+    "county": null,
+    "affordability_pct": 89.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Salem",
+    "county": null,
+    "affordability_pct": 79.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Sandoval village",
+    "county": null,
+    "affordability_pct": 78.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Sandwich",
+    "county": null,
+    "affordability_pct": 74.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 126,
+    "home_value_change_pct": 109.2
+  },
+  {
+    "name": "Savanna",
+    "county": null,
+    "affordability_pct": 78.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 41.7
+  },
+  {
+    "name": "Savoy village",
+    "county": null,
+    "affordability_pct": 31.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 748,
+    "home_value_change_pct": 59.7
+  },
+  {
+    "name": "Schaumburg village",
+    "county": null,
+    "affordability_pct": 34.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 822,
+    "home_value_change_pct": 72.2
+  },
+  {
+    "name": "Schiller Park village",
+    "county": null,
+    "affordability_pct": 53.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 14,
+    "home_value_change_pct": 99.1
+  },
+  {
+    "name": "Seneca village",
+    "county": null,
+    "affordability_pct": 69.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 19,
+    "home_value_change_pct": 68.7
+  },
+  {
+    "name": "Sesser",
+    "county": null,
+    "affordability_pct": 84.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 28,
+    "home_value_change_pct": 10.5
+  },
+  {
+    "name": "Shelbyville",
+    "county": null,
+    "affordability_pct": 90.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 44,
+    "home_value_change_pct": 67.4
+  },
+  {
+    "name": "Sheldon village",
+    "county": null,
+    "affordability_pct": 90.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Sheridan village",
+    "county": null,
+    "affordability_pct": 88.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 77.5
+  },
+  {
+    "name": "Sherman village",
+    "county": null,
+    "affordability_pct": 31.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 186,
+    "home_value_change_pct": 59.7
+  },
+  {
+    "name": "Shiloh village",
+    "county": null,
+    "affordability_pct": 55.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 1131,
+    "home_value_change_pct": 61.1
+  },
+  {
+    "name": "Shorewood village",
+    "county": null,
+    "affordability_pct": 35.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 792,
+    "home_value_change_pct": 72.0
+  },
+  {
+    "name": "Sidney village",
+    "county": null,
+    "affordability_pct": 80.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 51.5
+  },
+  {
+    "name": "Silvis",
+    "county": null,
+    "affordability_pct": 76.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 244,
+    "home_value_change_pct": 40.1
+  },
+  {
+    "name": "Skokie village",
+    "county": null,
+    "affordability_pct": 21.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 625,
+    "home_value_change_pct": 72.2
+  },
+  {
+    "name": "Sleepy Hollow village",
+    "county": null,
+    "affordability_pct": 11.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 66.6
+  },
+  {
+    "name": "Smithton village",
+    "county": null,
+    "affordability_pct": 60.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 121,
+    "home_value_change_pct": 63.3
+  },
+  {
+    "name": "Somonauk village",
+    "county": null,
+    "affordability_pct": 73.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": 89.2
+  },
+  {
+    "name": "South Barrington village",
+    "county": null,
+    "affordability_pct": 2.1,
+    "is_exempt": false,
+    "units_built_2014_2024": 187,
+    "home_value_change_pct": 30.7
+  },
+  {
+    "name": "South Chicago Heights village",
+    "county": null,
+    "affordability_pct": 87.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 207.1
+  },
+  {
+    "name": "South Elgin village",
+    "county": null,
+    "affordability_pct": 39.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 2032,
+    "home_value_change_pct": 92.1
+  },
+  {
+    "name": "South Holland village",
+    "county": null,
+    "affordability_pct": 74.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": 109.6
+  },
+  {
+    "name": "South Jacksonville village",
+    "county": null,
+    "affordability_pct": 80.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 45.1
+  },
+  {
+    "name": "South Pekin village",
+    "county": null,
+    "affordability_pct": 92.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 72.6
+  },
+  {
+    "name": "South Roxana village",
+    "county": null,
+    "affordability_pct": 88.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 13,
+    "home_value_change_pct": 131.0
+  },
+  {
+    "name": "Southern View village",
+    "county": null,
+    "affordability_pct": 85.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 56.8
+  },
+  {
+    "name": "Sparta",
+    "county": null,
+    "affordability_pct": 82.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 24.6
+  },
+  {
+    "name": "Spring Grove village",
+    "county": null,
+    "affordability_pct": 6.3,
+    "is_exempt": false,
+    "units_built_2014_2024": 85,
+    "home_value_change_pct": 79.3
+  },
+  {
+    "name": "Spring Valley",
+    "county": null,
+    "affordability_pct": 80.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 9,
+    "home_value_change_pct": 49.2
+  },
+  {
+    "name": "Springfield",
+    "county": null,
+    "affordability_pct": 76.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 1785,
+    "home_value_change_pct": 34.7
+  },
+  {
+    "name": "St. Anne village",
+    "county": null,
+    "affordability_pct": 82.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "St. Charles",
+    "county": null,
+    "affordability_pct": 17.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1095,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "St. Elmo",
+    "county": null,
+    "affordability_pct": 91.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "St. Jacob village",
+    "county": null,
+    "affordability_pct": 74.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 90,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "St. Joseph village",
+    "county": null,
+    "affordability_pct": 46.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Staunton",
+    "county": null,
+    "affordability_pct": 90.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 110,
+    "home_value_change_pct": 33.4
+  },
+  {
+    "name": "Steeleville village",
+    "county": null,
+    "affordability_pct": 80.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 35.0
+  },
+  {
+    "name": "Steger village",
+    "county": null,
+    "affordability_pct": 87.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 98.1
+  },
+  {
+    "name": "Sterling",
+    "county": null,
+    "affordability_pct": 81.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 31,
+    "home_value_change_pct": 42.7
+  },
+  {
+    "name": "Stickney village",
+    "county": null,
+    "affordability_pct": 71.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": 122.4
+  },
+  {
+    "name": "Stillman Valley village",
+    "county": null,
+    "affordability_pct": 85.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 51.7
+  },
+  {
+    "name": "Stockton village",
+    "county": null,
+    "affordability_pct": 87.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 52.2
+  },
+  {
+    "name": "Stone Park village",
+    "county": null,
+    "affordability_pct": 63.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": 193.1
+  },
+  {
+    "name": "Streamwood village",
+    "county": null,
+    "affordability_pct": 57.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 130,
+    "home_value_change_pct": 106.0
+  },
+  {
+    "name": "Streator",
+    "county": null,
+    "affordability_pct": 90.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 41,
+    "home_value_change_pct": 57.5
+  },
+  {
+    "name": "Sugar Grove village",
+    "county": null,
+    "affordability_pct": 18.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 478,
+    "home_value_change_pct": 78.6
+  },
+  {
+    "name": "Sullivan",
+    "county": null,
+    "affordability_pct": 93.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 200,
+    "home_value_change_pct": 81.1
+  },
+  {
+    "name": "Summit village",
+    "county": null,
+    "affordability_pct": 74.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 44,
+    "home_value_change_pct": 155.6
+  },
+  {
+    "name": "Swansea village",
+    "county": null,
+    "affordability_pct": 61.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 526,
+    "home_value_change_pct": 65.4
+  },
+  {
+    "name": "Sycamore",
+    "county": null,
+    "affordability_pct": 66.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 606,
+    "home_value_change_pct": 78.4
+  },
+  {
+    "name": "Taylorville",
+    "county": null,
+    "affordability_pct": 80.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 107,
+    "home_value_change_pct": 39.5
+  },
+  {
+    "name": "Teutopolis village",
+    "county": null,
+    "affordability_pct": 75.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 110,
+    "home_value_change_pct": 62.5
+  },
+  {
+    "name": "Third Lake village",
+    "county": null,
+    "affordability_pct": 6.2,
+    "is_exempt": false,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 65.4
+  },
+  {
+    "name": "Thomasboro village",
+    "county": null,
+    "affordability_pct": 92.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 64.3
+  },
+  {
+    "name": "Thornton village",
+    "county": null,
+    "affordability_pct": 86.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 46,
+    "home_value_change_pct": 147.3
+  },
+  {
+    "name": "Tilton village",
+    "county": null,
+    "affordability_pct": 85.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 113,
+    "home_value_change_pct": 53.4
+  },
+  {
+    "name": "Tinley Park village",
+    "county": null,
+    "affordability_pct": 40.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 525,
+    "home_value_change_pct": 70.1
+  },
+  {
+    "name": "Tolono village",
+    "county": null,
+    "affordability_pct": 74.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 27,
+    "home_value_change_pct": 55.9
+  },
+  {
+    "name": "Toluca",
+    "county": null,
+    "affordability_pct": 92.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 3,
+    "home_value_change_pct": 59.1
+  },
+  {
+    "name": "Tower Lakes village",
+    "county": null,
+    "affordability_pct": 1.8,
+    "is_exempt": false,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 33.9
+  },
+  {
+    "name": "Tremont village",
+    "county": null,
+    "affordability_pct": 71.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 15,
+    "home_value_change_pct": 38.8
+  },
+  {
+    "name": "Trenton",
+    "county": null,
+    "affordability_pct": 88.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 23,
+    "home_value_change_pct": 62.1
+  },
+  {
+    "name": "Troy",
+    "county": null,
+    "affordability_pct": 60.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 636,
+    "home_value_change_pct": 76.0
+  },
+  {
+    "name": "Tuscola",
+    "county": null,
+    "affordability_pct": 75.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 80,
+    "home_value_change_pct": 80.1
+  },
+  {
+    "name": "University Park village",
+    "county": null,
+    "affordability_pct": 82.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": 149.7
+  },
+  {
+    "name": "Urbana",
+    "county": null,
+    "affordability_pct": 57.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 1449,
+    "home_value_change_pct": 46.9
+  },
+  {
+    "name": "Valmeyer village",
+    "county": null,
+    "affordability_pct": 77.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 10,
+    "home_value_change_pct": 68.6
+  },
+  {
+    "name": "Vandalia",
+    "county": null,
+    "affordability_pct": 78.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 26,
+    "home_value_change_pct": 40.8
+  },
+  {
+    "name": "Venice",
+    "county": null,
+    "affordability_pct": 88.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Vernon Hills village",
+    "county": null,
+    "affordability_pct": 17.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 774,
+    "home_value_change_pct": 56.7
+  },
+  {
+    "name": "Villa Grove",
+    "county": null,
+    "affordability_pct": 94.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": 98.4
+  },
+  {
+    "name": "Villa Park village",
+    "county": null,
+    "affordability_pct": 41.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 52,
+    "home_value_change_pct": 70.7
+  },
+  {
+    "name": "Virginia",
+    "county": null,
+    "affordability_pct": 89.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Volo village",
+    "county": null,
+    "affordability_pct": 40.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 934,
+    "home_value_change_pct": 85.6
+  },
+  {
+    "name": "Wadsworth village",
+    "county": null,
+    "affordability_pct": 17.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 19,
+    "home_value_change_pct": 64.9
+  },
+  {
+    "name": "Walnut village",
+    "county": null,
+    "affordability_pct": 89.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 86.1
+  },
+  {
+    "name": "Warren village",
+    "county": null,
+    "affordability_pct": 94.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 58.1
+  },
+  {
+    "name": "Warrensburg village",
+    "county": null,
+    "affordability_pct": 93.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 41.8
+  },
+  {
+    "name": "Warrenville",
+    "county": null,
+    "affordability_pct": 49.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 961,
+    "home_value_change_pct": 79.5
+  },
+  {
+    "name": "Warsaw",
+    "county": null,
+    "affordability_pct": 91.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 2,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Washburn village",
+    "county": null,
+    "affordability_pct": 92.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 31.1
+  },
+  {
+    "name": "Washington",
+    "county": null,
+    "affordability_pct": 55.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 800,
+    "home_value_change_pct": 38.1
+  },
+  {
+    "name": "Washington Park village",
+    "county": null,
+    "affordability_pct": 80.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Waterloo",
+    "county": null,
+    "affordability_pct": 64.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 552,
+    "home_value_change_pct": 67.6
+  },
+  {
+    "name": "Waterman village",
+    "county": null,
+    "affordability_pct": 91.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 99,
+    "home_value_change_pct": 107.5
+  },
+  {
+    "name": "Watseka",
+    "county": null,
+    "affordability_pct": 85.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 4,
+    "home_value_change_pct": 72.6
+  },
+  {
+    "name": "Wauconda village",
+    "county": null,
+    "affordability_pct": 48.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 49,
+    "home_value_change_pct": 76.8
+  },
+  {
+    "name": "Waukegan",
+    "county": null,
+    "affordability_pct": 75.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 153,
+    "home_value_change_pct": 188.0
+  },
+  {
+    "name": "Waverly",
+    "county": null,
+    "affordability_pct": 86.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 35.7
+  },
+  {
+    "name": "Wenona",
+    "county": null,
+    "affordability_pct": 91.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 56.5
+  },
+  {
+    "name": "West Chicago",
+    "county": null,
+    "affordability_pct": 35.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 50,
+    "home_value_change_pct": 63.4
+  },
+  {
+    "name": "West Dundee village",
+    "county": null,
+    "affordability_pct": 26.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 998,
+    "home_value_change_pct": 75.1
+  },
+  {
+    "name": "West Frankfort",
+    "county": null,
+    "affordability_pct": 81.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 40,
+    "home_value_change_pct": -6.2
+  },
+  {
+    "name": "West Peoria",
+    "county": null,
+    "affordability_pct": 87.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 1,
+    "home_value_change_pct": 52.5
+  },
+  {
+    "name": "Westchester village",
+    "county": null,
+    "affordability_pct": 48.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 0,
+    "home_value_change_pct": 76.5
+  },
+  {
+    "name": "Western Springs village",
+    "county": null,
+    "affordability_pct": 2.1,
+    "is_exempt": false,
+    "units_built_2014_2024": 414,
+    "home_value_change_pct": 43.8
+  },
+  {
+    "name": "Westmont village",
+    "county": null,
+    "affordability_pct": 37.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 146,
+    "home_value_change_pct": 55.9
+  },
+  {
+    "name": "Westville village",
+    "county": null,
+    "affordability_pct": 85.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 5,
+    "home_value_change_pct": 57.9
+  },
+  {
+    "name": "Wheaton",
+    "county": null,
+    "affordability_pct": 15.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 684,
+    "home_value_change_pct": 52.2
+  },
+  {
+    "name": "Wheeling village",
+    "county": null,
+    "affordability_pct": 49.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 1285,
+    "home_value_change_pct": 97.8
+  },
+  {
+    "name": "Williamsville village",
+    "county": null,
+    "affordability_pct": 79.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 98,
+    "home_value_change_pct": 50.9
+  },
+  {
+    "name": "Willow Springs village",
+    "county": null,
+    "affordability_pct": 21.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 69,
+    "home_value_change_pct": 57.8
+  },
+  {
+    "name": "Willowbrook village",
+    "county": null,
+    "affordability_pct": 42.0,
+    "is_exempt": true,
+    "units_built_2014_2024": 58,
+    "home_value_change_pct": 79.7
+  },
+  {
+    "name": "Wilmette village",
+    "county": null,
+    "affordability_pct": 4.8,
+    "is_exempt": false,
+    "units_built_2014_2024": 453,
+    "home_value_change_pct": 35.7
+  },
+  {
+    "name": "Wilmington",
+    "county": null,
+    "affordability_pct": 69.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 122,
+    "home_value_change_pct": 75.6
+  },
+  {
+    "name": "Windsor",
+    "county": null,
+    "affordability_pct": 91.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 96.1
+  },
+  {
+    "name": "Windsor",
+    "county": null,
+    "affordability_pct": 91.3,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Winfield village",
+    "county": null,
+    "affordability_pct": 23.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 330,
+    "home_value_change_pct": 61.5
+  },
+  {
+    "name": "Winnebago village",
+    "county": null,
+    "affordability_pct": 73.6,
+    "is_exempt": true,
+    "units_built_2014_2024": 8,
+    "home_value_change_pct": 105.1
+  },
+  {
+    "name": "Winnetka village",
+    "county": null,
+    "affordability_pct": 3.6,
+    "is_exempt": false,
+    "units_built_2014_2024": 220,
+    "home_value_change_pct": 42.2
+  },
+  {
+    "name": "Winthrop Harbor village",
+    "county": null,
+    "affordability_pct": 57.9,
+    "is_exempt": true,
+    "units_built_2014_2024": 21,
+    "home_value_change_pct": 97.6
+  },
+  {
+    "name": "Wonder Lake village",
+    "county": null,
+    "affordability_pct": 62.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 708,
+    "home_value_change_pct": 132.3
+  },
+  {
+    "name": "Wood Dale",
+    "county": null,
+    "affordability_pct": 46.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 43,
+    "home_value_change_pct": 70.4
+  },
+  {
+    "name": "Wood River",
+    "county": null,
+    "affordability_pct": 91.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 97,
+    "home_value_change_pct": 81.0
+  },
+  {
+    "name": "Woodridge village",
+    "county": null,
+    "affordability_pct": 25.4,
+    "is_exempt": true,
+    "units_built_2014_2024": 640,
+    "home_value_change_pct": 68.1
+  },
+  {
+    "name": "Woodstock",
+    "county": null,
+    "affordability_pct": 66.8,
+    "is_exempt": true,
+    "units_built_2014_2024": 510,
+    "home_value_change_pct": 98.1
+  },
+  {
+    "name": "Worden village",
+    "county": null,
+    "affordability_pct": 87.2,
+    "is_exempt": true,
+    "units_built_2014_2024": 12,
+    "home_value_change_pct": 96.7
+  },
+  {
+    "name": "Worth village",
+    "county": null,
+    "affordability_pct": 69.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 47,
+    "home_value_change_pct": 124.0
+  },
+  {
+    "name": "Yorkville",
+    "county": null,
+    "affordability_pct": 22.7,
+    "is_exempt": true,
+    "units_built_2014_2024": 2664,
+    "home_value_change_pct": 91.1
+  },
+  {
+    "name": "Zeigler",
+    "county": null,
+    "affordability_pct": 79.5,
+    "is_exempt": true,
+    "units_built_2014_2024": 7,
+    "home_value_change_pct": null
+  },
+  {
+    "name": "Zion",
+    "county": null,
+    "affordability_pct": 77.1,
+    "is_exempt": true,
+    "units_built_2014_2024": 33,
+    "home_value_change_pct": 172.3
+  }
+]
