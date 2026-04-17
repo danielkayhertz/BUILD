@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Illinois BUILD Legislative Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #1a1f2e;
+      color: #e8eaf0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 12px 20px;
+      background: #12161f;
+      border-bottom: 1px solid #2a3148;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #e8eaf0;
+    }
+
+    header h1 span {
+      color: #3aaa6e;
+      font-weight: 700;
+    }
+
+    .toggle-group {
+      display: flex;
+      gap: 4px;
+      background: #1e2535;
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    .toggle-btn {
+      padding: 6px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: #8b9ab5;
+      background: transparent;
+    }
+
+    .toggle-btn.active {
+      background: #2e3a58;
+      color: #e8eaf0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .toggle-btn:hover:not(.active) {
+      color: #c0c8d8;
+    }
+
+    .bill-list {
+      margin-left: auto;
+      font-size: 0.72rem;
+      color: #5a6a8a;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    #map-container {
+      flex: 1;
+      position: relative;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Loading overlay */
+    #loading {
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 22, 31, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      gap: 14px;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #2a3148;
+      border-top-color: #3aaa6e;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #loading p {
+      color: #8b9ab5;
+      font-size: 0.85rem;
+    }
+
+    #error-msg {
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 22, 31, 0.9);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      gap: 10px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    #error-msg p { color: #d45f5f; font-size: 0.9rem; max-width: 400px; }
+    #error-msg small { color: #5a6a8a; font-size: 0.78rem; }
+
+    /* Legend */
+    .legend {
+      position: absolute;
+      bottom: 30px;
+      right: 10px;
+      background: rgba(18, 22, 31, 0.92);
+      border: 1px solid #2a3148;
+      border-radius: 8px;
+      padding: 12px 16px;
+      z-index: 500;
+      min-width: 160px;
+    }
+
+    .legend h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5a6a8a;
+      margin-bottom: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 7px;
+      font-size: 0.82rem;
+      color: #c0c8d8;
+    }
+
+    .legend-item:last-child { margin-bottom: 0; }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Popup styling */
+    .leaflet-popup-content-wrapper {
+      background: #1e2535;
+      border: 1px solid #2a3148;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      color: #e8eaf0;
+    }
+
+    .leaflet-popup-tip { background: #1e2535; }
+    .leaflet-popup-close-button { color: #5a6a8a !important; }
+
+    .popup-inner { padding: 2px 0; min-width: 180px; }
+
+    .popup-district {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5a6a8a;
+      margin-bottom: 4px;
+    }
+
+    .popup-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e8eaf0;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .popup-location {
+      font-size: 0.78rem;
+      color: #8b9ab5;
+      margin-bottom: 8px;
+    }
+
+    .popup-build {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .popup-build.chief   { background: rgba(58, 170, 110, 0.2); color: #3aaa6e; }
+    .popup-build.cospon  { background: rgba(232, 156, 58, 0.2);  color: #e89c3a; }
+    .popup-build.dem     { background: rgba(91, 141, 217, 0.15); color: #5b8dd9; }
+    .popup-build.rep     { background: rgba(212, 95, 95, 0.15);  color: #d45f5f; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Illinois <span>BUILD</span> Legislative Map</h1>
+  <div class="toggle-group">
+    <button class="toggle-btn active" id="btn-senate" onclick="switchChamber('Senate')">Senate</button>
+    <button class="toggle-btn" id="btn-house" onclick="switchChamber('House')">House</button>
+  </div>
+  <div class="bill-list">
+    SB4060 Middle Housing &nbsp;·&nbsp; SB4061 Building Codes &nbsp;·&nbsp; SB4062 Impact Fees<br>
+    SB4063 Building Plans &nbsp;·&nbsp; SB4064 Residential Parking &nbsp;·&nbsp; HB5626 Accessory Dwellings
+  </div>
+</header>
+
+<div id="map-container">
+  <div id="map"></div>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Loading district boundaries…</p>
+  </div>
+
+  <div id="error-msg">
+    <p>Could not load district boundary data.</p>
+    <small>The map requires an internet connection to fetch GeoJSON from the Illinois EPA GeoServices API. Please check your connection and reload.</small>
+  </div>
+
+  <div class="legend">
+    <h4>BUILD Status</h4>
+    <div class="legend-item"><div class="swatch" style="background:#3aaa6e"></div>Chief Sponsor</div>
+    <div class="legend-item"><div class="swatch" style="background:#e89c3a"></div>Co-Sponsor</div>
+    <div class="legend-item"><div class="swatch" style="background:#5b8dd9"></div>Democrat</div>
+    <div class="legend-item"><div class="swatch" style="background:#d45f5f"></div>Republican</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ─── Legislator data (from illinois_dem_legislators.csv) ──────────────────────
+const LEGISLATORS = {
+  Senate: {
+    1:  { name: "Javier Cervantes",      city: "Chicago",          county: "Cook",        build: "Chief Sponsor" },
+    2:  { name: "Omar Aquino",            city: "Chicago",          county: "Cook",        build: "" },
+    3:  { name: "Mattie Hunter",          city: "Chicago",          county: "Cook",        build: "Chief Sponsor" },
+    4:  { name: "Kimberly A. Lightford", city: "Maywood",          county: "Cook",        build: "" },
+    5:  { name: "Lakesia Collins",        city: "Chicago",          county: "Cook",        build: "" },
+    6:  { name: "Sara Feigenholtz",       city: "Chicago",          county: "Cook",        build: "Chief Sponsor" },
+    7:  { name: "Mike Simmons",           city: "Chicago",          county: "Cook",        build: "" },
+    8:  { name: "Ram Villivalam",         city: "Chicago",          county: "Cook",        build: "" },
+    9:  { name: "Laura Fine",             city: "Glenview",         county: "Cook",        build: "" },
+    10: { name: "Robert Martwick",        city: "Chicago",          county: "Cook",        build: "" },
+    11: { name: "Mike Porfirio",          city: "Bridgeview",       county: "Cook",        build: "" },
+    12: { name: "Celina Villanueva",      city: "Chicago",          county: "Cook",        build: "" },
+    13: { name: "Robert Peters",          city: "Chicago",          county: "Cook",        build: "Chief Sponsor" },
+    14: { name: "Emil Jones III",         city: "Chicago",          county: "Cook",        build: "" },
+    15: { name: "Napoleon Harris",        city: "Harvey",           county: "Cook",        build: "" },
+    16: { name: "Willie Preston",         city: "Chicago",          county: "Cook",        build: "" },
+    17: { name: "Elgie Sims",             city: "Chicago",          county: "Cook",        build: "" },
+    18: { name: "William Cunningham",     city: "Chicago",          county: "Cook",        build: "" },
+    19: { name: "Michael Hastings",       city: "Tinley Park",      county: "Cook",        build: "" },
+    20: { name: "Graciela Guzmán",        city: "Chicago",          county: "Cook",        build: "" },
+    21: { name: "Laura Ellman",           city: "Lisle",            county: "DuPage",      build: "Chief Sponsor" },
+    22: { name: "Cristina Castro",        city: "Elgin",            county: "Kane",        build: "Chief Sponsor" },
+    23: { name: "Suzy Glowiak",           city: "Western Springs",  county: "Cook",        build: "" },
+    25: { name: "Karina Villa",           city: "West Chicago",     county: "DuPage",      build: "" },
+    27: { name: "Mark L. Walker",         city: "Arlington Heights",county: "Cook",        build: "Co-Sponsor" },
+    28: { name: "Laura Murphy",           city: "Des Plaines",      county: "Cook",        build: "" },
+    29: { name: "Julie Morrison",         city: "Deerfield",        county: "Lake",        build: "" },
+    30: { name: "Adriane Johnson",        city: "Buffalo Grove",    county: "Lake",        build: "Chief Sponsor" },
+    31: { name: "Mary Edly-Allen",        city: "Libertyville",     county: "Lake",        build: "" },
+    34: { name: "Steve Stadelman",        city: "Rockford",         county: "Winnebago",   build: "" },
+    36: { name: "Michael Halpin",         city: "Rock Island",      county: "Rock Island", build: "Co-Sponsor" },
+    39: { name: "Don Harmon",             city: "Oak Park",         county: "Cook",        build: "" },
+    40: { name: "Patrick Joyce",          city: "Kankakee",         county: "Kankakee",    build: "" },
+    42: { name: "Linda Holmes",           city: "Aurora",           county: "Kane",        build: "" },
+    43: { name: "Rachel Ventura",         city: "Joliet",           county: "Will",        build: "" },
+    46: { name: "Dave Koehler",           city: "Peoria",           county: "Peoria",      build: "Chief Sponsor" },
+    48: { name: "Doris Turner",           city: "Springfield",      county: "Sangamon",    build: "" },
+    49: { name: "Meg Loughran Cappel",    city: "Shorewood",        county: "Will",        build: "" },
+    52: { name: "Paul Faraci",            city: "Champaign",        county: "Champaign",   build: "" },
+    57: { name: "Christopher Belt",       city: "Cahokia Heights",  county: "St. Clair",   build: "" },
+    // Republicans
+    24: { name: "Seth Lewis",      party: "R", build: "" },
+    26: { name: "Darby Hills",     party: "R", build: "" },
+    32: { name: "Craig Wilcox",    party: "R", build: "" },
+    33: { name: "Don DeWitte",     party: "R", build: "" },
+    35: { name: "Dave Syverson",   party: "R", build: "" },
+    37: { name: "Li Arellano Jr.", party: "R", build: "" },
+    38: { name: "Sue Rezin",       party: "R", build: "" },
+    41: { name: "John Curran",     party: "R", build: "" },
+    44: { name: "Sally Turner",    party: "R", build: "" },
+    45: { name: "Andrew Chesney",  party: "R", build: "" },
+    47: { name: "Neil Anderson",   party: "R", build: "" },
+    50: { name: "Jil Tracy",       party: "R", build: "" },
+    51: { name: "Chapin Rose",     party: "R", build: "" },
+    53: { name: "Chris Balkema",   party: "R", build: "" },
+    54: { name: "Steve McClure",   party: "R", build: "" },
+    55: { name: "Jason Plummer",   party: "R", build: "" },
+    56: { name: "Erica Harriss",   party: "R", build: "" },
+    58: { name: "Terri Bryant",    party: "R", build: "" },
+    59: { name: "Dale Fowler",     party: "R", build: "" },
+  },
+  House: {
+    1:  { name: "Aaron Ortiz",               city: "Chicago",          county: "Cook",        build: "" },
+    2:  { name: "Elizabeth Hernandez",        city: "Cicero",           county: "Cook",        build: "" },
+    3:  { name: "Eva-Dina Delgado",          city: "Chicago",          county: "Cook",        build: "" },
+    4:  { name: "Lilian Jiménez",            city: "Chicago",          county: "Cook",        build: "" },
+    5:  { name: "Kimberly du Buclet",        city: "Chicago",          county: "Cook",        build: "" },
+    6:  { name: "Sonya Harper",              city: "Chicago",          county: "Cook",        build: "" },
+    7:  { name: "Emanuel Chris Welch",       city: "Hillside",         county: "Cook",        build: "" },
+    8:  { name: "La Shawn Ford",             city: "Chicago",          county: "Cook",        build: "" },
+    9:  { name: "Yolonda Morris",            city: "Chicago",          county: "Cook",        build: "" },
+    10: { name: "Jawaharial Williams",       city: "Chicago",          county: "Cook",        build: "" },
+    11: { name: "Ann Williams",              city: "Chicago",          county: "Cook",        build: "" },
+    12: { name: "Margaret Croke",            city: "Chicago",          county: "Cook",        build: "" },
+    13: { name: "Hoan Huynh",               city: "Chicago",          county: "Cook",        build: "" },
+    14: { name: "Kelly Cassidy",             city: "Chicago",          county: "Cook",        build: "" },
+    15: { name: "Michael Kelly",             city: "Chicago",          county: "Cook",        build: "" },
+    16: { name: "Kevin Olickal",             city: "Skokie",           county: "Cook",        build: "" },
+    17: { name: "Jennifer Gong-Gershowitz", city: "Glenview",         county: "Cook",        build: "" },
+    18: { name: "Robyn Gabel",              city: "Evanston",         county: "Cook",        build: "" },
+    19: { name: "Lindsey LaPointe",         city: "Chicago",          county: "Cook",        build: "" },
+    21: { name: "Abdelnasser Rashid",       city: "Justice",          county: "Cook",        build: "" },
+    22: { name: "Angelica Guerrero-Cuellar",city: "Chicago",          county: "Cook",        build: "" },
+    23: { name: "Edgar González Jr.",       city: "Chicago",          county: "Cook",        build: "" },
+    24: { name: "Theresa Mah",              city: "Chicago",          county: "Cook",        build: "Co-Sponsor" },
+    25: { name: "Curtis Tarver",            city: "Chicago",          county: "Cook",        build: "Chief Sponsor" },
+    26: { name: "Kam Buckner",              city: "Chicago",          county: "Cook",        build: "Chief Sponsor" },
+    27: { name: "Justin Slaughter",         city: "Chicago",          county: "Cook",        build: "" },
+    28: { name: "Robert Rita",              city: "Blue Island",      county: "Cook",        build: "" },
+    29: { name: "Thaddeus Jones",           city: "Calumet City",     county: "Cook",        build: "" },
+    30: { name: "Will Davis",               city: "Homewood",         county: "Cook",        build: "" },
+    31: { name: "Michael Crawford",         city: "Chicago",          county: "Cook",        build: "Co-Sponsor" },
+    32: { name: "Lisa Davis",               city: "Chicago",          county: "Cook",        build: "Co-Sponsor" },
+    33: { name: "Marcus C. Evans Jr.",      city: "Chicago",          county: "Cook",        build: "" },
+    34: { name: "Nicholas Smith",           city: "Chicago",          county: "Cook",        build: "" },
+    35: { name: "Mary Gill",                city: "Chicago",          county: "Cook",        build: "" },
+    36: { name: "Rick Ryan",                city: "Evergreen Park",   county: "Cook",        build: "" },
+    38: { name: "Debbie Meyers-Martin",     city: "Olympia Fields",   county: "Cook",        build: "" },
+    39: { name: "Will Guzzardi",            city: "Chicago",          county: "Cook",        build: "" },
+    40: { name: "Jaime Andrade Jr.",        city: "Chicago",          county: "Cook",        build: "" },
+    41: { name: "Janet Yang Rohr",          city: "Naperville",       county: "DuPage",      build: "" },
+    42: { name: "Margaret DeLaRosa",        city: "Glen Ellyn",       county: "DuPage",      build: "" },
+    43: { name: "Anna Moeller",             city: "Elgin",            county: "Kane",        build: "" },
+    44: { name: "Fred Crespo",              city: "Hoffman Estates",  county: "Cook",        build: "" },
+    45: { name: "Martha Deuter",            city: "Westmont",         county: "DuPage",      build: "" },
+    46: { name: "Diane Blair-Sherlock",     city: "Villa Park",       county: "DuPage",      build: "" },
+    49: { name: "Maura Hirschauer",         city: "Batavia",          county: "Kane",        build: "" },
+    50: { name: "Barbara Hernandez",        city: "Aurora",           county: "Kane",        build: "" },
+    51: { name: "Nabeela Syed",             city: "Inverness",        county: "Cook",        build: "" },
+    53: { name: "Nicolle Grasse",           city: "Arlington Heights",county: "Cook",        build: "" },
+    54: { name: "Mary Beth Canty",          city: "Arlington Heights",county: "Cook",        build: "" },
+    55: { name: "Justin Cochran",           city: "Des Plaines",      county: "Cook",        build: "" },
+    56: { name: "Michelle Mussman",         city: "Schaumburg",       county: "Cook",        build: "" },
+    57: { name: "Tracy Katz Muhl",          city: "Northbrook",       county: "Cook",        build: "" },
+    58: { name: "Bob Morgan",               city: "Deerfield",        county: "Lake",        build: "" },
+    59: { name: "Daniel Didech",            city: "Buffalo Grove",    county: "Lake",        build: "" },
+    60: { name: "Rita Mayfield",            city: "Waukegan",         county: "Lake",        build: "" },
+    61: { name: "Joyce Mason",              city: "Gurnee",           county: "Lake",        build: "" },
+    62: { name: "Laura Faver Dias",         city: "Grayslake",        county: "Lake",        build: "" },
+    66: { name: "Suzanne Ness",             city: "Crystal Lake",     county: "McHenry",     build: "" },
+    67: { name: "Maurice West",             city: "Rockford",         county: "Winnebago",   build: "" },
+    68: { name: "Dave Vella",               city: "Rockford",         county: "Winnebago",   build: "Co-Sponsor" },
+    72: { name: "Gregg Johnson",            city: "East Moline",      county: "Rock Island", build: "" },
+    76: { name: "Murri Briel",              city: "Ottawa",           county: "LaSalle",     build: "" },
+    77: { name: "Norma Hernandez",          city: "Melrose Park",     county: "Cook",        build: "" },
+    78: { name: "Camille Lilly",            city: "Chicago",          county: "Cook",        build: "" },
+    80: { name: "Anthony DeLuca",           city: "Chicago Heights",  county: "Cook",        build: "" },
+    81: { name: "Anne Stava-Murray",        city: "Downers Grove",    county: "DuPage",      build: "" },
+    83: { name: "Matt Hanson",              city: "Aurora",           county: "Kane",        build: "" },
+    84: { name: "Stephanie Kifowit",        city: "Oswego",           county: "Kendall",     build: "" },
+    85: { name: "Dagmara Avelar",           city: "Bolingbrook",      county: "DuPage",      build: "" },
+    86: { name: "Lawrence M. Walsh Jr.",    city: "Elwood",           county: "Will",        build: "" },
+    91: { name: "Sharon Chung",             city: "Bloomington",      county: "McLean",      build: "" },
+    92: { name: "Jehan Gordon-Booth",       city: "Peoria",           county: "Peoria",      build: "Chief Sponsor" },
+    96: { name: "Sue Scherer",              city: "Decatur",          county: "Macon",       build: "" },
+    97: { name: "Harry Benton",             city: "Plainfield",       county: "Will",        build: "" },
+    98: { name: "Natalie Manley",           city: "Joliet",           county: "Will",        build: "" },
+    103:{ name: "Carol Ammons",             city: "Urbana",           county: "Champaign",   build: "" },
+    112:{ name: "Katie Stuart",             city: "Edwardsville",     county: "Madison",     build: "" },
+    113:{ name: "Jay Hoffman",              city: "Swansea",          county: "St. Clair",   build: "" },
+    // Republicans
+    20:  { name: "Bradley Stephens",  party: "R", build: "" },
+    37:  { name: "Patrick Sheehan",   party: "R", build: "" },
+    47:  { name: "Amy Grant",         party: "R", build: "" },
+    48:  { name: "Jennifer Sanalitro",party: "R", build: "" },
+    52:  { name: "Martin McLaughlin", party: "R", build: "" },
+    63:  { name: "Steve Reick",       party: "R", build: "" },
+    64:  { name: "Tom Weber",         party: "R", build: "" },
+    65:  { name: "Dan Ugaste",        party: "R", build: "" },
+    69:  { name: "Joe Sosnowski",     party: "R", build: "" },
+    70:  { name: "Jeff Keicher",      party: "R", build: "" },
+    71:  { name: "Daniel Swanson",    party: "R", build: "" },
+    73:  { name: "Ryan Spain",        party: "R", build: "" },
+    74:  { name: "Bradley Fritts",    party: "R", build: "" },
+    75:  { name: "Jed Davis",         party: "R", build: "" },
+    79:  { name: "Jackie Haas",       party: "R", build: "" },
+    82:  { name: "Nicole La Ha",      party: "R", build: "" },
+    87:  { name: "Bill Hauter",       party: "R", build: "" },
+    88:  { name: "Regan Deering",     party: "R", build: "" },
+    89:  { name: "Tony McCombie",     party: "R", build: "" },
+    90:  { name: "John Cabello",      party: "R", build: "" },
+    93:  { name: "Travis Weaver",     party: "R", build: "" },
+    94:  { name: "Norine Hammond",    party: "R", build: "" },
+    95:  { name: "Michael Coffey",    party: "R", build: "" },
+    99:  { name: "Kyle Moore",        party: "R", build: "" },
+    100: { name: "C.D. Davidsmeyer",  party: "R", build: "" },
+    101: { name: "Chris Miller",      party: "R", build: "" },
+    102: { name: "Adam Niemerg",      party: "R", build: "" },
+    104: { name: "Brandun Schweizer", party: "R", build: "" },
+    105: { name: "Dennis Tipsword",   party: "R", build: "" },
+    106: { name: "Jason Bunting",     party: "R", build: "" },
+    107: { name: "Brad Halbrook",     party: "R", build: "" },
+    108: { name: "Wayne Rosenthal",   party: "R", build: "" },
+    109: { name: "Charles Meier",     party: "R", build: "" },
+    110: { name: "Blaine Wilhour",    party: "R", build: "" },
+    111: { name: "Amy Elik",          party: "R", build: "" },
+    114: { name: "Kevin Schmidt",     party: "R", build: "" },
+    115: { name: "David Friess",      party: "R", build: "" },
+    116: { name: "Dave Severin",      party: "R", build: "" },
+    117: { name: "Patrick Windhorst", party: "R", build: "" },
+    118: { name: "Paul Jacobs",       party: "R", build: "" },
+  }
+};
+
+// ─── GeoJSON API endpoints ─────────────────────────────────────────────────────
+const EPA_BASE = "https://geoservices.epa.illinois.gov/arcgis/rest/services/Boundaries/LegislativeDistricts/MapServer";
+const TIGER_BASE = "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Legislative/MapServer";
+
+const ENDPOINTS = {
+  Senate: [
+    `${EPA_BASE}/2/query?f=geojson&where=1%3D1&outFields=*`,
+    `${TIGER_BASE}/36/query?f=geojson&where=STATE%3D%2717%27&outFields=*`
+  ],
+  House: [
+    `${EPA_BASE}/3/query?f=geojson&where=1%3D1&outFields=*`,
+    `${TIGER_BASE}/38/query?f=geojson&where=STATE%3D%2717%27&outFields=*`
+  ]
+};
+
+// ─── Colors ───────────────────────────────────────────────────────────────────
+const COLORS = {
+  chief:  "#3aaa6e",
+  cospon: "#e89c3a",
+  dem:    "#5b8dd9",
+  rep:    "#d45f5f"
+};
+
+function getCategory(districtNum, chamber) {
+  const leg = LEGISLATORS[chamber][districtNum];
+  if (!leg || leg.party === "R") return "rep";
+  if (leg.build === "Chief Sponsor") return "chief";
+  if (leg.build === "Co-Sponsor")   return "cospon";
+  return "dem";
+}
+
+function fillColor(districtNum, chamber) {
+  return COLORS[getCategory(districtNum, chamber)];
+}
+
+// ─── Map setup ────────────────────────────────────────────────────────────────
+const map = L.map("map", {
+  center: [40.0, -89.2],
+  zoom: 6,
+  zoomControl: true
+});
+
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png", {
+  attribution: '© <a href="https://carto.com/">CARTO</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  subdomains: "abcd",
+  maxZoom: 19
+}).addTo(map);
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let geoCache = { Senate: null, House: null };
+let activeChamber = "Senate";
+let activeLayer = null;
+
+// ─── District number extraction ───────────────────────────────────────────────
+// EPA Senate layer uses "SenateNum"; EPA House layer uses "DistrictNum"
+function extractDistrict(props, chamber) {
+  const primary = chamber === "Senate" ? props.SenateNum : props.DistrictNum;
+  if (primary !== undefined && primary !== null && primary !== "") {
+    const n = parseInt(primary, 10);
+    if (!isNaN(n)) return n;
+  }
+  // Fallback: scan all properties for any field that looks like a district number
+  const fallbacks = [
+    props.DISTRICT, props.District, props.district,
+    props.SLDUST,   props.SLDLST,
+    props.DIST_NUM, props.districtNumber,
+    props.SLDL_CD,  props.SLDU_CD
+  ];
+  for (const v of fallbacks) {
+    if (v !== undefined && v !== null && v !== "") {
+      const n = parseInt(v, 10);
+      if (!isNaN(n)) return n;
+    }
+  }
+  return null;
+}
+
+// ─── Style & interaction ──────────────────────────────────────────────────────
+function styleFeature(feature, chamber) {
+  const distNum = extractDistrict(feature.properties, chamber);
+  const color = distNum ? fillColor(distNum, chamber) : "#444";
+  return {
+    fillColor: color,
+    fillOpacity: 0.6,
+    color: "#12161f",
+    weight: 0.8
+  };
+}
+
+function buildPopup(feature, chamber) {
+  const distNum = extractDistrict(feature.properties, chamber);
+  const leg = distNum ? LEGISLATORS[chamber][distNum] : null;
+  const chamberLabel = chamber === "Senate" ? "Senate District" : "House District";
+
+  if (!leg) {
+    return `<div class="popup-inner">
+      <div class="popup-district">${chamberLabel} ${distNum || "?"}</div>
+      <div class="popup-name">Unknown</div>
+      <span class="popup-build rep">Republican</span>
+    </div>`;
+  }
+
+  if (leg.party === "R") {
+    return `<div class="popup-inner">
+      <div class="popup-district">${chamberLabel} ${distNum}</div>
+      <div class="popup-name">${leg.name}</div>
+      <span class="popup-build rep">Republican</span>
+    </div>`;
+  }
+
+  let buildBadge = "";
+  if (leg.build === "Chief Sponsor") {
+    buildBadge = `<span class="popup-build chief">Chief Sponsor — BUILD</span>`;
+  } else if (leg.build === "Co-Sponsor") {
+    buildBadge = `<span class="popup-build cospon">Co-Sponsor — BUILD</span>`;
+  } else {
+    buildBadge = `<span class="popup-build dem">Democrat</span>`;
+  }
+
+  return `<div class="popup-inner">
+    <div class="popup-district">${chamberLabel} ${distNum}</div>
+    <div class="popup-name">${leg.name}</div>
+    <div class="popup-location">${leg.city}, ${leg.county} County</div>
+    ${buildBadge}
+  </div>`;
+}
+
+function renderLayer(geojson, chamber) {
+  if (activeLayer) map.removeLayer(activeLayer);
+
+  activeLayer = L.geoJSON(geojson, {
+    style: f => styleFeature(f, chamber),
+    onEachFeature: (feature, layer) => {
+      layer.bindPopup(buildPopup(feature, chamber), { maxWidth: 260 });
+
+      layer.on("mouseover", function() {
+        this.setStyle({ fillOpacity: 0.85, weight: 1.5, color: "#e8eaf0" });
+        this.bringToFront();
+      });
+      layer.on("mouseout", function() {
+        activeLayer.resetStyle(this);
+      });
+    }
+  }).addTo(map);
+}
+
+// ─── GeoJSON fetch with fallback ──────────────────────────────────────────────
+async function fetchGeoJSON(chamber) {
+  const [primary, fallback] = ENDPOINTS[chamber];
+
+  const tryFetch = async (url) => {
+    const resp = await fetch(url, { signal: AbortSignal.timeout(15000) });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    return resp.json();
+  };
+
+  try {
+    return await tryFetch(primary);
+  } catch (e) {
+    console.warn(`Primary endpoint failed for ${chamber}, trying fallback:`, e);
+    return await tryFetch(fallback);
+  }
+}
+
+// ─── Chamber switch ───────────────────────────────────────────────────────────
+async function switchChamber(chamber) {
+  if (chamber === activeChamber && geoCache[chamber]) return;
+  activeChamber = chamber;
+
+  document.getElementById("btn-senate").classList.toggle("active", chamber === "Senate");
+  document.getElementById("btn-house").classList.toggle("active",  chamber === "House");
+
+  if (geoCache[chamber]) {
+    renderLayer(geoCache[chamber], chamber);
+    return;
+  }
+
+  document.getElementById("loading").style.display = "flex";
+
+  try {
+    const geojson = await fetchGeoJSON(chamber);
+    geoCache[chamber] = geojson;
+    renderLayer(geojson, chamber);
+    document.getElementById("loading").style.display = "none";
+  } catch (err) {
+    console.error("GeoJSON fetch failed:", err);
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("error-msg").style.display = "flex";
+  }
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+switchChamber("Senate");
+
+// Pre-fetch House in background after Senate loads
+setTimeout(() => {
+  if (!geoCache.House) {
+    fetchGeoJSON("House").then(geojson => {
+      geoCache.House = geojson;
+    }).catch(() => {});
+  }
+}, 3000);
+</script>
+</body>
+</html>
