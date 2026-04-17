@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support the BUILD Act &mdash; Illinois Housing Reform</title>
+  <meta name="description" content="Illinois is 142,000 homes short. The BUILD Act is common-sense reform to help fix that. Learn what it does and tell your legislators to support it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design tokens ── */
+    :root {
+      --amber:       #F59E0B;
+      --amber-dark:  #D97706;
+      --amber-light: #FEF3C7;
+      --green:       #2D6A4F;
+      --green-light: #F0FDF4;
+      --teal:        #1B3A4B;
+      --teal-dark:   #122839;
+      --off-white:   #FFF9F0;
+      --slate:       #1F2937;
+      --slate-mid:   #4B5563;
+      --slate-light: #9CA3AF;
+      --white:       #FFFFFF;
+      --red:         #DC2626;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --shadow:      0 2px 12px rgba(0,0,0,0.08);
+      --font:        'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--slate);
+      background: var(--off-white);
+      line-height: 1.6;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+
+    /* ── Typography ── */
+    .section-label {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.1; }
+    h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: 20px; font-weight: 700; }
+    .lead { font-size: 20px; line-height: 1.7; color: var(--slate-mid); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: var(--radius-sm);
+      font-size: 16px; font-weight: 600; text-decoration: none;
+      cursor: pointer; border: none; transition: background 0.15s, transform 0.1s;
+      font-family: var(--font);
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--amber); color: var(--slate); }
+    .btn-primary:hover { background: var(--amber-dark); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+    .btn-ghost {
+      background: transparent; color: var(--amber);
+      border: 2px solid var(--amber);
+    }
+    .btn-ghost:hover { background: var(--amber); color: var(--slate); }
+
+    /* ── Input row ── */
+    .input-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .input-row input {
+      flex: 1; min-width: 220px; padding: 14px 18px;
+      border-radius: var(--radius-sm); border: 2px solid #E5E7EB;
+      font-family: var(--font); font-size: 16px; color: var(--slate);
+      background: var(--white); transition: border-color 0.15s;
+    }
+    .input-row input:focus { outline: none; border-color: var(--amber); }
+    .input-row input::placeholder { color: var(--slate-light); }
+
+    /* ── Accessibility ── */
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+    button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
+
+    /* ── Nav ── */
+    #nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--teal-dark);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-link {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 15px; font-weight: 500; transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--white); }
+
+    /* ── Hero ── */
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: center;
+    }
+    .hero-stat-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius); padding: 28px;
+    }
+
+    /* ── Stat grid ── */
+    .stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .stat-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 28px 20px; box-shadow: var(--shadow); text-align: center;
+    }
+    .stat-number {
+      font-size: 40px; font-weight: 800; color: var(--amber-dark);
+      line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label { font-size: 14px; color: var(--slate-mid); line-height: 1.4; }
+
+    /* ── Pillar grid ── */
+    .pillar-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .pillar-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 32px; box-shadow: var(--shadow);
+    }
+    .pillar-icon { font-size: 36px; margin-bottom: 14px; }
+
+    /* ── FAQ accordion ── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--white); border-radius: var(--radius-sm);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px; background: none; border: none; cursor: pointer;
+      font-family: var(--font); font-size: 17px; font-weight: 600;
+      color: var(--slate); text-align: left; gap: 16px;
+    }
+    .faq-q:hover { background: var(--amber-light); }
+    .faq-icon { font-size: 12px; flex-shrink: 0; color: var(--amber-dark); }
+    .faq-a {
+      display: none; padding: 0 24px 24px; font-size: 16px;
+      line-height: 1.7; color: var(--slate-mid);
+      border-top: 1px solid #F3F4F6;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── Footer ── */
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-stat-box { max-width: 320px; }
+      .stat-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 700px) { .pillar-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .section { padding: 56px 0; }
+      .nav-links { display: none !important; }
+    }
+    @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .stat-number { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:64px;">
+      <a href="#" style="font-size:18px;font-weight:800;color:var(--amber);text-decoration:none;letter-spacing:-0.02em;">BUILD Act</a>
+      <div class="nav-links">
+        <a href="#problem" class="nav-link">The Problem</a>
+        <a href="#solution" class="nav-link">What BUILD Does</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#action" class="btn btn-primary" style="padding:8px 18px;font-size:15px;">Take Action</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero" style="background:var(--teal);padding:80px 0 72px;">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="section-label">Illinois Housing Reform</p>
+          <h1 style="color:var(--white);margin-bottom:24px;">Let&rsquo;s Solve Illinois&rsquo;<br>Housing Crisis.</h1>
+          <p style="font-size:20px;color:rgba(255,255,255,0.8);line-height:1.7;max-width:520px;margin-bottom:36px;">
+            Prices are up 37%. Inventory is down 64%. Families across Illinois can&rsquo;t find a home they can afford. The BUILD Act is common-sense reform to help fix that.
+          </p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="#solution" class="btn btn-primary">Learn What BUILD Does</a>
+            <a href="#action" class="btn btn-outline">Contact Your Legislator</a>
+          </div>
+        </div>
+        <div class="hero-stat-box">
+          <p style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">The Gap</p>
+          <p style="font-size:48px;font-weight:800;color:var(--white);line-height:1;">45,000</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:16px;margin-bottom:20px;">homes needed per year</p>
+          <div style="width:100%;height:2px;background:rgba(255,255,255,0.15);margin-bottom:20px;position:relative;">
+            <div style="position:absolute;left:0;top:0;height:100%;width:42%;background:var(--amber);"></div>
+          </div>
+          <p style="font-size:48px;font-weight:800;color:var(--amber);line-height:1;">19,000</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:16px;">actually being built</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Problem ── -->
+  <section id="problem" class="section" style="background:var(--off-white);border-top:4px solid var(--amber);">
+    <div class="container">
+      <p class="section-label">The Housing Crisis</p>
+      <h2 style="margin-bottom:16px;">Illinois Has a Housing Problem.</h2>
+      <p class="lead" style="max-width:600px;margin-bottom:56px;">The shortage is real, it&rsquo;s statewide, and voluntary approaches haven&rsquo;t worked.</p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">142,000</div>
+          <div class="stat-label">homes short<br>right now</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">+37%</div>
+          <div class="stat-label">home prices<br>in 5 years</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">64%</div>
+          <div class="stat-label">fewer listings<br>than 5 years ago</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">19k</div>
+          <div class="stat-label">homes built/year<br>vs. 45k needed</div>
+        </div>
+      </div>
+
+      <div style="margin-top:64px;padding-top:48px;border-top:2px solid #E5E7EB;">
+        <h3 style="margin-bottom:8px;">How does this affect your community?</h3>
+        <p style="color:var(--slate-mid);margin-bottom:20px;">Enter your city or town to see local housing data.</p>
+        <div class="input-row" style="max-width:540px;">
+          <input type="text" id="community-input" placeholder="e.g. Naperville, Springfield, Evanston" autocomplete="off">
+          <button class="btn btn-primary" onclick="lookupCommunity()">Look Up</button>
+        </div>
+        <div id="community-result" style="margin-top:20px;max-width:540px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Solution ── -->
+  <section id="solution" class="section" style="background:var(--green-light);border-top:4px solid var(--green);">
+    <div class="container">
+      <p class="section-label" style="color:var(--green);">The Solution</p>
+      <h2 style="margin-bottom:16px;">What the BUILD Act Does</h2>
+      <p class="lead" style="max-width:620px;margin-bottom:56px;">Common-sense reforms to help more Illinoisans find a home they can afford. Not radical &mdash; reasonable.</p>
+
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">&#x1F3D8;&#xFE0F;</div>
+          <h3>More Homes by Right</h3>
+          <p style="margin:10px 0 12px;">Allow 2&ndash;8 homes on residential lots currently zoned single-family, based on lot size:</p>
+          <ul style="padding-left:18px;font-size:15px;color:var(--slate-mid);line-height:1.8;">
+            <li>2,500&ndash;5,000 sq ft lot &rarr; up to 4 units</li>
+            <li>5,000&ndash;7,500 sq ft lot &rarr; up to 6 units</li>
+            <li>7,500+ sq ft lot &rarr; up to 8 units</li>
+          </ul>
+          <p style="margin-top:12px;font-size:15px;color:var(--slate-mid);">Permits and building inspections still required. Local design standards preserved.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">&#x1F3E1;</div>
+          <h3>Backyard Cottages (ADUs)</h3>
+          <p style="margin:10px 0 12px;">Legalize accessory dwelling units on all residential properties statewide &mdash; in-law suites, garage apartments, and backyard cottages.</p>
+          <p style="font-size:15px;color:var(--slate-mid);">Creates naturally affordable rental options near existing jobs, transit, and services. Helps homeowners build equity while adding housing.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">&#x1F4CB;</div>
+          <h3>Cut the Red Tape</h3>
+          <p style="margin:10px 0 12px;">Reduce unnecessary delays that make housing more expensive to build:</p>
+          <ul style="padding-left:18px;font-size:15px;color:var(--slate-mid);line-height:1.8;">
+            <li>Statewide timelines for permit reviews</li>
+            <li>Third-party inspectors if deadlines are missed</li>
+            <li>No parking minimums for missing middle housing</li>
+            <li>Standardized impact fee practices</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">&#x1F4B0;</div>
+          <h3>$250 Million Investment</h3>
+          <p style="margin:10px 0 12px;">Targeted funding to make housing affordable, not just possible:</p>
+          <ul style="padding-left:18px;font-size:15px;color:var(--slate-mid);line-height:1.8;">
+            <li><strong>$100M</strong> &mdash; site infrastructure (sewer, utilities)</li>
+            <li><strong>$100M</strong> &mdash; middle housing via IHDA</li>
+            <li><strong>$50M</strong> &mdash; first-time homebuyer assistance</li>
+          </ul>
+          <p style="margin-top:12px;font-size:15px;color:var(--slate-mid);">Builds on Opening Doors (12,000 served since 2020) and SmartBuy programs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq" class="section" style="background:var(--off-white);">
+    <div class="container" style="max-width:780px;">
+      <p class="section-label">Common Questions</p>
+      <h2 style="margin-bottom:16px;">We&rsquo;ve Heard the Concerns.</h2>
+      <p class="lead" style="margin-bottom:48px;">Here are the facts.</p>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>&ldquo;Won&rsquo;t this eliminate local control?&rdquo;</span>
+            <span class="faq-icon" aria-hidden="true">&#x25B2;</span>
+          </button>
+          <div class="faq-a">
+            <p>No. BUILD doesn&rsquo;t rezone anything &mdash; it sets statewide <em>minimums</em> for what&rsquo;s allowed by right. Communities still control design standards, setbacks, landscaping requirements, historic district protections, and floodplain rules. Local officials remain in charge of zoning classifications. What changes is the floor, not the ceiling.</p>
+            <p style="margin-top:12px;">Illinois already sets statewide minimums for building codes, fire safety, and accessibility. Housing is no different.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>&ldquo;Will this just create luxury housing?&rdquo;</span>
+            <span class="faq-icon" aria-hidden="true">&#x25BC;</span>
+          </button>
+          <div class="faq-a">
+            <p>Most new housing created under BUILD will be small-scale &mdash; duplexes, triplexes, backyard cottages. These are naturally more affordable than single-family homes because they share land and infrastructure costs.</p>
+            <p style="margin-top:12px;">The $250M investment specifically targets affordable and workforce housing development through IHDA. First-time homebuyer programs have already served over 13,000 Illinoisans since 2020.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>&ldquo;What about strain on schools and utilities?&rdquo;</span>
+            <span class="faq-icon" aria-hidden="true">&#x25BC;</span>
+          </button>
+          <div class="faq-a">
+            <p>BUILD allows gradual infill &mdash; a few units here and there across neighborhoods &mdash; not large-scale development. The impact on any single school or utility district is modest.</p>
+            <p style="margin-top:12px;">The $100M in site infrastructure funding directly addresses utility capacity. Communities that already meet IHDA affordability thresholds are well-positioned to absorb modest growth.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>&ldquo;Suburbs are already building &mdash; why force it?&rdquo;</span>
+            <span class="faq-icon" aria-hidden="true">&#x25BC;</span>
+          </button>
+          <div class="faq-a">
+            <p>Some are &mdash; but statewide, Illinois has been building 19,000 homes per year when it needs 45,000. The gap isn&rsquo;t closing, and it&rsquo;s been widening for years.</p>
+            <p style="margin-top:12px;">Voluntary, community-by-community approaches haven&rsquo;t worked at scale. Statewide minimum standards are how we solve problems that cross municipal lines &mdash; the same way we handle clean water, fire safety, and accessible design.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>&ldquo;One size doesn&rsquo;t fit all communities.&rdquo;</span>
+            <span class="faq-icon" aria-hidden="true">&#x25BC;</span>
+          </button>
+          <div class="faq-a">
+            <p>BUILD uses a tiered lot-size system precisely to account for variation. Tiny lots get fewer units; larger lots can have more. Local communities retain design standards, historic district protections, and floodplain rules.</p>
+            <p style="margin-top:12px;">What BUILD does is prevent any community from entirely banning modest increases in housing supply &mdash; because when every suburb says no, the housing crisis is everyone&rsquo;s problem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Take Action ── -->
+  <section id="action" style="background:var(--teal);padding:80px 0;">
+    <div class="container">
+      <p class="section-label" style="color:var(--amber);">Take Action</p>
+      <h2 style="color:var(--white);margin-bottom:16px;">Tell Your Legislators:<br>Support the BUILD Act.</h2>
+      <p style="color:rgba(255,255,255,0.75);font-size:18px;max-width:560px;margin-bottom:40px;line-height:1.7;">
+        Housing reform needs your voice. Find your state senator and representative and let them know you support common-sense housing solutions.
+      </p>
+
+      <div class="input-row" style="max-width:560px;margin-bottom:8px;">
+        <input type="text" id="address-input"
+          placeholder="Enter your address or ZIP code"
+          style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25);color:var(--white);"
+          autocomplete="off">
+        <button class="btn btn-primary" onclick="lookupLegislators()">Find My Reps</button>
+      </div>
+      <p id="civic-status" style="font-size:14px;color:rgba(255,255,255,0.5);min-height:20px;margin-bottom:24px;"></p>
+      <div id="legislator-result"></div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer style="background:var(--teal-dark);padding:48px 0 32px;border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="container">
+      <div class="footer-grid" style="margin-bottom:40px;">
+        <div>
+          <p style="font-size:18px;font-weight:800;color:var(--amber);margin-bottom:12px;">BUILD Act Coalition</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;max-width:360px;">
+            A coalition of housing organizations committed to solving Illinois&rsquo; housing crisis through the BUILD Act.
+          </p>
+        </div>
+        <div>
+          <p style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;">Coalition Members</p>
+          <ul style="list-style:none;color:rgba(255,255,255,0.65);font-size:15px;line-height:2;">
+            <li>Abundant Housing Illinois</li>
+            <li>Elevated Chicago</li>
+            <li>Housing Action Illinois</li>
+            <li>Illinois Housing Council</li>
+            <li>Impact for Equity</li>
+            <li>Metropolitan Planning Council</li>
+            <li>YIMBY Illinois</li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <p style="color:rgba(255,255,255,0.35);font-size:13px;">
+          Data: IHDA AHPAA 2023 &middot; Census Building Permits Survey 2014&ndash;2024 &middot; Zillow ZHVI &middot; BUILD Act information current as of February 2026.
+        </p>
+        <button id="share-btn"
+          style="background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-family:var(--font);">
+          Share this page
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Config — set your Google Civic Information API key here ── */
+    var CONFIG = { CIVIC_API_KEY: 'YOUR_API_KEY_HERE' };
+
+    /* ── Helpers ── */
+    function el(tag, styles, text) {
+      var e = document.createElement(tag);
+      if (styles) e.style.cssText = styles;
+      if (text !== undefined) e.textContent = text;
+      return e;
+    }
+
+    function clearEl(node) {
+      while (node.firstChild) node.removeChild(node.firstChild);
+    }
+
+    /* ── Community data lookup ── */
+    var COMMUNITY_DATA = null;
+
+    function loadCommunityData() {
+      if (COMMUNITY_DATA) return Promise.resolve(COMMUNITY_DATA);
+      return fetch('data/community-data.json').then(function(r) {
+        if (!r.ok) throw new Error('Failed to load community data');
+        return r.json();
+      }).then(function(data) {
+        COMMUNITY_DATA = data;
+        return data;
+      });
+    }
+
+    function buildCommunityCard(match) {
+      var exempt = match.is_exempt;
+      var accentColor = exempt ? 'var(--green)' : 'var(--red)';
+
+      var card = el('div', 'background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border-left:4px solid ' + accentColor + ';');
+
+      var header = el('p', 'font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-mid);margin-bottom:16px;');
+      header.textContent = match.name + (match.county ? ', ' + match.county + ' County' : '');
+      card.appendChild(header);
+
+      var grid = el('div', 'display:grid;gap:14px;');
+
+      function addRow(label, value, valueColor) {
+        var row = document.createElement('div');
+        var labelEl = el('span', 'font-size:13px;color:var(--slate-mid);display:block;margin-bottom:2px;', label);
+        var valEl = el('span', 'font-weight:600;' + (valueColor ? 'color:' + valueColor + ';' : ''), value);
+        row.appendChild(labelEl);
+        row.appendChild(valEl);
+        grid.appendChild(row);
+      }
+
+      var affordText = exempt
+        ? match.affordability_pct + '% affordable \u2014 meets state threshold \u2713'
+        : match.affordability_pct + '% affordable \u2014 below state 10% threshold';
+      addRow('IHDA Affordability', affordText, accentColor);
+      addRow('New Homes Built (2014\u20132024)', match.units_built_2014_2024.toLocaleString() + ' units', null);
+
+      var priceText = match.home_value_change_pct !== null
+        ? '+' + match.home_value_change_pct.toFixed(1) + '% (2014\u20132024)'
+        : 'Data not available for this community';
+      addRow('Home Value Change', priceText, null);
+
+      card.appendChild(grid);
+      return card;
+    }
+
+    function buildNoResultCard(query) {
+      var card = el('div', 'background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);border-left:4px solid var(--slate-light);');
+      var title = el('p', 'font-weight:600;');
+      title.textContent = 'No results for \u201c' + query + '\u201d';
+      var hint = el('p', 'color:var(--slate-mid);font-size:15px;margin-top:6px;', 'Try a nearby larger city, or check spelling. Data covers Illinois municipalities.');
+      card.appendChild(title);
+      card.appendChild(hint);
+      return card;
+    }
+
+    function lookupCommunity() {
+      var query = document.getElementById('community-input').value.trim();
+      if (!query) return;
+      var resultEl = document.getElementById('community-result');
+      clearEl(resultEl);
+      resultEl.appendChild(el('p', 'color:var(--slate-mid);', 'Loading\u2026'));
+
+      loadCommunityData().then(function(data) {
+        var q = query.toLowerCase();
+        var match =
+          data.find(function(r) { return r.name.toLowerCase() === q; }) ||
+          data.find(function(r) { return r.name.toLowerCase().startsWith(q); }) ||
+          data.find(function(r) { return r.name.toLowerCase().includes(q); });
+
+        clearEl(resultEl);
+        if (!match) {
+          resultEl.appendChild(buildNoResultCard(query));
+        } else {
+          resultEl.appendChild(buildCommunityCard(match));
+        }
+      }).catch(function(err) {
+        clearEl(resultEl);
+        resultEl.appendChild(el('p', 'color:var(--red);', 'Could not load community data. ' + err.message));
+      });
+    }
+
+    document.getElementById('community-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') lookupCommunity();
+    });
+
+    /* ── FAQ accordion ── */
+    function toggleFaq(btn) {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      item.classList.toggle('open');
+      btn.querySelector('.faq-icon').textContent = isOpen ? '\u25BC' : '\u25B2';
+    }
+
+    /* ── Legislator lookup ── */
+    function buildLegislatorFallback() {
+      var wrap = el('div', 'max-width:560px;background:rgba(255,255,255,0.1);border-radius:var(--radius);padding:24px;');
+      wrap.appendChild(el('p', 'color:rgba(255,255,255,0.85);font-weight:600;margin-bottom:8px;', 'API key not configured'));
+      wrap.appendChild(el('p', 'color:rgba(255,255,255,0.7);font-size:15px;margin-bottom:14px;', 'Use the Illinois General Assembly\u2019s district finder:'));
+      var links = el('div', 'display:flex;gap:16px;flex-wrap:wrap;');
+      var houseLink = el('a', 'color:var(--amber);font-weight:600;font-size:15px;', 'Find My IL House Rep \u2192');
+      houseLink.href = 'https://www.ilga.gov/house/rep/find.asp';
+      houseLink.target = '_blank';
+      houseLink.rel = 'noopener noreferrer';
+      var senLink = el('a', 'color:var(--amber);font-weight:600;font-size:15px;', 'Find My IL Senator \u2192');
+      senLink.href = 'https://www.ilga.gov/senate/senator/find.asp';
+      senLink.target = '_blank';
+      senLink.rel = 'noopener noreferrer';
+      links.appendChild(houseLink);
+      links.appendChild(senLink);
+      wrap.appendChild(links);
+      return wrap;
+    }
+
+    function buildLegislatorCard(office, official) {
+      var phone = (official.phones || [])[0] || null;
+      var email = (official.emails || [])[0] || null;
+      var subject = encodeURIComponent('I Support the BUILD Act \u2014 Please Vote Yes');
+      var bodyText = 'Dear ' + (official.name || 'Representative') + ',\n\n' +
+        'I am a constituent writing to urge your support for the BUILD Act.\n\n' +
+        'Illinois is facing a housing crisis \u2014 we are 142,000 homes short and prices have risen 37% in five years. ' +
+        'The BUILD Act is common-sense reform that will help more Illinoisans find a home they can afford.\n\n' +
+        'Please vote yes on the BUILD Act.\n\nThank you,\n[Your name]';
+
+      var card = el('div', 'background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:24px;');
+      card.appendChild(el('p', 'font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin-bottom:6px;', office.name || ''));
+      card.appendChild(el('p', 'font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px;', official.name || ''));
+      card.appendChild(el('p', 'font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:16px;', official.party || ''));
+
+      var btnRow = el('div', 'display:flex;gap:10px;flex-wrap:wrap;');
+
+      if (phone) {
+        var callBtn = el('a', 'font-size:14px;padding:10px 16px;', '\uD83D\uDCDE ' + phone);
+        callBtn.className = 'btn btn-ghost';
+        callBtn.href = 'tel:' + phone;
+        btnRow.appendChild(callBtn);
+      }
+
+      if (email) {
+        var emailBtn = el('a', 'font-size:14px;padding:10px 16px;', '\u2709 Email');
+        emailBtn.className = 'btn btn-ghost';
+        emailBtn.href = 'mailto:' + email + '?subject=' + subject + '&body=' + encodeURIComponent(bodyText);
+        btnRow.appendChild(emailBtn);
+      }
+
+      card.appendChild(btnRow);
+      return card;
+    }
+
+    function lookupLegislators() {
+      var address = document.getElementById('address-input').value.trim();
+      if (!address) return;
+      var statusEl = document.getElementById('civic-status');
+      var resultEl = document.getElementById('legislator-result');
+      statusEl.textContent = 'Looking up your legislators\u2026';
+      clearEl(resultEl);
+
+      if (!CONFIG.CIVIC_API_KEY || CONFIG.CIVIC_API_KEY === 'YOUR_API_KEY_HERE') {
+        statusEl.textContent = '';
+        resultEl.appendChild(buildLegislatorFallback());
+        return;
+      }
+
+      var url = 'https://www.googleapis.com/civicinfo/v2/representatives' +
+        '?address=' + encodeURIComponent(address) +
+        '&levels=administrativeArea1' +
+        '&roles=legislatorUpperBody&roles=legislatorLowerBody' +
+        '&key=' + encodeURIComponent(CONFIG.CIVIC_API_KEY);
+
+      fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+        statusEl.textContent = '';
+        if (data.error) {
+          statusEl.textContent = data.error.message || 'Address not found. Try a more specific address.';
+          return;
+        }
+
+        var ilOffices = (data.offices || []).filter(function(o) {
+          return (o.levels || []).includes('administrativeArea1') &&
+            (o.roles || []).some(function(r) { return r === 'legislatorUpperBody' || r === 'legislatorLowerBody'; });
+        });
+
+        if (ilOffices.length === 0) {
+          resultEl.appendChild(el('p', 'color:rgba(255,255,255,0.75);max-width:560px;',
+            'No Illinois state legislators found. Try including your full city and state (e.g. "123 Main St, Chicago IL").'));
+          return;
+        }
+
+        var grid = el('div', 'display:grid;gap:20px;max-width:700px;grid-template-columns:' +
+          (window.innerWidth < 600 ? '1fr' : '1fr 1fr') + ';');
+
+        ilOffices.forEach(function(office) {
+          (office.officialIndices || []).forEach(function(idx) {
+            var official = data.officials[idx];
+            if (official) grid.appendChild(buildLegislatorCard(office, official));
+          });
+        });
+
+        resultEl.appendChild(grid);
+      }).catch(function() {
+        statusEl.textContent = 'Network error. Please try again.';
+      });
+    }
+
+    document.getElementById('address-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') lookupLegislators();
+    });
+
+    window.addEventListener('resize', function() {
+      var grid = document.querySelector('#legislator-result > div');
+      if (grid && grid.style.gridTemplateColumns !== undefined) {
+        grid.style.gridTemplateColumns = window.innerWidth < 600 ? '1fr' : '1fr 1fr';
+      }
+    });
+
+    /* ── Share button ── */
+    document.getElementById('share-btn').addEventListener('click', function() {
+      var btn = this;
+      navigator.clipboard.writeText(location.href).then(function() {
+        btn.textContent = 'Copied \u2713';
+        setTimeout(function() { btn.textContent = 'Share this page'; }, 2000);
+      }).catch(function() {
+        btn.textContent = 'Copy the URL manually';
+      });
+    });
+  </script>
+
+</body>
+</html>
