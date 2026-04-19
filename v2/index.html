@@ -948,8 +948,56 @@
       border: 1.5px solid rgba(255,255,255,0.4);
       font-size: 0.85rem;
       padding: 0.5rem 1rem;
+      cursor: pointer;
     }
     .btn-rep-email:hover { border-color: white; }
+
+    .rep-email-panel {
+      display: none;
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .rep-email-panel.open { display: block; }
+
+    .rep-email-to {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.35rem;
+    }
+
+    .rep-email-to strong { color: white; font-weight: 600; }
+
+    .rep-email-body {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-bottom: 0.85rem;
+      font-family: inherit;
+    }
+
+    .rep-email-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .btn-copy-email {
+      background: var(--amber);
+      color: var(--teal-dark);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+    }
+    .btn-copy-email:hover { background: var(--amber-dark); }
+
+    .btn-open-mail {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+    }
+    .btn-open-mail:hover { border-color: white; }
 
     .rep-error-msg {
       background: rgba(255,255,255,0.1);
@@ -1574,10 +1622,56 @@
 
     if (person.email) {
       var subject = 'I Support the BUILD Act \u2014 Please Vote Yes';
-      var body = 'Dear ' + (person.name || 'Representative') + ',\n\nI\u2019m a constituent writing to urge your support for the BUILD Act. Illinois is facing a housing crisis \u2014 we\u2019re 142,000 homes short and prices have risen 37% in five years. The BUILD Act is common-sense reform that will help more Illinoisans find a home they can afford. Please vote yes.\n\nThank you';
-      var mailA = el('a', 'btn btn-rep-email', '\u2709\uFE0F Email');
-      mailA.href = 'mailto:' + person.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      actions.appendChild(mailA);
+      var emailBody = 'Dear ' + (person.name || 'Representative') + ',\n\nI\u2019m a constituent writing to urge your support for the BUILD Act. Illinois is facing a housing crisis \u2014 we\u2019re 142,000 homes short and prices have risen 37% in five years. The BUILD Act is common-sense reform that will help more Illinoisans find a home they can afford. Please vote yes.\n\nThank you';
+
+      var emailBtn = el('button', 'btn btn-rep-email', '\u2709\uFE0F Email');
+      actions.appendChild(emailBtn);
+      card.appendChild(actions);
+
+      // Email panel — shown on button click, built with safe DOM methods
+      var panel = el('div', 'rep-email-panel');
+
+      var toLine = el('div', 'rep-email-to');
+      toLine.appendChild(document.createTextNode('To: '));
+      var toStrong = document.createElement('strong');
+      toStrong.textContent = person.email;
+      toLine.appendChild(toStrong);
+
+      var subjectLine = el('div', 'rep-email-to');
+      subjectLine.appendChild(document.createTextNode('Subject: '));
+      var subStrong = document.createElement('strong');
+      subStrong.textContent = subject;
+      subjectLine.appendChild(subStrong);
+
+      var bodyEl = el('div', 'rep-email-body', emailBody);
+      var panelActions = el('div', 'rep-email-actions');
+
+      var copyBtn = el('button', 'btn btn-copy-email', 'Copy message');
+      copyBtn.addEventListener('click', function () {
+        var text = 'To: ' + person.email + '\nSubject: ' + subject + '\n\n' + emailBody;
+        navigator.clipboard && navigator.clipboard.writeText(text).then(function () {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(function () { copyBtn.textContent = 'Copy message'; }, 2000);
+        });
+      });
+
+      var mailtoBtn = el('a', 'btn btn-open-mail', 'Open in email app');
+      mailtoBtn.href = 'mailto:' + person.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+
+      panelActions.appendChild(copyBtn);
+      panelActions.appendChild(mailtoBtn);
+      panel.appendChild(toLine);
+      panel.appendChild(subjectLine);
+      panel.appendChild(bodyEl);
+      panel.appendChild(panelActions);
+
+      emailBtn.addEventListener('click', function () {
+        panel.classList.toggle('open');
+        emailBtn.textContent = panel.classList.contains('open') ? '\u2715 Close' : '\u2709\uFE0F Email';
+      });
+
+      card.appendChild(panel);
+      return card;
     }
 
     card.appendChild(actions);
