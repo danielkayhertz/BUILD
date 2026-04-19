@@ -6,8 +6,8 @@
   <title>BUILD Act — Let's Solve Illinois' Housing Crisis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+
 
   <style>
     /* =========================================================
@@ -40,10 +40,14 @@
     html { scroll-behavior: smooth; font-size: 18px; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Source Serif 4', Georgia, serif;
       color: var(--slate);
       background: var(--off-white);
       line-height: 1.7;
+    }
+
+    h1, h2, h3, .modal-title {
+      font-family: 'Zilla Slab', Georgia, serif;
     }
 
     img { display: block; max-width: 100%; }
@@ -199,7 +203,7 @@
       font-weight: 700;
       line-height: 1.15;
       color: var(--amber);
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-text p {
@@ -346,47 +350,30 @@
     .stat-card {
       background: white;
       border-radius: var(--radius);
-      padding: 1.5rem;
+      padding: 1.5rem 1.75rem;
       box-shadow: var(--shadow);
-      border-top: 4px solid var(--amber);
-      text-align: center;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
     }
 
     .stat-number {
-      font-size: 2.2rem;
+      font-size: 3.5rem;
       font-weight: 700;
       color: var(--teal);
       line-height: 1;
-      margin-bottom: 0.4rem;
+      flex-shrink: 0;
+      font-family: 'Zilla Slab', Georgia, serif;
     }
 
     .stat-label {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       color: var(--slate-mid);
       font-weight: 600;
+      line-height: 1.35;
     }
 
-    .chart-section {
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .chart-section h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--slate);
-      margin-bottom: 1.5rem;
-    }
-
-    .chart-wrapper {
-      position: relative;
-      height: 180px;
-    }
-
-    .impact-title {
+.impact-title {
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--slate);
@@ -402,13 +389,21 @@
     @media (max-width: 700px) { .impact-grid { grid-template-columns: 1fr; } }
 
     .impact-card {
-      background: var(--amber-light);
+      background: white;
       border-radius: var(--radius);
       padding: 1.25rem 1.5rem;
-      border-left: 4px solid var(--amber);
+      border-top: 3px solid var(--amber);
+      box-shadow: var(--shadow);
     }
 
-    .impact-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .impact-icon {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--amber-dark);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
 
     .impact-card strong {
       display: block;
@@ -479,7 +474,7 @@
     }
 
     .result-card-header h4 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.15rem; }
-    .result-card-header p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+    .result-card-header p { font-size: 0.9rem; color: rgba(255,255,255,0.9); }
 
     .result-card-body {
       display: grid;
@@ -510,16 +505,14 @@
     }
 
     .result-houses {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(5, 18px);
       gap: 3px;
-      justify-content: center;
-      max-width: 150px;
       margin: 0.25rem 0;
     }
 
     .result-affordability-pct {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: var(--slate);
       line-height: 1;
@@ -590,6 +583,172 @@
       font-size: 1.05rem;
       font-weight: 600;
       line-height: 1.45;
+    }
+
+    /* =========================================================
+       PILLAR CARD MODALS
+    ========================================================= */
+    .pillar-card {
+      cursor: pointer;
+    }
+
+    .pillar-card-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.75rem;
+      z-index: 2;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--amber);
+      opacity: 0;
+      transform: translateX(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+
+    .pillar-card:hover .pillar-card-hint {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(18, 40, 57, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Modal panel */
+    .modal-panel {
+      background: white;
+      border-radius: 16px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-backdrop.open .modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      background: var(--teal);
+      border-radius: 16px 16px 0 0;
+      padding: 1.75rem 2rem 1.5rem;
+      position: relative;
+    }
+
+    .modal-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.35;
+      margin: 0;
+      padding-right: 2rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.15s ease;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,0.22); }
+
+    .modal-body {
+      padding: 1.75rem 2rem 2rem;
+    }
+
+    .modal-body p {
+      font-size: 0.975rem;
+      color: var(--slate-mid);
+      line-height: 1.75;
+      margin-bottom: 1.1rem;
+    }
+
+    .modal-body p:last-child { margin-bottom: 0; }
+
+    .modal-body strong { color: var(--slate); }
+
+    .modal-point {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      background: var(--green-light);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 0.65rem;
+    }
+
+    .modal-point-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      line-height: 1.5;
+    }
+
+    .modal-point-text {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    .modal-point-text em {
+      font-style: normal;
+      color: var(--slate-mid);
+      font-weight: 400;
+      display: block;
+      font-size: 0.85rem;
+      margin-top: 0.15rem;
+    }
+
+    @media (max-width: 640px) {
+      .modal-body { padding: 1.25rem 1.25rem 1.5rem; }
+      .modal-header { padding: 1.25rem 1.25rem 1rem; }
     }
 
     .solution-read-more {
@@ -741,7 +900,7 @@
       outline: none;
       transition: border-color var(--transition);
     }
-    .rep-input::placeholder { color: rgba(255,255,255,0.5); }
+    .rep-input::placeholder { color: rgba(255,255,255,0.7); }
     .rep-input:focus { border-color: var(--amber); }
 
     #rep-result { display: none; }
@@ -771,7 +930,7 @@
     }
 
     .rep-name { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
-    .rep-party-district { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 1rem; }
+    .rep-party-district { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
 
     .rep-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
@@ -806,7 +965,7 @@
     ========================================================= */
     footer {
       background: var(--teal-dark);
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.8);
       padding: 3rem 1.5rem;
     }
 
@@ -885,9 +1044,9 @@
       </div>
     </div>
     <div class="hero-stat-box">
-      <p>Three in ten Illinois households pay more than they can afford for housing.<sup style="font-size:0.65em;">*</sup></p>
+      <p><strong style="color:var(--amber);font-size:1.6rem;">3 in 10</strong> Illinois households pay more than they can afford for housing.<sup style="font-size:0.65em;">*</sup></p>
       <p class="hero-stat-gap">That means workers unable to live near their jobs, families who can't find a place to own, seniors priced out of their own communities, and young people who can't get a fair start.</p>
-      <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:1rem;"><sup>*</sup> 2024 American Community Survey</p>
+      <p style="font-size:0.75rem; color:rgba(255,255,255,0.75); margin-top:1rem;"><sup>*</sup> 2024 American Community Survey</p>
     </div>
   </div>
 </section>
@@ -899,24 +1058,15 @@
   <div class="section-inner">
     <p class="section-label">The Challenge</p>
     <h2>Illinois Has a Housing Problem.</h2>
-    <p class="section-sub">The numbers are stark — and they affect families in every corner of the state.</p>
 
     <div class="stat-grid">
       <div class="stat-card fade-in">
-        <div class="stat-number">142,000<sup>1</sup></div>
-        <div class="stat-label">homes short right now</div>
+        <div class="stat-number">142,000</div>
+        <div class="stat-label">homes short right now<sup>1</sup></div>
       </div>
       <div class="stat-card fade-in">
-        <div class="stat-number">37%<sup>2</sup></div>
-        <div class="stat-label">average home price increase in 5 years</div>
-      </div>
-    </div>
-
-    <!-- Gap chart -->
-    <div class="chart-section fade-in">
-      <h3>Illinois' Housing Gap — Built vs. Needed (annual)</h3>
-      <div class="chart-wrapper">
-        <canvas id="gapChart"></canvas>
+        <div class="stat-number">+37%</div>
+        <div class="stat-label">average home price increase in 5 years<sup>2</sup></div>
       </div>
     </div>
 
@@ -924,17 +1074,17 @@
     <h3 class="impact-title">What happens when Illinois underbuilds year after year?</h3>
     <div class="impact-grid">
       <div class="impact-card fade-in">
-        <div class="impact-icon">🏠</div>
+        <div class="impact-icon">1.</div>
         <strong>Fewer starter homes</strong>
         <p>First-time buyers compete for the same shrinking inventory, driving up prices for everyone.</p>
       </div>
       <div class="impact-card fade-in">
-        <div class="impact-icon">👷</div>
+        <div class="impact-icon">2.</div>
         <strong>Fewer construction jobs</strong>
         <p>Illinois loses building trades work to states that build — and that cost shows up in every community.</p>
       </div>
       <div class="impact-card fade-in">
-        <div class="impact-icon">⚡</div>
+        <div class="impact-icon">3.</div>
         <strong>More bidding wars</strong>
         <p>When demand outpaces supply every single year, prices rise and affordability falls further out of reach.</p>
       </div>
@@ -967,14 +1117,16 @@
           <div class="result-card-body">
             <div class="result-col">
               <div class="result-col-label">Affordability</div>
-              <div class="result-houses" id="result-houses"></div>
               <div class="result-affordability-pct" id="result-aff-pct"></div>
+              <div class="result-houses" id="result-houses"></div>
               <p class="result-aff-footnote">Affordability based on 2023 analysis by the Illinois Housing Development Authority. Rental homes are considered affordable if they cost less than 30% of the income of a household at 60% of Area Median Income; owner-occupied homes are considered affordable if they cost less than 30% of the income of a household at 80% of Area Median Income.</p>
             </div>
             <div class="result-col">
               <div class="result-col-label">Building Rate</div>
               <div class="result-big-number" id="result-rate"></div>
               <div class="result-big-sub" id="result-rate-label"></div>
+              <div class="result-big-sub" style="font-size:0.8rem; color:var(--slate-mid);">National average is 4.0</div>
+              <div class="result-aff-footnote" style="text-align:center;">Source: U.S. Census Bureau Building Permits Survey, 2014–2024</div>
             </div>
             <div class="result-col">
               <div class="result-col-label">Home Value Change (2014–2024)</div>
@@ -998,21 +1150,25 @@
     <p class="section-sub fade-in">Common-sense reforms to help more Illinoisans find a home they can afford.</p>
 
     <div class="pillar-grid">
-      <div class="pillar-card fade-in" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80')">
+      <div class="pillar-card fade-in" style="background-image: url('leo-heisenberg-8IYB65Ueuws-unsplash.jpg')" data-modal="modal-missing-middle" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="pillar-card-overlay"></div>
         <div class="pillar-card-text">More starter homes, townhomes, and three-flats — not McMansions.</div>
+        <span class="pillar-card-hint">Learn more →</span>
       </div>
-      <div class="pillar-card fade-in" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')">
+      <div class="pillar-card fade-in" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')" data-modal="modal-permit-fees" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="pillar-card-overlay"></div>
         <div class="pillar-card-text">Align permit fees to actual costs.</div>
+        <span class="pillar-card-hint">Learn more →</span>
       </div>
-      <div class="pillar-card fade-in" style="background-image: url('https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=80')">
+      <div class="pillar-card fade-in" style="background-image: url('brooke-balentine-QQOfPFkFQg4-unsplash.jpg')" data-modal="modal-adus" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="pillar-card-overlay"></div>
         <div class="pillar-card-text">Allow "in-law suites" and coach houses for multigenerational living.</div>
+        <span class="pillar-card-hint">Learn more →</span>
       </div>
-      <div class="pillar-card fade-in" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80')">
+      <div class="pillar-card fade-in" style="background-image: url('hiveboxx-BFkLO0kYLlg-unsplash.jpg')" data-modal="modal-investment" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="pillar-card-overlay"></div>
         <div class="pillar-card-text">Invest $250M in homebuyer assistance, site infrastructure like sewers and utilities, and housing development.</div>
+        <span class="pillar-card-hint">Learn more →</span>
       </div>
     </div>
 
@@ -1121,7 +1277,7 @@
     </div>
     <hr class="footer-divider" />
     <div class="footer-sources">
-      <strong style="color:rgba(255,255,255,0.7);font-size:0.8rem;">Data Sources: </strong>
+      <strong style="color:rgba(255,255,255,0.9);font-size:0.8rem;">Data Sources: </strong>
       IHDA Affordable Housing Planning and Appeal Act (AHPAA) 2023 ·
       U.S. Census Bureau Building Permits Survey 2014–2024 ·
       Zillow Home Value Index (ZHVI), city-level, mid-tier, all homes
@@ -1134,6 +1290,69 @@
 </footer>
 
 <!-- =====================================================
+     PILLAR MODALS
+===================================================== -->
+
+<!-- Modal: Missing Middle Housing -->
+<div class="modal-backdrop" id="modal-missing-middle" role="dialog" aria-modal="true" aria-labelledby="modal-missing-middle-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-missing-middle-title">More starter homes, townhomes, and three-flats — not McMansions.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Today, many municipalities ban smaller and even mid-sized homes, whether as detached single-family houses, townhomes, or two and three-flats. The result: fewer new homes overall, and the only new housing that's allowed is the most expensive.</p>
+      <p>The BUILD Act ensures that more reasonably priced kinds of homes aren't banned entirely, while ensuring local control over design standards and health and safety reviews. Minimum standards adapt based on the size of a community's lots, with single family homes allowed on smaller lots (under 2,500 square feet), four homes allowed on lots up to 5,000 square feet, six up to 7,500 square feet, and eight homes on the largest lots.</p>
+      <p>These rules encourage small-scale development that provides moderate-cost housing choices for young people, families, and seniors.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Permit Fees -->
+<div class="modal-backdrop" id="modal-permit-fees" role="dialog" aria-modal="true" aria-labelledby="modal-permit-fees-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-permit-fees-title">Align permit fees to actual costs.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Building permits are supposed to recover the cost of reviewing plans and inspecting construction — not act as a hidden tax on new housing. Some Illinois communities charge fees far beyond what it costs to administer the permit, adding thousands of dollars to the price of a new home.</p>
+      <p>The BUILD Act sets fees to reflect the actual cost of serving new homes. It also sets standards for the time it takes to review housing permit applications, encouraging faster, more predictable timelines. That means red tape doesn't stand in the way of homes for Illinois families.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: ADUs -->
+<div class="modal-backdrop" id="modal-adus" role="dialog" aria-modal="true" aria-labelledby="modal-adus-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-adus-title">Allow "in-law suites" and coach houses for multigenerational living.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Accessory Dwelling Units (ADUs) — sometimes called in-law suites, granny flats, backyard cottages, or coach houses — are small homes built on the same lot as another home. They are often used by families to keep grandparents, parents, and kids together while ensuring independence and privacy. Unfortunately, many Illinois municipalities use zoning to prohibit their residents from using or building ADUs. The BUILD Act would give this option back to Illinois families.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: $250M Investment -->
+<div class="modal-backdrop" id="modal-investment" role="dialog" aria-modal="true" aria-labelledby="modal-investment-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-investment-title">Invest $250M in homebuyer assistance, site infrastructure, and housing development.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Illinois needs more homes, but the private market won't meet our housing needs on its own. From down payment assistance to the cost of putting in sewers and utilities to serve new housing, the BUILD Act also calls on the state to invest $250 million to ensure new housing works for Illinois families.</p>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
 <script>
@@ -1143,7 +1362,7 @@
   /* ------------------------------------------------
      CONFIG
   ------------------------------------------------ */
-  var CONFIG = { CIVIC_API_KEY: 'AIzaSyDuKGh9F8fBo1wJDpxbP255NPbaF_xfcdg' };
+  var CONFIG = { OPENSTATES_API_KEY: '7cc761c1-1b38-4dc0-947f-c8e3f8b1849b' };
 
   /* ------------------------------------------------
      UTILITIES
@@ -1185,58 +1404,6 @@
     items.forEach(function (item) { observer.observe(item); });
   }
 
-  /* ------------------------------------------------
-     GAP BAR CHART
-  ------------------------------------------------ */
-  function buildGapChart() {
-    var canvas = document.getElementById('gapChart');
-    if (!canvas) return;
-
-    new Chart(canvas.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: ['Built (annual avg)', 'Needed (annual)'],
-        datasets: [{
-          data: [19000, 45000],
-          backgroundColor: ['#F59E0B', '#1B3A4B'],
-          borderRadius: 6,
-          barThickness: 40
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function (ctx) {
-                return ' ' + ctx.parsed.x.toLocaleString() + ' homes/year';
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            min: 0,
-            max: 55000,
-            ticks: {
-              callback: function (v) { return (v / 1000) + 'k'; },
-              color: '#4B5563',
-              font: { size: 12 }
-            },
-            grid: { color: 'rgba(0,0,0,0.06)' }
-          },
-          y: {
-            ticks: { color: '#1F2937', font: { size: 13, weight: '600' } },
-            grid: { display: false }
-          }
-        },
-        animation: {}
-      }
-    });
-  }
 
   /* ------------------------------------------------
      COMMUNITY LOOKUP
@@ -1291,21 +1458,32 @@
     clearEl(housesEl);
     var total = 20;
     var affordable = Math.round(affPct / 100 * total);
+    var unaffordable = total - affordable;
     for (var h = 0; h < total; h++) {
-      var color = h < affordable ? '#1B3A4B' : '#DC2626';
+      var isAffordable = h >= unaffordable;
       var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute('viewBox', '0 0 20 20');
       svg.setAttribute('width', '18');
       svg.setAttribute('height', '18');
       var roof = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
       roof.setAttribute('points', '10,2 18,10 2,10');
-      roof.setAttribute('fill', color);
       var body = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       body.setAttribute('x', '4');
       body.setAttribute('y', '10');
       body.setAttribute('width', '12');
       body.setAttribute('height', '8');
-      body.setAttribute('fill', color);
+      if (isAffordable) {
+        roof.setAttribute('fill', '#2D6A4F');
+        body.setAttribute('fill', '#2D6A4F');
+      } else {
+        roof.setAttribute('fill', 'none');
+        roof.setAttribute('stroke', '#F59E0B');
+        roof.setAttribute('stroke-width', '1.5');
+        roof.setAttribute('stroke-linejoin', 'round');
+        body.setAttribute('fill', 'none');
+        body.setAttribute('stroke', '#F59E0B');
+        body.setAttribute('stroke-width', '1.5');
+      }
       svg.appendChild(roof);
       svg.appendChild(body);
       housesEl.appendChild(svg);
@@ -1371,36 +1549,36 @@
   /* ------------------------------------------------
      LEGISLATOR LOOKUP
   ------------------------------------------------ */
-  function buildRepCard(official, office) {
+  function buildRepCard(person) {
     var card = el('div', 'rep-card');
 
-    card.appendChild(el('div', 'rep-role', office.name || 'Legislator'));
-    card.appendChild(el('div', 'rep-name', official.name || ''));
+    var role = person.current_role || {};
+    var roleTitle = role.org_classification === 'upper' ? 'State Senator' : 'State Representative';
+    var district = role.district || '';
+
+    card.appendChild(el('div', 'rep-role', roleTitle));
+    card.appendChild(el('div', 'rep-name', person.name || ''));
 
     var parts = [];
-    if (official.party) parts.push(official.party);
-    if (office.divisionId) {
-      var dm = office.divisionId.match(/district:(\w+)$/);
-      if (dm) parts.push('District ' + dm[1].toUpperCase());
-    }
+    if (person.party) parts.push(person.party);
+    if (district) parts.push('District ' + district);
     card.appendChild(el('div', 'rep-party-district', parts.join(' \u00b7 ')));
 
     var actions = el('div', 'rep-actions');
 
-    var phones = official.phones;
-    if (phones && phones.length) {
+    var phone = null;
+    (person.offices || []).forEach(function (o) { if (!phone && o.voice) phone = o.voice; });
+    if (phone) {
       var callA = el('a', 'btn btn-rep-call', '\uD83D\uDCDE Call');
-      callA.href = 'tel:' + phones[0].replace(/\s/g, '');
+      callA.href = 'tel:' + phone.replace(/\D/g, '');
       actions.appendChild(callA);
     }
 
-    var emails = official.emails;
-    if (emails && emails.length) {
-      var district = parts.filter(function (p) { return p.startsWith('District'); }).join('');
+    if (person.email) {
       var subject = 'I Support the BUILD Act \u2014 Please Vote Yes';
-      var body = 'Dear ' + (official.name || 'Representative') + ',\n\nI\u2019m a constituent in ' + district + ' writing to urge your support for the BUILD Act. Illinois is facing a housing crisis \u2014 we\u2019re 142,000 homes short and prices have risen 37% in five years. The BUILD Act is common-sense reform that will help more Illinoisans find a home they can afford. Please vote yes.\n\nThank you';
+      var body = 'Dear ' + (person.name || 'Representative') + ',\n\nI\u2019m a constituent writing to urge your support for the BUILD Act. Illinois is facing a housing crisis \u2014 we\u2019re 142,000 homes short and prices have risen 37% in five years. The BUILD Act is common-sense reform that will help more Illinoisans find a home they can afford. Please vote yes.\n\nThank you';
       var mailA = el('a', 'btn btn-rep-email', '\u2709\uFE0F Email');
-      mailA.href = 'mailto:' + emails[0] + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      mailA.href = 'mailto:' + person.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       actions.appendChild(mailA);
     }
 
@@ -1421,37 +1599,41 @@
     var addr = document.getElementById('rep-address').value.trim();
     if (!addr) return;
 
-    if (!CONFIG.CIVIC_API_KEY || CONFIG.CIVIC_API_KEY === 'YOUR_API_KEY_HERE') {
+    if (!CONFIG.OPENSTATES_API_KEY || CONFIG.OPENSTATES_API_KEY === 'YOUR_OPENSTATES_KEY_HERE') {
       showRepError('Legislator lookup is not configured. Visit ilga.gov/house/rep/find.asp to find your state representative.');
       return;
     }
 
-    var url = 'https://www.googleapis.com/civicinfo/v2/representatives'
-      + '?key=' + encodeURIComponent(CONFIG.CIVIC_API_KEY)
-      + '&address=' + encodeURIComponent(addr)
-      + '&levels=administrativeArea1'
-      + '&roles=legislatorUpperBody'
-      + '&roles=legislatorLowerBody';
+    // Step 1: geocode address with free Census geocoder
+    var geocodeUrl = 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress'
+      + '?address=' + encodeURIComponent(addr)
+      + '&benchmark=Public_AR_Current'
+      + '&format=json';
 
-    fetch(url)
+    fetch(geocodeUrl)
       .then(function (r) { return r.json(); })
+      .then(function (geoData) {
+        var matches = geoData.result && geoData.result.addressMatches;
+        if (!matches || !matches.length) {
+          showRepError('Address not found. Please try a more specific Illinois address.');
+          return null;
+        }
+        var lat = matches[0].coordinates.y;
+        var lng = matches[0].coordinates.x;
+
+        // Step 2: query OpenStates by coordinates
+        return fetch('https://v3.openstates.org/people.geo?lat=' + lat + '&lng=' + lng
+          + '&apikey=' + encodeURIComponent(CONFIG.OPENSTATES_API_KEY));
+      })
+      .then(function (r) { return r ? r.json() : null; })
       .then(function (data) {
-        if (data.error) { showRepError('Address not found. Please try a more specific address.'); return; }
+        if (!data) return;
 
-        var offices = data.offices || [];
-        var officials = data.officials || [];
-        var pairs = [];
-
-        offices.forEach(function (office) {
-          if (!(office.divisionId || '').includes('illinois')) return;
-          var roles = office.roles || [];
-          if (!roles.some(function (r) { return r === 'legislatorUpperBody' || r === 'legislatorLowerBody'; })) return;
-          (office.officialIndices || []).forEach(function (idx) {
-            pairs.push({ official: officials[idx], office: office });
-          });
+        var reps = (data.results || []).filter(function (p) {
+          return p.jurisdiction && (p.jurisdiction.id || '').includes('state:il');
         });
 
-        if (!pairs.length) {
+        if (!reps.length) {
           showRepError('No Illinois state legislators found. Make sure you entered an Illinois address.');
           return;
         }
@@ -1460,7 +1642,7 @@
         var resultEl = document.getElementById('rep-result');
         var cardsEl = document.getElementById('rep-cards');
         clearEl(cardsEl);
-        pairs.forEach(function (p) { cardsEl.appendChild(buildRepCard(p.official, p.office)); });
+        reps.forEach(function (p) { cardsEl.appendChild(buildRepCard(p)); });
         resultEl.style.display = 'block';
       })
       .catch(function () {
@@ -1506,10 +1688,53 @@
   });
 
   /* ------------------------------------------------
+     PILLAR CARD MODALS
+  ------------------------------------------------ */
+  function openModal(id) {
+    var backdrop = document.getElementById(id);
+    if (!backdrop) return;
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // focus the close button for accessibility
+    var closeBtn = backdrop.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(backdrop) {
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Open on pillar card click / Enter key
+  document.querySelectorAll('.pillar-card[data-modal]').forEach(function (card) {
+    card.addEventListener('click', function () { openModal(card.dataset.modal); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card.dataset.modal); }
+    });
+  });
+
+  // Close on backdrop click or close button
+  document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) closeModal(backdrop);
+    });
+    var closeBtn = backdrop.querySelector('.modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () { closeModal(backdrop); });
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-backdrop.open').forEach(function (b) { closeModal(b); });
+    }
+  });
+
+  /* ------------------------------------------------
      INIT
   ------------------------------------------------ */
   setupAnimations();
-  buildGapChart();
 
 }());
 </script>
