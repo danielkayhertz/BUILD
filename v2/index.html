@@ -1062,11 +1062,11 @@
     <div class="stat-grid">
       <div class="stat-card fade-in">
         <div class="stat-number">142,000</div>
-        <div class="stat-label">homes short right now<sup>1</sup></div>
+        <div class="stat-label">homes short right now</div>
       </div>
       <div class="stat-card fade-in">
         <div class="stat-number">+37%</div>
-        <div class="stat-label">average home price increase in 5 years<sup>2</sup></div>
+        <div class="stat-label">average home price increase in 5 years</div>
       </div>
     </div>
 
@@ -1091,8 +1091,6 @@
     </div>
 
     <div class="problem-footnotes">
-      <sup>1</sup> [Source TK] &nbsp;&nbsp;
-      <sup>2</sup> [Source TK]
     </div>
 
     <!-- Community lookup -->
@@ -1272,8 +1270,8 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-coalition">
-      <strong>Coalition Supporters</strong>
-      <p>Housing Action Illinois · Impact for Equity · Metropolitan Planning Council · YIMBY Illinois · Elevated Chicago · Chicago Metropolitan Agency for Planning · Illinois Housing Council</p>
+      <strong>Endorsing Organizations</strong>
+      <p></p>
     </div>
     <hr class="footer-divider" />
     <div class="footer-sources">
@@ -1611,7 +1609,10 @@
       + '&format=json';
 
     fetch(geocodeUrl)
-      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        if (!r.ok) throw new Error('geocoder-http:' + r.status);
+        return r.json();
+      })
       .then(function (geoData) {
         var matches = geoData.result && geoData.result.addressMatches;
         if (!matches || !matches.length) {
@@ -1625,7 +1626,11 @@
         return fetch('https://v3.openstates.org/people.geo?lat=' + lat + '&lng=' + lng
           + '&apikey=' + encodeURIComponent(CONFIG.OPENSTATES_API_KEY));
       })
-      .then(function (r) { return r ? r.json() : null; })
+      .then(function (r) {
+        if (!r) return null;
+        if (!r.ok) throw new Error('openstates-http:' + r.status);
+        return r.json();
+      })
       .then(function (data) {
         if (!data) return;
 
@@ -1645,8 +1650,15 @@
         reps.forEach(function (p) { cardsEl.appendChild(buildRepCard(p)); });
         resultEl.style.display = 'block';
       })
-      .catch(function () {
-        showRepError('Could not load legislator data. Please visit ilga.gov/house/rep/find.asp to find your representative.');
+      .catch(function (err) {
+        var msg = err && err.message || '';
+        if (msg.indexOf('geocoder-http') === 0) {
+          showRepError('Could not reach the address lookup service (error ' + msg.split(':')[1] + '). Please try again shortly.');
+        } else if (msg.indexOf('openstates-http') === 0) {
+          showRepError('Could not load legislator data (error ' + msg.split(':')[1] + '). Please visit ilga.gov/house/rep/find.asp to find your representative.');
+        } else {
+          showRepError('Could not load legislator data. Please visit ilga.gov/house/rep/find.asp to find your representative. (Detail: ' + msg + ')');
+        }
       });
   }
 
