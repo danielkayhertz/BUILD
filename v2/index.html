@@ -1602,25 +1602,23 @@
       return;
     }
 
-    // Step 1: geocode address with free Census geocoder
-    var geocodeUrl = 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress'
-      + '?address=' + encodeURIComponent(addr)
-      + '&benchmark=Public_AR_Current'
-      + '&format=json';
+    // Step 1: geocode address with Nominatim (CORS-friendly)
+    var geocodeUrl = 'https://nominatim.openstreetmap.org/search'
+      + '?q=' + encodeURIComponent(addr)
+      + '&format=json&limit=1&countrycodes=us';
 
-    fetch(geocodeUrl)
+    fetch(geocodeUrl, { headers: { 'Accept': 'application/json' } })
       .then(function (r) {
         if (!r.ok) throw new Error('geocoder-http:' + r.status);
         return r.json();
       })
       .then(function (geoData) {
-        var matches = geoData.result && geoData.result.addressMatches;
-        if (!matches || !matches.length) {
+        if (!geoData || !geoData.length) {
           showRepError('Address not found. Please try a more specific Illinois address.');
           return null;
         }
-        var lat = matches[0].coordinates.y;
-        var lng = matches[0].coordinates.x;
+        var lat = geoData[0].lat;
+        var lng = geoData[0].lon;
 
         // Step 2: query OpenStates by coordinates
         return fetch('https://v3.openstates.org/people.geo?lat=' + lat + '&lng=' + lng
