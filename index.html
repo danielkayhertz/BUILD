@@ -817,48 +817,16 @@
       margin-bottom: 0.75rem;
       background: white;
       overflow: hidden;
-    }
-
-    .faq-btn {
-      width: 100%;
-      background: none;
-      border: none;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
       padding: 1.25rem 1.5rem;
-      cursor: pointer;
-      text-align: left;
-      font-family: inherit;
-      font-size: 1rem;
+    }
+
+    .faq-header {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--slate);
-      gap: 1rem;
-    }
-
-    .faq-btn:hover { background: var(--amber-light); }
-
-    .faq-q-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .faq-quote {
-      font-style: italic;
-      font-size: 0.975rem;
-      line-height: 1.5;
-    }
-
-    .faq-attribution {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--slate-mid);
-    }
-
-    .faq-stat {
-      color: var(--amber-dark);
-      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 0.65rem;
+      line-height: 1.4;
     }
 
     .faq-fn {
@@ -866,24 +834,7 @@
       color: var(--slate-mid);
     }
 
-    .faq-icon {
-      font-size: 0.85rem;
-      color: var(--amber);
-      flex-shrink: 0;
-      margin-top: 0.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-
-    .faq-answer.open { max-height: 600px; }
-
     .faq-answer-inner {
-      padding: 0 1.5rem 1.25rem;
       font-size: 0.95rem;
       color: var(--slate-mid);
       line-height: 1.75;
@@ -1103,7 +1054,7 @@
     <ul class="nav-links">
       <li><a href="#problem">The Problem</a></li>
       <li><a href="#solution">What BUILD Does</a></li>
-      <li><a href="#faq">Concerns</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#cta">Take Action</a></li>
     </ul>
   </div>
@@ -1120,12 +1071,13 @@
       <p>The status quo isn't working. The BUILD plan offers common-sense reforms and investments to create more homes and bring down housing costs.</p>
       <div class="hero-ctas">
         <a href="#solution" class="btn btn-primary">Learn What BUILD Does</a>
-        <a href="#cta" class="btn btn-alert"><span class="btn-alert-label">Alert</span>Contact Your Legislator</a>
+        <a href="#cta" class="btn btn-alert">Contact Your Legislator</a>
       </div>
     </div>
     <div class="hero-stat-box">
       <p><strong style="color:var(--amber);font-size:1.6rem;">3 in 10</strong> Illinois households pay more than they can afford for housing.<sup style="font-size:0.65em;">*</sup></p>
       <p class="hero-stat-gap">That means workers unable to live near their jobs, families who can't find a place to own, seniors priced out of their own communities, and young people who can't get a fair start.</p>
+      <p class="hero-stat-gap"><strong style="color:var(--amber);font-size:1.6rem;">7 in 10</strong> Illinois residents — majorities of urban, rural, and suburban areas — support making it easier to build a variety of kinds of homes to address this crisis.</p>
       <p style="font-size:0.75rem; color:rgba(255,255,255,0.75); margin-top:1rem;"><sup>*</sup> 2024 American Community Survey</p>
     </div>
   </div>
@@ -1261,52 +1213,28 @@
 ===================================================== -->
 <section id="faq">
   <div class="section-inner">
-    <p class="section-label">Responding to Opponents</p>
+    <p class="section-label">Frequently asked questions</p>
     <h2 class="fade-in">The BUILD plan promotes popular, common-sense ideas.</h2>
 
     <div class="faq-list">
       <div class="faq-item fade-in">
-        <button class="faq-btn">
-          <span class="faq-q-wrap">
-            <span class="faq-quote">"The BUILD plan 'broadly preempts the village's local authority on issues that are entirely local'"</span>
-            <span class="faq-attribution">— John Svalenka, Development Director, Lake in the Hills <span class="faq-stat">(housing price increase from 2014–2024: 104.9%)</span><sup class="faq-fn">1</sup></span>
-          </span>
-          <span class="faq-icon">&#9660;</span>
-        </button>
-        <div class="faq-answer open">
-          <div class="faq-answer-inner">
-            The BUILD plan maintains local government powers to set rules on design standards, health and safety, and local zoning districts, while ensuring minimum standards so that officials cannot completely prohibit smaller homes. Many municipalities require homes to sit on very large lots — in some cases, an acre or more. Housing is a statewide issue, and needs to be addressed by the state.
-          </div>
+        <div class="faq-header">Does the BUILD plan preempt local authority?</div>
+        <div class="faq-answer-inner">
+          The BUILD plan maintains local government powers to set rules on design standards, health and safety, and local zoning districts, while ensuring minimum standards so that officials cannot completely prohibit smaller homes or use bureaucratic procedures to block housing. Many municipalities require homes to sit on very large lots — in some cases, an acre or more. Housing is a statewide issue, and needs to be addressed by the state.
         </div>
       </div>
 
       <div class="faq-item fade-in">
-        <button class="faq-btn">
-          <span class="faq-q-wrap">
-            <span class="faq-quote">"If somebody were to say, 'OK, we're going to put two houses on that' — oh my gosh, people would have a heart attack"</span>
-            <span class="faq-attribution">— Paula McCombie, Mayor, South Barrington <span class="faq-stat">(median home price: $1,030,562)</span><sup class="faq-fn">2</sup></span>
-          </span>
-          <span class="faq-icon">&#9660;</span>
-        </button>
-        <div class="faq-answer open">
-          <div class="faq-answer-inner">
-            Illinois residents support more housing choice: 69% say they approve of making it easier to build smaller homes, versus just 21% who disapprove. This support crosses party lines and regions: majorities of Democrats, Republicans, and independents, as well as urban, suburban, and rural Illinoisans approve.<sup class="faq-fn">4</sup>
-          </div>
+        <div class="faq-header">Will Illinois residents welcome more starter homes in their communities?</div>
+        <div class="faq-answer-inner">
+          Illinois residents support more housing choice: 69% say they approve of making it easier to build smaller homes, versus just 21% who disapprove. This support crosses party lines and regions: majorities of Democrats, Republicans, and independents, as well as urban, suburban, and rural Illinoisans approve.<sup class="faq-fn">4</sup>
         </div>
       </div>
 
       <div class="faq-item fade-in">
-        <button class="faq-btn">
-          <span class="faq-q-wrap">
-            <span class="faq-quote">"Someone could build a three-flat"</span>
-            <span class="faq-attribution">— Rod Craig, Mayor, Hanover Park <span class="faq-stat">(housing price increase from 2014–2024: 124%)</span><sup class="faq-fn">3</sup></span>
-          </span>
-          <span class="faq-icon">&#9660;</span>
-        </button>
-        <div class="faq-answer open">
-          <div class="faq-answer-inner">
-            Two and three flats, sometimes called duplexes and triplexes, have provided homes for countless Illinois families across the state for generations. 56% of Illinoisans support allowing these kinds of homes where single-family homes are allowed, with only 23% opposed.<sup class="faq-fn">4</sup>
-          </div>
+        <div class="faq-header">What about small condo and apartment buildings, like three-flats?</div>
+        <div class="faq-answer-inner">
+          Two and three flats, sometimes called duplexes and triplexes, have provided homes for countless Illinois families across the state for generations. 56% of Illinoisans support allowing these kinds of homes where single-family homes are allowed, with only 23% opposed.<sup class="faq-fn">4</sup>
         </div>
       </div>
     </div>
@@ -1795,24 +1723,6 @@
   document.getElementById('rep-btn').addEventListener('click', runRepLookup);
   document.getElementById('rep-address').addEventListener('keydown', function (e) {
     if (e.key === 'Enter') runRepLookup();
-  });
-
-  /* ------------------------------------------------
-     FAQ ACCORDION
-  ------------------------------------------------ */
-  document.querySelectorAll('.faq-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var answer = btn.nextElementSibling;
-      var icon = btn.querySelector('.faq-icon');
-      var isOpen = answer.classList.contains('open');
-      answer.classList.toggle('open', !isOpen);
-      icon.style.transform = isOpen ? '' : 'rotate(180deg)';
-    });
-  });
-
-  // Default-open all item icons
-  document.querySelectorAll('.faq-item .faq-icon').forEach(function (icon) {
-    icon.style.transform = 'rotate(180deg)';
   });
 
   /* ------------------------------------------------
