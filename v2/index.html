@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUILD Affordability Agenda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+    ========================================================= */
+    :root {
+      --amber:       #F59E0B;
+      --amber-dark:  #D97706;
+      --amber-light: #FEF3C7;
+      --green:       #2D6A4F;
+      --green-light: #F0FDF4;
+      --teal:        #1B3A4B;
+      --teal-dark:   #122839;
+      --off-white:   #FFF9F0;
+      --slate:       #1F2937;
+      --slate-mid:   #4B5563;
+      --slate-light: #F3F4F6;
+      --red:         #DC2626;
+      --radius:      12px;
+      --shadow:      0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 32px rgba(0,0,0,0.12);
+      --transition:  0.2s ease;
+    }
+
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--slate);
+      background: var(--off-white);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, .modal-title {
+      font-family: 'Zilla Slab', Georgia, serif;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* =========================================================
+       SCROLL ANIMATIONS
+    ========================================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--teal);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--amber);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* Hamburger — pure CSS */
+    #nav-toggle { display: none; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--teal-dark);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .nav-links li a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        font-size: 1rem;
+      }
+
+      #nav-toggle:checked ~ .nav-inner .nav-links {
+        max-height: 360px;
+      }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(2) {
+        opacity: 0;
+      }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center 60%;
+      color: white;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(27,58,75,0.92) 50%, rgba(27,58,75,0.5));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--teal-dark);
+    }
+    .btn-primary:hover { background: var(--amber-dark); box-shadow: 0 4px 12px rgba(245,158,11,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    .btn-alert {
+      background: var(--red);
+      color: white;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+      padding: 0.6rem 1.6rem;
+    }
+    .btn-alert:hover { background: #b91c1c; box-shadow: 0 4px 12px rgba(220,38,38,0.45); }
+    .btn-alert-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .hero-stat-box {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      color: white;
+    }
+
+    .hero-stat-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 0.75rem;
+    }
+    .hero-stat-box p:last-child { margin-bottom: 0; }
+
+    .hero-stat-box strong {
+      color: var(--amber);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .hero-stat-gap {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .hero-stat-box {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(18,40,57,0.9);
+        border-color: rgba(255,255,255,0.15);
+      }
+      .hero-overlay { background: rgba(27,58,75,0.85); }
+    }
+
+    /* =========================================================
+       SECTIONS — SHARED
+    ========================================================= */
+    section { padding: 5rem 1.5rem; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--slate-mid);
+      max-width: 680px;
+      margin-bottom: 3rem;
+    }
+
+    /* =========================================================
+       PROBLEM SECTION
+    ========================================================= */
+    #problem { background: var(--off-white); }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 500px) { .stat-grid { grid-template-columns: 1fr; } }
+
+    .stat-number sup {
+      font-size: 0.55em;
+      vertical-align: super;
+      font-weight: 600;
+    }
+
+    .problem-footnotes {
+      font-size: 0.78rem;
+      color: var(--slate-mid);
+      line-height: 1.8;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E5E7EB;
+    }
+    .problem-footnotes sup { font-size: 0.7em; }
+
+    .stat-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      flex-shrink: 0;
+      font-family: 'Zilla Slab', Georgia, serif;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+.impact-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 1.25rem;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 700px) { .impact-grid { grid-template-columns: 1fr; } }
+
+    .impact-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      border-top: 3px solid var(--amber);
+      box-shadow: var(--shadow);
+    }
+
+    .impact-icon {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--amber-dark);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-card strong {
+      display: block;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .impact-card p {
+      font-size: 0.875rem;
+      color: var(--slate-mid);
+      line-height: 1.5;
+    }
+
+    /* Community lookup */
+    .lookup-head { margin-bottom: 1.25rem; }
+    .lookup-head h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .lookup-head p { color: var(--slate-mid); font-size: 0.95rem; }
+
+    .lookup-form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .lookup-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.75rem 1rem;
+      border: 2px solid #E5E7EB;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color var(--transition);
+      background: white;
+    }
+    .lookup-input:focus { border-color: var(--amber); }
+
+    .btn-amber { background: var(--amber); color: var(--teal-dark); }
+    .btn-amber:hover { background: var(--amber-dark); }
+
+    .lookup-no-result {
+      padding: 1.25rem 1.5rem;
+      background: var(--amber-light);
+      border-radius: var(--radius);
+      color: var(--slate);
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    /* Community result card */
+    #community-result { display: none; }
+
+    .result-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .result-card-header {
+      background: var(--teal);
+      color: white;
+      padding: 1.25rem 1.75rem;
+    }
+
+    .result-card-header h4 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .result-card-header p { font-size: 0.9rem; color: rgba(255,255,255,0.9); }
+
+    .result-card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 650px) { .result-card-body { grid-template-columns: 1fr; } }
+
+    .result-col {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .result-col + .result-col { border-left: 1px solid #F3F4F6; }
+    @media (max-width: 650px) {
+      .result-col + .result-col { border-left: none; border-top: 1px solid #F3F4F6; }
+    }
+
+    .result-col-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-mid);
+    }
+
+    .result-houses {
+      display: grid;
+      grid-template-columns: repeat(5, 18px);
+      gap: 3px;
+      margin: 0.25rem 0;
+    }
+
+    .result-affordability-pct {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1;
+    }
+
+    .result-aff-footnote {
+      font-size: 0.68rem;
+      color: var(--slate-mid);
+      line-height: 1.45;
+      text-align: left;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #F3F4F6;
+    }
+
+    .result-big-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .result-big-sub { font-size: 0.85rem; color: var(--slate-mid); line-height: 1.4; }
+
+    .result-change-pct { font-size: 2.5rem; font-weight: 700; color: var(--teal); line-height: 1; }
+    .result-change-abs { font-size: 0.85rem; color: var(--slate-mid); }
+    .result-no-data { font-size: 0.85rem; color: var(--slate-mid); font-style: italic; }
+
+    /* =========================================================
+       SOLUTION SECTION
+    ========================================================= */
+    #solution { background: var(--green-light); }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 600px) { .pillar-grid { grid-template-columns: 1fr; } }
+
+    .pillar-card {
+      position: relative;
+      border-radius: var(--radius);
+      min-height: 240px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .pillar-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(18,40,57,0.88) 40%, rgba(18,40,57,0.25));
+    }
+
+    .pillar-card-text {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem 1.75rem;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    /* =========================================================
+       PILLAR CARD MODALS
+    ========================================================= */
+    .pillar-card {
+      cursor: pointer;
+    }
+
+    .pillar-card-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.75rem;
+      z-index: 2;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--amber);
+      opacity: 0;
+      transform: translateX(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+
+    .pillar-card:hover .pillar-card-hint {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(18, 40, 57, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Modal panel */
+    .modal-panel {
+      background: white;
+      border-radius: 16px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-backdrop.open .modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      background: var(--teal);
+      border-radius: 16px 16px 0 0;
+      padding: 1.75rem 2rem 1.5rem;
+      position: relative;
+    }
+
+    .modal-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.35;
+      margin: 0;
+      padding-right: 2rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.15s ease;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,0.22); }
+
+    .modal-body {
+      padding: 1.75rem 2rem 2rem;
+    }
+
+    .modal-body p {
+      font-size: 0.975rem;
+      color: var(--slate-mid);
+      line-height: 1.75;
+      margin-bottom: 1.1rem;
+    }
+
+    .modal-body p:last-child { margin-bottom: 0; }
+
+    .modal-body strong { color: var(--slate); }
+
+    .modal-body ul {
+      margin: 0 0 1.1rem 1.25rem;
+      padding: 0;
+    }
+
+    .modal-body ul li {
+      font-size: 0.975rem;
+      color: var(--slate-mid);
+      line-height: 1.75;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-body ul li:last-child { margin-bottom: 0; }
+
+    .modal-point {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      background: var(--green-light);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 0.65rem;
+    }
+
+    .modal-point-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      line-height: 1.5;
+    }
+
+    .modal-point-text {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    .modal-point-text em {
+      font-style: normal;
+      color: var(--slate-mid);
+      font-weight: 400;
+      display: block;
+      font-size: 0.85rem;
+      margin-top: 0.15rem;
+    }
+
+    @media (max-width: 640px) {
+      .modal-body { padding: 1.25rem 1.25rem 1.5rem; }
+      .modal-header { padding: 1.25rem 1.25rem 1rem; }
+    }
+
+    .solution-read-more {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      margin-bottom: 2rem;
+    }
+
+    .solution-read-more a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .solution-read-more a:hover { color: var(--teal); }
+
+    .solution-summary {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1.55;
+      max-width: 820px;
+    }
+
+    /* =========================================================
+       FAQ SECTION
+    ========================================================= */
+    #faq { background: var(--off-white); }
+
+    .faq-list { max-width: 760px; }
+
+    .faq-item {
+      border: 1px solid #E5E7EB;
+      border-radius: var(--radius);
+      margin-bottom: 0.75rem;
+      background: white;
+      overflow: hidden;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .faq-header {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 0.65rem;
+      line-height: 1.4;
+    }
+
+    .faq-fn {
+      font-size: 0.65em;
+      color: var(--slate-mid);
+    }
+
+    .faq-answer-inner {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      line-height: 1.75;
+    }
+
+    .faq-footnotes {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E5E7EB;
+      font-size: 0.78rem;
+      color: var(--slate-mid);
+      line-height: 1.9;
+    }
+    .faq-footnotes a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      word-break: break-all;
+    }
+    .faq-footnotes sup { font-size: 0.7em; }
+
+    /* =========================================================
+       CTA SECTION
+    ========================================================= */
+    #cta { background: var(--teal); color: white; }
+    #cta h2 { color: var(--amber); }
+    #cta .section-sub { color: rgba(255,255,255,0.8); }
+
+    .rep-form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+
+    .rep-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 0.75rem 1rem;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .rep-input::placeholder { color: rgba(255,255,255,0.7); }
+    .rep-input:focus { border-color: var(--amber); }
+
+    #rep-result { display: none; }
+    #rep-error  { display: none; }
+
+    .rep-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 600px) { .rep-cards { grid-template-columns: 1fr; } }
+
+    .rep-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .rep-role {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--amber);
+      margin-bottom: 0.4rem;
+    }
+
+    .rep-name { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
+    .rep-party-district { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+
+    .rep-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+    .btn-rep-call {
+      background: var(--amber);
+      color: var(--teal-dark);
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+    }
+    .btn-rep-call:hover { background: var(--amber-dark); }
+
+    .btn-rep-email {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .btn-rep-email:hover { border-color: white; }
+
+    .rep-email-panel {
+      display: none;
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .rep-email-panel.open { display: block; }
+
+    .rep-email-to {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.35rem;
+    }
+
+    .rep-email-to strong { color: white; font-weight: 600; }
+
+    .rep-email-body {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-bottom: 0.85rem;
+      font-family: inherit;
+    }
+
+    .rep-email-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .btn-copy-email {
+      background: var(--amber);
+      color: var(--teal-dark);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+    }
+    .btn-copy-email:hover { background: var(--amber-dark); }
+
+    .btn-open-mail {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+    }
+    .btn-open-mail:hover { border-color: white; }
+
+    .rep-error-msg {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+    .footer-coalition { margin-bottom: 1.5rem; }
+
+    .footer-coalition strong {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-coalition p { font-size: 0.85rem; line-height: 1.6; }
+
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
+
+    .footer-sources { font-size: 0.8rem; line-height: 1.6; margin-bottom: 1rem; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .btn-share {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      padding: 0.4rem 1rem;
+    }
+    .btn-share:hover { background: rgba(255,255,255,0.18); }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+<nav>
+  <input type="checkbox" id="nav-toggle" />
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">BUILD Affordability Agenda</a>
+    <label class="hamburger" for="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#solution">What BUILD Does</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#cta">Take Action</a></li>
+      <li><a href="#endorsements">Endorsements</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Illinois' housing crisis is a choice. Let's choose better.</h1>
+      <p>The status quo isn't working. The BUILD plan offers common-sense reforms and investments to create more homes and bring down housing costs.</p>
+      <div class="hero-ctas">
+        <a href="#solution" class="btn btn-primary">Learn What BUILD Does</a>
+        <a href="#cta" class="btn btn-alert">Contact Your Legislator</a>
+      </div>
+    </div>
+    <div class="hero-stat-box">
+      <p><strong style="color:var(--amber);font-size:1.6rem;">3 in 10</strong> Illinois households pay more than they can afford for housing.<sup style="font-size:0.65em;">*</sup></p>
+      <p class="hero-stat-gap">That means workers unable to live near their jobs, families who can't find a place to own, seniors priced out of their own communities, and young people who can't get a fair start.</p>
+      <p class="hero-stat-gap"><strong style="color:var(--amber);font-size:1.6rem;">7 in 10</strong> Illinois residents--majorities of urban, rural, and suburban areas--are in favor of making it easier to build a variety of kinds of homes to address this crisis.</p>
+      <p style="font-size:0.75rem; color:rgba(255,255,255,0.75); margin-top:1rem;"><sup>*</sup> 2024 American Community Survey</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     THE PROBLEM
+===================================================== -->
+<section id="problem">
+  <div class="section-inner">
+    <p class="section-label">The Challenge</p>
+    <h2>Illinois Has a Housing Problem.</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card fade-in">
+        <div class="stat-number">142,000</div>
+        <div class="stat-label">fewer homes than needed today</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">+37%</div>
+        <div class="stat-label">average home price increase in 5 years</div>
+      </div>
+    </div>
+
+    <!-- Impact callouts -->
+    <h3 class="impact-title">What happens when Illinois underbuilds year after year?</h3>
+    <div class="impact-grid">
+      <div class="impact-card fade-in">
+        <div class="impact-icon">1.</div>
+        <strong>Fewer starter homes</strong>
+        <p>First-time buyers compete for the same shrinking inventory, driving up prices for everyone.</p>
+      </div>
+      <div class="impact-card fade-in">
+        <div class="impact-icon">2.</div>
+        <strong>Fewer construction jobs</strong>
+        <p>Illinois loses building trades work to states that build — and that cost shows up in every community.</p>
+      </div>
+      <div class="impact-card fade-in">
+        <div class="impact-icon">3.</div>
+        <strong>More bidding wars</strong>
+        <p>When demand outpaces supply every single year, prices rise and affordability falls further out of reach.</p>
+      </div>
+    </div>
+
+    <div class="problem-footnotes">
+    </div>
+
+    <!-- Community lookup -->
+    <div>
+      <div class="lookup-head">
+        <h3>How does this affect your community?</h3>
+        <p>Search for your city or town to see local housing data.</p>
+      </div>
+      <div class="lookup-form">
+        <input class="lookup-input" id="community-search" type="text" placeholder="Search for your city or town..." />
+        <button class="btn btn-amber" id="community-btn">Look Up</button>
+      </div>
+      <div id="community-no-result" class="lookup-no-result">
+        No match found. Try searching for a nearby larger city.
+      </div>
+      <div id="community-result">
+        <div class="result-card">
+          <div class="result-card-header">
+            <h4 id="result-name"></h4>
+            <p id="result-county"></p>
+          </div>
+          <div class="result-card-body">
+            <div class="result-col">
+              <div class="result-col-label">Affordability</div>
+              <div class="result-affordability-pct" id="result-aff-pct"></div>
+              <div class="result-big-sub">of homes are priced to be affordable to working class residents</div>
+              <div class="result-houses" id="result-houses"></div>
+              <p class="result-aff-footnote">Affordability based on 2023 analysis by the Illinois Housing Development Authority. Rental homes are considered affordable if they cost less than 30% of the income of a household at 60% of Area Median Income; owner-occupied homes are considered affordable if they cost less than 30% of the income of a household at 80% of Area Median Income.</p>
+            </div>
+            <div class="result-col">
+              <div class="result-col-label">Building Rate</div>
+              <div class="result-big-number" id="result-rate"></div>
+              <div class="result-big-sub" id="result-rate-label"></div>
+              <div class="result-big-sub" style="font-size:0.8rem; color:var(--slate-mid);">National average is 4.0</div>
+              <div class="result-aff-footnote" style="text-align:center;">Source: U.S. Census Bureau Building Permits Survey, 2014–2024</div>
+            </div>
+            <div class="result-col">
+              <div class="result-col-label">Home Value Change (2014–2024)</div>
+              <div class="result-change-pct" id="result-hv-pct"></div>
+              <div class="result-change-abs" id="result-hv-abs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SOLUTION
+===================================================== -->
+<section id="solution">
+  <div class="section-inner">
+    <p class="section-label">The Solution</p>
+    <h2 class="fade-in">What the BUILD plan Does</h2>
+    <p class="section-sub fade-in">Common-sense reforms to help more Illinoisans find a home they can afford.</p>
+
+    <div class="pillar-grid">
+      <div class="pillar-card fade-in" style="background-image: url('leo-heisenberg-8IYB65Ueuws-unsplash.jpg')" data-modal="modal-missing-middle" role="button" tabindex="0" aria-haspopup="dialog">
+        <div class="pillar-card-overlay"></div>
+        <div class="pillar-card-text">More starter homes, townhomes, and three-flats — not McMansions.</div>
+        <span class="pillar-card-hint">Learn more →</span>
+      </div>
+      <div class="pillar-card fade-in" style="background-image: url('brooke-balentine-QQOfPFkFQg4-unsplash.jpg')" data-modal="modal-adus" role="button" tabindex="0" aria-haspopup="dialog">
+        <div class="pillar-card-overlay"></div>
+        <div class="pillar-card-text">Allow "in-law suites" and coach houses for multigenerational living.</div>
+        <span class="pillar-card-hint">Learn more →</span>
+      </div>
+      <div class="pillar-card fade-in" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')" data-modal="modal-permit-fees" role="button" tabindex="0" aria-haspopup="dialog">
+        <div class="pillar-card-overlay"></div>
+        <div class="pillar-card-text">Cut red tape: Align permit fees to actual costs, speed up bureaucratic processes, and make sure rules serve actual safety and resident needs.</div>
+        <span class="pillar-card-hint">Learn more →</span>
+      </div>
+      <div class="pillar-card fade-in" style="background-image: url('hiveboxx-BFkLO0kYLlg-unsplash.jpg')" data-modal="modal-investment" role="button" tabindex="0" aria-haspopup="dialog">
+        <div class="pillar-card-overlay"></div>
+        <div class="pillar-card-text">Invest $250M in homebuyer assistance, site infrastructure like sewers and utilities, and housing development.</div>
+        <span class="pillar-card-hint">Learn more →</span>
+      </div>
+    </div>
+
+    <p class="solution-read-more"><a href="BUILD Fact Sheets.pdf" target="_blank">Read more here</a></p>
+
+    <p class="solution-summary">Together, these reforms encourage a mix of homes of all sizes and prices, to give more Illinois families a chance to own their own home, build wealth, and thrive.</p>
+  </div>
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+<section id="faq">
+  <div class="section-inner">
+    <p class="section-label">Frequently asked questions</p>
+    <h2 class="fade-in">The BUILD plan promotes popular, common-sense ideas.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-header">Does the BUILD plan preempt local authority?</div>
+        <div class="faq-answer-inner">
+          The BUILD plan maintains local government powers to set rules on design standards, health and safety, and local zoning districts, while ensuring minimum standards so that officials cannot completely prohibit smaller homes or use bureaucratic procedures to block housing. Many municipalities require homes to sit on very large lots — in some cases, an acre or more. Housing is a statewide issue, and needs to be addressed by the state.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-header">Will Illinois residents welcome more starter homes in their communities?</div>
+        <div class="faq-answer-inner">
+          Illinois residents support more housing choice: 69% say they approve of making it easier to build smaller homes, versus just 21% who disapprove. This support crosses party lines and regions: majorities of Democrats, Republicans, and independents, as well as urban, suburban, and rural Illinoisans approve.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <div class="faq-header">What about small condo and apartment buildings, like three-flats?</div>
+        <div class="faq-answer-inner">
+          Two and three flats, sometimes called duplexes and triplexes, have provided homes for countless Illinois families across the state for generations. 56% of Illinoisans support allowing these kinds of homes where single-family homes are allowed, with only 23% opposed.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+<section id="cta">
+  <div class="section-inner">
+    <p class="section-label">Take Action</p>
+    <h2>Tell Your Legislators: Support the BUILD plan.</h2>
+    <p class="section-sub">Find your state senator and representative and let them know you support common-sense housing solutions.</p>
+
+    <div class="rep-form">
+      <input class="rep-input" id="rep-address" type="text" placeholder="Enter your address..." />
+      <button class="btn btn-primary" id="rep-btn">Find My Reps</button>
+    </div>
+
+    <div id="rep-result">
+      <div class="rep-cards" id="rep-cards"></div>
+    </div>
+
+    <div id="rep-error">
+      <div class="rep-error-msg" id="rep-error-msg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-coalition" id="endorsements">
+      <strong>Endorsing Organizations</strong>
+      <p>Impact for Equity · Metropolitan Planning Council · Housing Action Illinois · Abundant Housing Illinois · Illinois Housing Council · Garfield Park CDC · Community Partners for Affordable Housing · The Preservation Compact · Open Communities · Bloomington-Normal Community Land Trust · Northwest Neighborhood Alliance</p>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-sources">
+      <strong style="color:rgba(255,255,255,0.9);font-size:0.8rem;">Data Sources: </strong>
+      IHDA Affordable Housing Planning and Appeal Act (AHPAA) 2023 ·
+      U.S. Census Bureau Building Permits Survey 2014–2024 ·
+      Zillow Home Value Index (ZHVI), city-level, mid-tier, all homes
+    </div>
+    <div class="footer-bottom">
+<button class="btn btn-share" id="share-btn">Share this page</button>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================
+     PILLAR MODALS
+===================================================== -->
+
+<!-- Modal: Missing Middle Housing -->
+<div class="modal-backdrop" id="modal-missing-middle" role="dialog" aria-modal="true" aria-labelledby="modal-missing-middle-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-missing-middle-title">More starter homes, townhomes, and three-flats — not McMansions.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Today, many municipalities ban smaller and even mid-sized homes, whether as detached single-family houses, townhomes, or two and three-flats. The result: fewer new homes overall, and the only new housing that's allowed is the most expensive.</p>
+      <p>The BUILD plan ensures that more reasonably priced kinds of homes aren't banned entirely, while ensuring local control over design standards and health and safety reviews. Minimum standards adapt based on the size of a community's lots, with single family homes allowed on smaller lots (under 2,500 square feet), four homes allowed on lots up to 5,000 square feet, six up to 7,500 square feet, and eight homes on the largest lots.</p>
+      <p>These rules encourage small-scale development that provides moderate-cost housing choices for young people, families, and seniors.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Permit Fees -->
+<div class="modal-backdrop" id="modal-permit-fees" role="dialog" aria-modal="true" aria-labelledby="modal-permit-fees-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-permit-fees-title">Align permit fees to actual costs.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Building permits are supposed to recover the cost of reviewing plans and inspecting construction — not act as a hidden tax on new housing. Some Illinois communities charge fees far beyond what it costs to administer the permit, adding thousands of dollars to the price of a new home.</p>
+      <p>The BUILD plan sets fees to reflect the actual cost of serving new homes. It also:</p>
+      <ul>
+        <li>Sets standards for the time it takes to review housing permit applications, encouraging faster, more predictable timelines.</li>
+        <li>Allows smaller buildings with high fire safety standards to be built with a single set of stairs, leaving more room for multiple bedrooms and family-sized homes.</li>
+        <li>Allows builders to provide as much parking as potential buyers and tenants demand, while not requiring them to spend as much as $50,000 or more on parking spaces that will go unused.</li>
+      </ul>
+      <p>These reforms mean red tape doesn't stand in the way of homes for Illinois families.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: ADUs -->
+<div class="modal-backdrop" id="modal-adus" role="dialog" aria-modal="true" aria-labelledby="modal-adus-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-adus-title">Allow "in-law suites" and coach houses for multigenerational living.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Accessory Dwelling Units (ADUs) — sometimes called in-law suites, granny flats, backyard cottages, or coach houses — are small homes built on the same lot as another home. They are often used by families to keep grandparents, parents, and kids together while ensuring independence and privacy. Unfortunately, many Illinois municipalities use zoning to prohibit their residents from using or building ADUs. The BUILD plan would give this option back to Illinois families.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: $250M Investment -->
+<div class="modal-backdrop" id="modal-investment" role="dialog" aria-modal="true" aria-labelledby="modal-investment-title">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <p class="modal-label">What BUILD Does</p>
+      <h3 class="modal-title" id="modal-investment-title">Invest $250M in homebuyer assistance, site infrastructure, and housing development.</h3>
+      <button class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Illinois needs more homes, but the private market won't meet our housing needs on its own. From down payment assistance to the cost of putting in sewers and utilities to serve new housing, the BUILD plan also calls on the state to invest $250 million to ensure new housing works for Illinois families.</p>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------
+     CONFIG
+  ------------------------------------------------ */
+  var CONFIG = { OPENSTATES_API_KEY: '7cc761c1-1b38-4dc0-947f-c8e3f8b1849b' };
+
+  /* ------------------------------------------------
+     UTILITIES
+  ------------------------------------------------ */
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function clearEl(node) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+  }
+
+  function fmt(n) {
+    return Number(n).toLocaleString('en-US', { maximumFractionDigits: 0 });
+  }
+
+  /* ------------------------------------------------
+     SCROLL ANIMATIONS
+  ------------------------------------------------ */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setupAnimations() {
+    var items = document.querySelectorAll('.fade-in');
+    if (reducedMotion) {
+      items.forEach(function (item) { item.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    items.forEach(function (item) { observer.observe(item); });
+  }
+
+
+  /* ------------------------------------------------
+     COMMUNITY LOOKUP
+  ------------------------------------------------ */
+  var communityData = null;
+
+  function loadCommunityData(cb) {
+    if (communityData) { cb(communityData); return; }
+    fetch('data/community-data.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { communityData = data; cb(data); })
+      .catch(function () { cb([]); });
+  }
+
+  function normalizeName(name) {
+    name = name.toLowerCase().trim();
+    var suffixes = [' village', ' city', ' town', ' township', ' cdp'];
+    for (var i = 0; i < suffixes.length; i++) {
+      if (name.endsWith(suffixes[i])) {
+        name = name.slice(0, name.length - suffixes[i].length);
+      }
+    }
+    return name.trim();
+  }
+
+  function findCommunity(query, data) {
+    var q = normalizeName(query);
+    for (var i = 0; i < data.length; i++) {
+      if (normalizeName(data[i].name) === q) return data[i];
+    }
+    for (var j = 0; j < data.length; j++) {
+      if (normalizeName(data[j].name).startsWith(q)) return data[j];
+    }
+    for (var k = 0; k < data.length; k++) {
+      if (normalizeName(data[k].name).includes(q)) return data[k];
+    }
+    return null;
+  }
+
+  function showCommunityResult(rec) {
+    var noResultEl = document.getElementById('community-no-result');
+    var resultEl = document.getElementById('community-result');
+    noResultEl.style.display = 'none';
+    resultEl.style.display = 'block';
+
+    document.getElementById('result-name').textContent = rec.name;
+    document.getElementById('result-county').textContent = rec.county ? rec.county + ' County' : 'Illinois';
+
+    // House icon affordability display
+    var affPct = rec.affordability_pct;
+    var housesEl = document.getElementById('result-houses');
+    clearEl(housesEl);
+    var total = 20;
+    var affordable = Math.round(affPct / 100 * total);
+    var unaffordable = total - affordable;
+    for (var h = 0; h < total; h++) {
+      var isAffordable = h >= unaffordable;
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 20 20');
+      svg.setAttribute('width', '18');
+      svg.setAttribute('height', '18');
+      var roof = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      roof.setAttribute('points', '10,2 18,10 2,10');
+      var body = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      body.setAttribute('x', '4');
+      body.setAttribute('y', '10');
+      body.setAttribute('width', '12');
+      body.setAttribute('height', '8');
+      if (isAffordable) {
+        roof.setAttribute('fill', '#2D6A4F');
+        body.setAttribute('fill', '#2D6A4F');
+      } else {
+        roof.setAttribute('fill', 'none');
+        roof.setAttribute('stroke', '#F59E0B');
+        roof.setAttribute('stroke-width', '1.5');
+        roof.setAttribute('stroke-linejoin', 'round');
+        body.setAttribute('fill', 'none');
+        body.setAttribute('stroke', '#F59E0B');
+        body.setAttribute('stroke-width', '1.5');
+      }
+      svg.appendChild(roof);
+      svg.appendChild(body);
+      housesEl.appendChild(svg);
+    }
+
+    document.getElementById('result-aff-pct').textContent = affPct + '%';
+
+    // Building rate
+    var rateEl = document.getElementById('result-rate');
+    var rateLabelEl = document.getElementById('result-rate-label');
+    if (rec.avg_units_per_1000_per_year != null) {
+      rateEl.textContent = rec.avg_units_per_1000_per_year;
+      rateLabelEl.textContent = 'new homes per 1,000 residents per year (2014\u20132024 avg)';
+    } else {
+      rateEl.textContent = '\u2014';
+      rateLabelEl.textContent = 'Building rate data not available';
+    }
+
+    // Home value
+    var hvPctEl = document.getElementById('result-hv-pct');
+    var hvAbsEl = document.getElementById('result-hv-abs');
+    if (rec.home_value_change_pct != null) {
+      var sign = rec.home_value_change_pct >= 0 ? '+' : '';
+      hvPctEl.textContent = sign + rec.home_value_change_pct + '%';
+      if (rec.home_value_start != null && rec.home_value_end != null) {
+        hvAbsEl.textContent = 'From $' + fmt(rec.home_value_start) + ' \u2192 $' + fmt(rec.home_value_end);
+      } else {
+        hvAbsEl.textContent = '';
+      }
+    } else {
+      hvPctEl.textContent = '\u2014';
+      hvAbsEl.textContent = 'Price data not available';
+    }
+
+    // Animate card in
+    resultEl.classList.remove('visible');
+    resultEl.classList.add('fade-in');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { resultEl.classList.add('visible'); });
+    });
+  }
+
+  function runCommunityLookup() {
+    var q = document.getElementById('community-search').value.trim();
+    if (!q) return;
+    loadCommunityData(function (data) {
+      var rec = findCommunity(q, data);
+      if (rec) {
+        document.getElementById('community-no-result').style.display = 'none';
+        showCommunityResult(rec);
+      } else {
+        document.getElementById('community-result').style.display = 'none';
+        document.getElementById('community-no-result').style.display = 'block';
+      }
+    });
+  }
+
+  document.getElementById('community-btn').addEventListener('click', runCommunityLookup);
+  document.getElementById('community-search').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') runCommunityLookup();
+  });
+
+  /* ------------------------------------------------
+     LEGISLATOR LOOKUP
+  ------------------------------------------------ */
+  function buildRepCard(person) {
+    var card = el('div', 'rep-card');
+
+    var role = person.current_role || {};
+    var roleTitle = role.org_classification === 'upper' ? 'State Senator' : 'State Representative';
+    var district = role.district || '';
+
+    card.appendChild(el('div', 'rep-role', roleTitle));
+    card.appendChild(el('div', 'rep-name', person.name || ''));
+
+    var parts = [];
+    if (person.party) parts.push(person.party);
+    if (district) parts.push('District ' + district);
+    card.appendChild(el('div', 'rep-party-district', parts.join(' \u00b7 ')));
+
+    var actions = el('div', 'rep-actions');
+
+    var phone = null;
+    (person.offices || []).forEach(function (o) { if (!phone && o.voice) phone = o.voice; });
+    if (phone) {
+      var callA = el('a', 'btn btn-rep-call', '\uD83D\uDCDE Call');
+      callA.href = 'tel:' + phone.replace(/\D/g, '');
+      actions.appendChild(callA);
+    }
+
+    if (person.email) {
+      var subject = 'I Support the BUILD plan \u2014 Please Vote Yes';
+      var emailBody = 'Dear ' + (person.name || 'Representative') + ',\n\nI\u2019m a constituent writing to urge your support for the BUILD plan. Illinois is facing a housing crisis \u2014 we\u2019re 142,000 homes short and prices have risen 37% in five years. The BUILD plan is common-sense reform that will help more Illinoisans find a home they can afford. Please vote yes.\n\nThank you';
+
+      var emailBtn = el('button', 'btn btn-rep-email', '\u2709\uFE0F Email');
+      actions.appendChild(emailBtn);
+      card.appendChild(actions);
+
+      // Email panel — shown on button click, built with safe DOM methods
+      var panel = el('div', 'rep-email-panel');
+
+      var toLine = el('div', 'rep-email-to');
+      toLine.appendChild(document.createTextNode('To: '));
+      var toStrong = document.createElement('strong');
+      toStrong.textContent = person.email;
+      toLine.appendChild(toStrong);
+
+      var subjectLine = el('div', 'rep-email-to');
+      subjectLine.appendChild(document.createTextNode('Subject: '));
+      var subStrong = document.createElement('strong');
+      subStrong.textContent = subject;
+      subjectLine.appendChild(subStrong);
+
+      var bodyEl = el('div', 'rep-email-body', emailBody);
+      var panelActions = el('div', 'rep-email-actions');
+
+      var copyBtn = el('button', 'btn btn-copy-email', 'Copy message');
+      copyBtn.addEventListener('click', function () {
+        var text = 'To: ' + person.email + '\nSubject: ' + subject + '\n\n' + emailBody;
+        navigator.clipboard && navigator.clipboard.writeText(text).then(function () {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(function () { copyBtn.textContent = 'Copy message'; }, 2000);
+        });
+      });
+
+      var mailtoBtn = el('a', 'btn btn-open-mail', 'Open in email app');
+      mailtoBtn.href = 'mailto:' + person.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+
+      panelActions.appendChild(copyBtn);
+      panelActions.appendChild(mailtoBtn);
+      panel.appendChild(toLine);
+      panel.appendChild(subjectLine);
+      panel.appendChild(bodyEl);
+      panel.appendChild(panelActions);
+
+      emailBtn.addEventListener('click', function () {
+        panel.classList.toggle('open');
+        emailBtn.textContent = panel.classList.contains('open') ? '\u2715 Close' : '\u2709\uFE0F Email';
+      });
+
+      card.appendChild(panel);
+      return card;
+    }
+
+    card.appendChild(actions);
+    return card;
+  }
+
+  function showRepError(msg) {
+    document.getElementById('rep-result').style.display = 'none';
+    var errEl = document.getElementById('rep-error');
+    var errMsg = document.getElementById('rep-error-msg');
+    clearEl(errMsg);
+    errMsg.textContent = msg;
+    errEl.style.display = 'block';
+  }
+
+  function runRepLookup() {
+    var addr = document.getElementById('rep-address').value.trim();
+    if (!addr) return;
+
+    if (!CONFIG.OPENSTATES_API_KEY || CONFIG.OPENSTATES_API_KEY === 'YOUR_OPENSTATES_KEY_HERE') {
+      showRepError('Legislator lookup is not configured. Visit ilga.gov/house/rep/find.asp to find your state representative.');
+      return;
+    }
+
+    // Step 1: geocode address with Nominatim (CORS-friendly)
+    var geocodeUrl = 'https://nominatim.openstreetmap.org/search'
+      + '?q=' + encodeURIComponent(addr)
+      + '&format=json&limit=1&countrycodes=us';
+
+    fetch(geocodeUrl, { headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('geocoder-http:' + r.status);
+        return r.json();
+      })
+      .then(function (geoData) {
+        if (!geoData || !geoData.length) {
+          showRepError('Address not found. Please try a more specific Illinois address.');
+          return null;
+        }
+        var lat = geoData[0].lat;
+        var lng = geoData[0].lon;
+
+        // Step 2: query OpenStates by coordinates
+        return fetch('https://v3.openstates.org/people.geo?lat=' + lat + '&lng=' + lng
+          + '&apikey=' + encodeURIComponent(CONFIG.OPENSTATES_API_KEY));
+      })
+      .then(function (r) {
+        if (!r) return null;
+        if (!r.ok) throw new Error('openstates-http:' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        if (!data) return;
+
+        var reps = (data.results || []).filter(function (p) {
+          return p.jurisdiction && (p.jurisdiction.id || '').includes('state:il');
+        });
+
+        if (!reps.length) {
+          showRepError('No Illinois state legislators found. Make sure you entered an Illinois address.');
+          return;
+        }
+
+        document.getElementById('rep-error').style.display = 'none';
+        var resultEl = document.getElementById('rep-result');
+        var cardsEl = document.getElementById('rep-cards');
+        clearEl(cardsEl);
+        reps.forEach(function (p) { cardsEl.appendChild(buildRepCard(p)); });
+        resultEl.style.display = 'block';
+      })
+      .catch(function (err) {
+        var msg = err && err.message || '';
+        if (msg.indexOf('geocoder-http') === 0) {
+          showRepError('Could not reach the address lookup service (error ' + msg.split(':')[1] + '). Please try again shortly.');
+        } else if (msg.indexOf('openstates-http') === 0) {
+          showRepError('Could not load legislator data (error ' + msg.split(':')[1] + '). Please visit ilga.gov/house/rep/find.asp to find your representative.');
+        } else {
+          showRepError('Could not load legislator data. Please visit ilga.gov/house/rep/find.asp to find your representative. (Detail: ' + msg + ')');
+        }
+      });
+  }
+
+  document.getElementById('rep-btn').addEventListener('click', runRepLookup);
+  document.getElementById('rep-address').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') runRepLookup();
+  });
+
+  /* ------------------------------------------------
+     SHARE BUTTON
+  ------------------------------------------------ */
+  document.getElementById('share-btn').addEventListener('click', function () {
+    var btn = this;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        var orig = btn.textContent;
+        btn.textContent = 'Link copied!';
+        setTimeout(function () { btn.textContent = orig; }, 2000);
+      });
+    }
+  });
+
+  /* ------------------------------------------------
+     PILLAR CARD MODALS
+  ------------------------------------------------ */
+  function openModal(id) {
+    var backdrop = document.getElementById(id);
+    if (!backdrop) return;
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // focus the close button for accessibility
+    var closeBtn = backdrop.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(backdrop) {
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Open on pillar card click / Enter key
+  document.querySelectorAll('.pillar-card[data-modal]').forEach(function (card) {
+    card.addEventListener('click', function () { openModal(card.dataset.modal); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card.dataset.modal); }
+    });
+  });
+
+  // Close on backdrop click or close button
+  document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) closeModal(backdrop);
+    });
+    var closeBtn = backdrop.querySelector('.modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () { closeModal(backdrop); });
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-backdrop.open').forEach(function (b) { closeModal(b); });
+    }
+  });
+
+  /* ------------------------------------------------
+     INIT
+  ------------------------------------------------ */
+  setupAnimations();
+
+}());
+</script>
+</body>
+</html>
