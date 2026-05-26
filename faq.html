@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — BUILD Affordability Agenda</title>
+  <meta name="description" content="Detailed answers to common questions about the Illinois BUILD Affordability Agenda.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buildforil.org/faq.html">
+  <meta property="og:title" content="FAQ — BUILD Affordability Agenda">
+  <meta property="og:description" content="Detailed answers to common questions about the Illinois BUILD Affordability Agenda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+    ========================================================= */
+    :root {
+      --amber:       #F59E0B;
+      --amber-dark:  #D97706;
+      --amber-light: #FEF3C7;
+      --green:       #2D6A4F;
+      --green-light: #F0FDF4;
+      --teal:        #1B3A4B;
+      --teal-dark:   #122839;
+      --off-white:   #FFF9F0;
+      --slate:       #1F2937;
+      --slate-mid:   #4B5563;
+      --slate-light: #F3F4F6;
+      --radius:      12px;
+      --shadow:      0 4px 16px rgba(0,0,0,0.08);
+      --transition:  0.2s ease;
+    }
+
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--slate);
+      background: var(--off-white);
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4 { font-family: 'Zilla Slab', Georgia, serif; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* =========================================================
+       SCROLL ANIMATIONS
+    ========================================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--teal);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--amber);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+
+    #nav-toggle { display: none; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--teal-dark);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .nav-links li a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        font-size: 1rem;
+      }
+      #nav-toggle:checked ~ .nav-inner .nav-links { max-height: 400px; }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(2) { opacity: 0; }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* =========================================================
+       PAGE HERO
+    ========================================================= */
+    .page-hero {
+      background: var(--teal);
+      color: white;
+      padding: 3.5rem 1.5rem;
+    }
+    .page-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--amber);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .page-hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       JUMP NAV
+    ========================================================= */
+    .jump-nav {
+      background: white;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 0.85rem 1.5rem;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+    .jump-nav-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .jump-nav-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate-mid);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .jump-nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .jump-nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .jump-nav-links a:hover { color: var(--teal); }
+
+    /* =========================================================
+       FAQ PAGE CONTENT
+    ========================================================= */
+    .faq-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .faq-section { margin-bottom: 3rem; }
+
+    .faq-section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--amber);
+    }
+
+    /* =========================================================
+       ACCORDION ITEMS
+    ========================================================= */
+    .faq-item {
+      border: 1px solid #E5E7EB;
+      border-radius: var(--radius);
+      margin-bottom: 0.75rem;
+      background: white;
+      overflow: hidden;
+    }
+
+    .faq-header {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1.4;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background var(--transition);
+      list-style: none;
+    }
+    .faq-header:hover { background: var(--green-light); }
+    .faq-header::-webkit-details-marker { display: none; }
+
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber-dark);
+      margin-top: 0.15rem;
+      transition: transform 0.25s ease;
+    }
+    .faq-arrow svg { width: 16px; height: 16px; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 2000px; }
+
+    .faq-answer-inner {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      line-height: 1.75;
+      padding: 0 1.5rem 1.5rem;
+    }
+    .faq-answer-inner p { margin-bottom: 0.85rem; }
+    .faq-answer-inner p:last-child { margin-bottom: 0; }
+
+    /* =========================================================
+       DATA TABLES (density, parking)
+    ========================================================= */
+    .faq-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 0.85rem;
+      font-size: 0.9rem;
+    }
+    .faq-table th {
+      background: var(--teal);
+      color: white;
+      padding: 0.5rem 0.85rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.82rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+    .faq-table td {
+      padding: 0.5rem 0.85rem;
+      border-bottom: 1px solid #E5E7EB;
+      color: var(--slate);
+    }
+    .faq-table tr:last-child td { border-bottom: none; }
+    .faq-table tr:nth-child(even) td { background: var(--slate-light); }
+
+    /* =========================================================
+       CTA BLOCK
+    ========================================================= */
+    .faq-cta {
+      background: var(--teal);
+      color: white;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    .faq-cta h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+    .faq-cta p {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.75rem;
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--amber); color: var(--teal-dark); }
+    .btn-primary:hover { background: var(--amber-dark); box-shadow: 0 4px 12px rgba(245,158,11,0.4); }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 3rem 1.5rem;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-coalition { margin-bottom: 1.5rem; }
+    .footer-coalition strong {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .footer-coalition p { font-size: 0.85rem; line-height: 1.6; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
+    .footer-sources { font-size: 0.8rem; line-height: 1.6; margin-bottom: 1rem; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .btn-share {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      padding: 0.4rem 1rem;
+    }
+    .btn-share:hover { background: rgba(255,255,255,0.18); }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+<nav>
+  <input type="checkbox" id="nav-toggle" />
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">BUILD Affordability Agenda</a>
+    <label class="hamburger" for="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      <li><a href="index.html#problem">The Problem</a></li>
+      <li><a href="index.html#solution">What BUILD Does</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="index.html#cta">Take Action</a></li>
+      <li><a href="index.html#endorsements">Endorsements</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Frequently Asked Questions</h1>
+    <p>Detailed answers to common questions about the BUILD Affordability Agenda.</p>
+  </div>
+</div>
+
+<!-- =====================================================
+     JUMP NAV
+===================================================== -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label">On this page:</span>
+    <ul class="jump-nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#density-zoning">Density &amp; Zoning</a></li>
+      <li><a href="#infrastructure">Infrastructure</a></li>
+      <li><a href="#process">Permits &amp; Process</a></li>
+      <li><a href="#funding">Funding</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- =====================================================
+     FAQ CONTENT
+===================================================== -->
+<div class="faq-page">
+
+  <!-- OVERVIEW -->
+  <div class="faq-section fade-in" id="overview">
+    <h2 class="faq-section-title">Overview</h2>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Why take statewide action to expand middle housing opportunities in Illinois?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>The housing shortage crosses municipal boundaries and affects communities across the state, from large cities to small towns. While ensuring municipalities still have control over their zoning decisions, the state is taking action to mediate the patchwork of local zoning ordinances, signal reasonable and reliable permit and inspection review timelines, maintain transparent impact fees, and remove onerous regulatory barriers.</p>
+          <p>These reforms are informed by research and by policy approaches adopted in other states and communities to support housing production and improve long-term affordability.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Will this legislation reduce construction costs?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>The legislation is designed to reduce regulatory barriers that can increase development costs or delay projects—like discretionary approvals, burdensome parking mandates, owner-occupancy requirements for ADUs, and onerous impact fee negotiations—which often determine whether a housing project is financially feasible at all.</p>
+          <p>The State of Illinois is pairing this legislative agenda with $250 million in capital for infrastructure, middle housing development, and downpayment assistance to expand attainable housing opportunities for renters and homeowners across the state. Taken together, these legislative and capital components make Illinois a more attractive place for investment and housing development.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Does this legislation enable homeownership opportunities?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Yes. BUILD is designed not only to expand access to more attainable rental housing, but also to create new pathways to homeownership. By allowing the development of smaller multifamily buildings, the legislation supports more opportunities for condominium ownership—an important entry point for many first-time buyers. It also enables fee-simple homeownership by allowing land divisions of existing middle housing such as townhomes and cottage clusters, so that individual homes can be owned on their own lots rather than as part of a larger property.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DENSITY & ZONING -->
+  <div class="faq-section fade-in" id="density-zoning">
+    <h2 class="faq-section-title">Density &amp; Zoning</h2>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        How does the BUILD package affect allowable density in residentially zoned districts?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>The BUILD package aims to unlock more attainable starter homes for middle income and working families. It allows a single-family home by-right on lots of at least 2,500 square feet. It also introduces modest, by-right allowances for additional dwelling units on larger lots, with limits tied to lot size, helping expand housing and increase overall supply in existing residential neighborhoods.</p>
+          <p>Under the introduced version of BUILD, allowable unit counts are tied to lot size as follows:</p>
+          <table class="faq-table">
+            <thead>
+              <tr><th>Square Footage</th><th>By-Right Unit Allowance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2,500</td><td>1 dwelling unit</td></tr>
+              <tr><td>2,501–5,000</td><td>Up to 4 dwelling units</td></tr>
+              <tr><td>5,001–7,500</td><td>Up to 6 dwelling units</td></tr>
+              <tr><td>7,501+</td><td>Up to 8 dwelling units</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Are there municipal lot coverage, floor-to-area ratios (FAR), and setback regulations included in this package?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Municipalities will retain flexibility to adopt clear and objective standards that shape development patterns, design, and neighborhood character, so long as those standards do not preclude or materially discourage the housing allowed under the Act.</p>
+          <p>The legislation establishes a framework of baseline "default" standards for lot coverage, FAR, and setbacks that apply only if a municipality does not update its zoning code within the required timeframe or adopts standards that conflict with the Act. These defaults are designed to function as a backstop, while encouraging municipalities to adopt tailored standards that reflect local context and design priorities within the framework of the Act.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        How does reducing parking mandates make housing development more efficient and affordable?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Removing parking mandates is a proven policy approach that lets developers "right-size" parking based on market demand. This legislation follows the lead of multiple states (i.e., California, Connecticut, Florida, Maine, Vermont, and Washington) that are limiting mandatory parking minimums, which drive up housing costs, consume valuable land that could otherwise accommodate additional housing, and are often underutilized. By prioritizing people over parking, this legislation allows developers to match parking supply to actual demand, with standards they can exceed but are not required to.</p>
+          <table class="faq-table">
+            <thead>
+              <tr><th>Housing Type</th><th>Parking Standard</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Single-family development</td><td>1 parking space</td></tr>
+              <tr><td>Middle-housing development</td><td>1 parking space per 2 dwelling units</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INFRASTRUCTURE -->
+  <div class="faq-section fade-in" id="infrastructure">
+    <h2 class="faq-section-title">Infrastructure</h2>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        How does the BUILD proposal consider stormwater management?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>The proposal enables modest increases in development while allowing municipalities to maintain key site controls for stormwater management. Municipalities may set standards such as lot coverage, provided those standards fall within an allowable range that ensures middle housing can still be built and is not precluded or materially discouraged in practice. All developments must continue to meet applicable local, state, and federal stormwater requirements, and municipalities retain full authority to enforce stormwater management, drainage, and engineering standards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Will local governments be able to regulate sanitary and water service lines? What about systems that are near or at capacity?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Yes. Any new development, whether it is an ADU or a new infill development, would still need to obtain approvals for water and sewer connections. This includes demonstrating that service can be extended in a way that meets local engineering standards, including easements, access, and constructability. Where it is not practical to extend service to a rear yard, or where doing so would be prohibitively expensive, the project is unlikely to move forward.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Will the legislation affect a municipality's ability to levy impact fees?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Local governments will still retain the ability to levy impact fees if they have the ability to do so already. The BUILD legislation only aims to enhance this process by increasing transparency and predictability for developers and aligning fees systematically to local needs.</p>
+          <p>This component of the legislation initiates a rulemaking process in which DCEO will work with outside researchers to develop a robust impact fee schedule. The schedule is expected to include formulas that account for regional differences in land and construction costs, student generation rates, household size, transportation impacts, and infrastructure demand. The Department will also issue adjustment factors for land value, infill development, higher-cost construction markets, and other key variables.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PERMITS & PROCESS -->
+  <div class="faq-section fade-in" id="process">
+    <h2 class="faq-section-title">Permits &amp; Process</h2>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Will the reforms encourage the use of third-parties over municipal permit reviewers and inspectors?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>No. The third-party review reform is not designed to replace municipal permit reviewers or inspectors. It is intended to serve as a backstop when permit reviews or inspections exceed reasonable timelines. However, if that reasonable timeframe is exceeded, developers will have the opportunity to seek review from a qualified third party and the municipality must honor the assessment as if it were completed in-house, so long as the review demonstrates compliance with the applicable building codes.</p>
+          <p>By setting statewide expectations and offering third-party review as a backstop for inspection and permit review backlogs, Illinois can reduce avoidable delays and help advance needed housing development.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        What does single-stair reform aim to achieve, and how safe is it?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Single-stair reform allows the construction of new residential buildings up to six stories with only one exit stairway. Two stair requirements for small multifamily buildings increase construction costs and limit the range of housing sizes and floor plans, often limiting family-sized homes in mid-rise buildings.</p>
+          <p>Research and experience from other jurisdictions indicate that smaller residential buildings can be safely designed with a single stair when paired with modern fire-safety features such as sprinklers, fire-resistant construction, detection systems, and other code requirements. Many countries with strong fire safety records don't require two stairs, and cities like New York, Seattle, and Honolulu have safely allowed single-stair buildings for decades. Several states across the U.S. have also begun adopting similar reforms, including California, Colorado, Montana, Tennessee, Texas, and Washington.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FUNDING -->
+  <div class="faq-section fade-in" id="funding">
+    <h2 class="faq-section-title">Funding</h2>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Does the BUILD legislation contain any provisions that address the lack of financial capabilities of municipalities to support missing middle housing development?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Yes. The BUILD package includes $250 million in new capital funding to support middle housing development and homeownership. Of this total, $100 million will be allocated to a new targeted development fund administered by DCEO, providing grants to municipalities for below-ground infrastructure and site preparation costs that often prevent otherwise viable projects from moving forward. An additional $100 million will be administered by IHDA to support small and mid-sized developers in advancing middle housing projects in areas of need. The remaining $50 million will be used to recapitalize IHDA's existing down payment assistance programs, helping expand access to homeownership for first-time homebuyers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">
+        Who is eligible to apply for the funds?
+        <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Specific eligibility criteria and program structures will be developed through implementation. The goal is to design funding programs that unlock new housing opportunities, support attainable middle housing, and reflect community priorities such as affordability, geographic diversity, readiness, and impact.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /.faq-page -->
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+<div class="faq-cta">
+  <h2>Tell Your Legislators: Support the BUILD plan.</h2>
+  <p>Find your state senator and representative and let them know you support common-sense housing solutions.</p>
+  <a href="index.html#cta" class="btn btn-primary">Contact Your Legislator</a>
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-coalition" id="endorsements">
+      <strong>Endorsing Organizations</strong>
+      <p>Impact for Equity · Metropolitan Planning Council · Housing Action Illinois · Abundant Housing Illinois · Illinois Housing Council · Connections for the Homeless · HOPE Fair Housing Center · South Suburban PADS · Garfield Park CDC · Community Partners for Affordable Housing · The Preservation Compact · Open Communities · Bloomington-Normal Community Land Trust · Northwest Neighborhood Alliance · Illinois League of Women Voters · Strong Towns Chicago · Climate Cabinet Action · Faith in Place</p>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-sources">
+      <strong style="color:rgba(255,255,255,0.9);font-size:0.8rem;">Data Sources: </strong>
+      IHDA Affordable Housing Planning and Appeal Act (AHPAA) 2023 ·
+      U.S. Census Bureau Building Permits Survey 2014–2024 ·
+      Zillow Home Value Index (ZHVI), city-level, mid-tier, all homes
+    </div>
+    <div class="footer-bottom">
+      <button class="btn btn-share" id="share-btn">Share this page</button>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+(function () {
+  'use strict';
+
+  /* Scroll animations */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setupAnimations() {
+    var items = document.querySelectorAll('.fade-in');
+    if (reducedMotion) {
+      items.forEach(function (item) { item.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    items.forEach(function (item) { observer.observe(item); });
+  }
+
+  /* Accordion */
+  document.querySelectorAll('.faq-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      header.closest('.faq-item').classList.toggle('open');
+    });
+  });
+
+  /* Share */
+  document.getElementById('share-btn').addEventListener('click', function () {
+    var btn = this;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        var orig = btn.textContent;
+        btn.textContent = 'Link copied!';
+        setTimeout(function () { btn.textContent = orig; }, 2000);
+      });
+    }
+  });
+
+  setupAnimations();
+}());
+</script>
+</body>
+</html>
