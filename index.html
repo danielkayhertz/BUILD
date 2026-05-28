@@ -1075,6 +1075,7 @@
       <li><a href="#problem">The Problem</a></li>
       <li><a href="#solution">What BUILD Does</a></li>
       <li><a href="faq.html">FAQ</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="#cta">Take Action</a></li>
       <li><a href="#endorsements">Endorsements</a></li>
     </ul>
@@ -1392,6 +1393,26 @@
      CONFIG
   ------------------------------------------------ */
   var CONFIG = { OPENSTATES_API_KEY: '7cc761c1-1b38-4dc0-947f-c8e3f8b1849b' };
+  var DISTRICT_INDEX = {};
+  var MANIFEST_LOADED = false;
+
+  function loadManifest(cb) {
+    if (MANIFEST_LOADED) { cb(); return; }
+    fetch('pdfs/manifest.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        data.forEach(function (e) {
+          DISTRICT_INDEX[e.org_classification + ':' + e.district] = e;
+        });
+        MANIFEST_LOADED = true;
+        cb();
+      })
+      .catch(function () {
+        MANIFEST_LOADED = true;
+        console.warn('[BUILD] PDF manifest failed to load. Fact Sheet buttons unavailable.');
+        cb();
+      });
+  }
 
   /* ------------------------------------------------
      UTILITIES
@@ -1603,6 +1624,22 @@
       actions.appendChild(callA);
     }
 
+    // PDF fact sheet (actions container is appended to card in both the email and no-email branches)
+    var districtNum = parseInt(district, 10);
+    if (isNaN(districtNum)) { console.warn('[BUILD] Unexpected district value:', district); }
+    var orgClass = role.org_classification;
+    var pdfEntry = (!isNaN(districtNum) && (orgClass === 'upper' || orgClass === 'lower'))
+      ? DISTRICT_INDEX[orgClass + ':' + districtNum]
+      : null;
+    if (pdfEntry) {
+      var pdfA = el('a', 'btn btn-rep-email', 'Fact Sheet (PDF)');
+      pdfA.href = 'pdfs/' + pdfEntry.chamber + '/' + pdfEntry.filename;
+      pdfA.setAttribute('aria-label', 'District ' + districtNum + ' fact sheet (PDF)');
+      pdfA.target = '_blank';
+      pdfA.rel = 'noopener';
+      actions.appendChild(pdfA);
+    }
+
     if (person.email) {
       var subject = 'I Support the BUILD plan \u2014 Please Vote Yes';
       var emailBody = 'Dear ' + (person.name || 'Representative') + ',\n\nI\u2019m a constituent writing to urge your support for the BUILD plan. Illinois is facing a housing crisis \u2014 we\u2019re 142,000 homes short and prices have risen 37% in five years. The BUILD plan is common-sense reform that will help more Illinoisans find a home they can afford. Please vote yes.\n\nThank you';
@@ -1722,8 +1759,10 @@
         var resultEl = document.getElementById('rep-result');
         var cardsEl = document.getElementById('rep-cards');
         clearEl(cardsEl);
-        reps.forEach(function (p) { cardsEl.appendChild(buildRepCard(p)); });
-        resultEl.style.display = 'block';
+        loadManifest(function () {
+          reps.forEach(function (p) { cardsEl.appendChild(buildRepCard(p)); });
+          resultEl.style.display = 'block';
+        });
       })
       .catch(function (err) {
         var msg = err && err.message || '';
@@ -1803,6 +1842,7 @@
   /* ------------------------------------------------
      INIT
   ------------------------------------------------ */
+  loadManifest(function () {}); // preload so manifest is ready by the time lookup runs
   setupAnimations();
 
 }());

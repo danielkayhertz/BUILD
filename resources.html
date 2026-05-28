@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>District Fact Sheets — BUILD Affordability Agenda</title>
+  <meta name="description" content="Download Climate Cabinet Action's one-page fact sheets for every Illinois House and Senate district.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buildforil.org/resources.html">
+  <meta property="og:title" content="District Fact Sheets — BUILD Affordability Agenda">
+  <meta property="og:description" content="Download Climate Cabinet Action's one-page fact sheets for every Illinois House and Senate district.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+    ========================================================= */
+    :root {
+      --amber:       #F59E0B;
+      --amber-dark:  #D97706;
+      --amber-light: #FEF3C7;
+      --green:       #2D6A4F;
+      --green-light: #F0FDF4;
+      --teal:        #1B3A4B;
+      --teal-dark:   #122839;
+      --off-white:   #FFF9F0;
+      --slate:       #1F2937;
+      --slate-mid:   #4B5563;
+      --slate-light: #F3F4F6;
+      --radius:      12px;
+      --shadow:      0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 32px rgba(0,0,0,0.12);
+      --transition:  0.2s ease;
+    }
+
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--slate);
+      background: var(--off-white);
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4 { font-family: 'Zilla Slab', Georgia, serif; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* =========================================================
+       SCROLL ANIMATIONS
+    ========================================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--teal);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--amber);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+
+    #nav-toggle { display: none; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--teal-dark);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .nav-links li a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        font-size: 1rem;
+      }
+      #nav-toggle:checked ~ .nav-inner .nav-links { max-height: 400px; }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(2) { opacity: 0; }
+      #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* =========================================================
+       PAGE HERO
+    ========================================================= */
+    .page-hero {
+      background: var(--teal);
+      color: white;
+      padding: 3.5rem 1.5rem;
+    }
+    .page-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--amber);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .page-hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       MAIN CONTENT
+    ========================================================= */
+    .resources-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* =========================================================
+       DISTRICT GRIDS
+    ========================================================= */
+    .download-all-wrap { margin-bottom: 3rem; }
+    .download-all-wrap p {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      margin-bottom: 1rem;
+    }
+
+    .section-divider {
+      margin: 2.5rem 0 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--amber);
+    }
+
+    .district-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .district-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.75rem 0.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--teal);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-top: 3px solid var(--amber);
+      text-align: center;
+    }
+    .district-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+    .district-chip-icon {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--amber-dark);
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .grid-error {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      font-style: italic;
+      padding: 1rem 0;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--amber); color: var(--teal-dark); }
+    .btn-primary:hover { background: var(--amber-dark); box-shadow: 0 4px 12px rgba(245,158,11,0.4); }
+
+    /* =========================================================
+       CTA BLOCK
+    ========================================================= */
+    .faq-cta {
+      background: var(--teal);
+      color: white;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    .faq-cta h2 {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+    .faq-cta p {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.75rem;
+      font-size: 1rem;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 3rem 1.5rem;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-coalition { margin-bottom: 1.5rem; }
+    .footer-coalition strong {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .footer-coalition p { font-size: 0.85rem; line-height: 1.6; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
+    .footer-sources { font-size: 0.8rem; line-height: 1.6; margin-bottom: 1rem; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .btn-share {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      padding: 0.4rem 1rem;
+    }
+    .btn-share:hover { background: rgba(255,255,255,0.18); }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+<nav>
+  <input type="checkbox" id="nav-toggle" />
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">BUILD Affordability Agenda</a>
+    <label class="hamburger" for="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      <li><a href="index.html#problem">The Problem</a></li>
+      <li><a href="index.html#solution">What BUILD Does</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="index.html#cta">Take Action</a></li>
+      <li><a href="index.html#endorsements">Endorsements</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>District Fact Sheets</h1>
+    <p>One-pagers from Climate Cabinet Action for every Illinois House and Senate district. Click any district to preview or download.</p>
+  </div>
+</div>
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+<div class="resources-page">
+
+  <div class="download-all-wrap fade-in">
+    <p>Download all 177 district fact sheets in a single file.</p>
+    <a class="btn btn-primary" href="https://github.com/danielkayhertz/BUILD/releases/download/BUILD/All-District-One-Pagers.zip">Download All Districts (ZIP)</a>
+  </div>
+
+  <h3 class="section-divider fade-in">House Districts (118)</h3>
+  <div class="district-grid" id="house-grid"></div>
+
+  <h3 class="section-divider fade-in">Senate Districts (59)</h3>
+  <div class="district-grid" id="senate-grid"></div>
+
+</div>
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+<div class="faq-cta">
+  <h2>Tell Your Legislators: Support the BUILD plan.</h2>
+  <p>Find your state senator and representative and let them know you support common-sense housing solutions.</p>
+  <a href="index.html#cta" class="btn btn-primary">Contact Your Legislator</a>
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-coalition">
+      <strong>Endorsing Organizations</strong>
+      <p>Impact for Equity · Metropolitan Planning Council · Housing Action Illinois · Abundant Housing Illinois · Illinois Housing Council · Connections for the Homeless · HOPE Fair Housing Center · South Suburban PADS · Garfield Park CDC · Community Partners for Affordable Housing · The Preservation Compact · Open Communities · Bloomington-Normal Community Land Trust · Northwest Neighborhood Alliance · Illinois League of Women Voters · Strong Towns Chicago · Climate Cabinet Action · Faith in Place</p>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-sources">
+      <strong style="color:rgba(255,255,255,0.9);font-size:0.8rem;">Data Sources: </strong>
+      IHDA Affordable Housing Planning and Appeal Act (AHPAA) 2023 ·
+      U.S. Census Bureau Building Permits Survey 2014–2024 ·
+      Zillow Home Value Index (ZHVI), city-level, mid-tier, all homes
+    </div>
+    <div class="footer-bottom">
+      <button class="btn btn-share" id="share-btn">Share this page</button>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+(function () {
+  'use strict';
+
+  /* Scroll animations */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    if (reducedMotion) { el.classList.add('visible'); } else { observer.observe(el); }
+  });
+
+  /* Share */
+  document.getElementById('share-btn').addEventListener('click', function () {
+    var btn = this;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        var orig = btn.textContent;
+        btn.textContent = 'Link copied!';
+        setTimeout(function () { btn.textContent = orig; }, 2000);
+      });
+    }
+  });
+
+  /* District chip grids — loaded from manifest.json */
+  function renderGrids(data) {
+    ['lower', 'upper'].forEach(function (orgClass) {
+      var containerId = orgClass === 'lower' ? 'house-grid' : 'senate-grid';
+      var container = document.getElementById(containerId);
+      if (!container) return;
+      data
+        .filter(function (e) { return e.org_classification === orgClass; })
+        .sort(function (a, b) { return a.district - b.district; })
+        .forEach(function (e) {
+          var a = document.createElement('a');
+          a.className = 'district-chip';
+          a.href = 'pdfs/' + e.chamber + '/' + e.filename;
+          a.download = e.filename;
+          a.setAttribute('aria-label', 'District ' + e.district + ' fact sheet (PDF)');
+          var icon = document.createElement('span');
+          icon.className = 'district-chip-icon';
+          icon.textContent = 'PDF';
+          var label = document.createElement('span');
+          label.textContent = 'District ' + e.district;
+          a.appendChild(icon);
+          a.appendChild(label);
+          container.appendChild(a);
+        });
+    });
+  }
+
+  fetch('pdfs/manifest.json')
+    .then(function (r) { return r.json(); })
+    .then(renderGrids)
+    .catch(function () {
+      ['house-grid', 'senate-grid'].forEach(function (id) {
+        var container = document.getElementById(id);
+        if (container) {
+          var msg = document.createElement('p');
+          msg.className = 'grid-error';
+          msg.textContent = 'Fact sheets temporarily unavailable. Please try again shortly.';
+          container.appendChild(msg);
+        }
+      });
+    });
+
+}());
+</script>
+</body>
+</html>
