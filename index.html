@@ -933,7 +933,21 @@
     }
 
     .rep-name { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
-    .rep-party-district { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+    .rep-party-district { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 0.6rem; }
+
+    .rep-phones { display: inline-flex; flex-direction: column; gap: 0.2rem; margin-bottom: 0.85rem; }
+    .rep-phone-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .rep-phone-link {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .rep-phone-link:visited { color: rgba(255,255,255,0.75); }
+    .rep-phone-link:hover { color: var(--amber); }
 
     .rep-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
@@ -1295,6 +1309,7 @@
       <input class="rep-input" id="rep-address" type="text" placeholder="Enter your address..." />
       <button class="btn btn-primary" id="rep-btn">Find My Reps</button>
     </div>
+    <p id="rep-input-hint" style="display:none; font-size:0.82rem; color:rgba(255,255,255,0.55); margin-top:-1rem; margin-bottom:1.25rem;">Press Enter or click "Find My Reps" to search.</p>
 
     <div id="rep-result">
       <div class="rep-cards" id="rep-cards"></div>
@@ -1614,6 +1629,127 @@
   /* ------------------------------------------------
      LEGISLATOR LOOKUP
   ------------------------------------------------ */
+  var PHONES = {
+    'upper:1':  { district: '773-869-9050', springfield: '217-782-9415' },
+    'upper:2':  { district: '773-292-0202', springfield: '217-782-5652' },
+    'upper:3':  { district: '312-949-1908', springfield: '217-782-5966' },
+    'upper:4':  { district: '708-632-4500', springfield: '217-782-8505' },
+    'upper:5':  { district: '312-298-9181', springfield: '217-782-6252' },
+    'upper:6':  { district: '773-296-4141', springfield: '217-557-0523' },
+    'upper:7':  { district: '773-769-1717', springfield: '217-782-8492' },
+    'upper:8':  { district: '872-208-5188', springfield: '217-782-5500' },
+    'upper:9':  { district: '847-998-1717', springfield: '217-782-2119' },
+    'upper:10': { district: '773-286-1115', springfield: '217-782-1035' },
+    'upper:11': { district: '708-430-2510', springfield: '217-782-0054' },
+    'upper:12': { district: '773-565-4661', springfield: '217-782-5304' },
+    'upper:13': { district: '773-363-1996', springfield: '217-782-5338' },
+    'upper:14': { district: '773-995-7748', springfield: '217-782-9573' },
+    'upper:15': { district: '708-893-0552', springfield: '217-782-8066' },
+    'upper:16': { district: '773-912-6255', springfield: '217-782-1607' },
+    'upper:17': { district: '773-933-7715', springfield: '217-782-3201' },
+    'upper:18': { district: '773-445-8128', springfield: '217-782-5145' },
+    'upper:19': { district: '815-464-5431', springfield: '217-782-9595' },
+    'upper:20': { district: '773-278-2020', springfield: '217-782-8191' },
+    'upper:21': { district: '630-601-9961', springfield: '217-782-8192' },
+    'upper:22': { district: '847-214-8864', springfield: '217-782-7746' },
+    'upper:23': { district: '630-785-3177', springfield: '217-782-8148' },
+    'upper:25': { district: '630-326-9319', springfield: '217-782-0471' },
+    'upper:27': { district: '847-749-1880', springfield: '217-782-4471' },
+    'upper:28': { district: '847-718-1110', springfield: '217-782-3875' },
+    'upper:29': { district: '847-945-5200', springfield: '217-782-3650' },
+    'upper:30': { district: '847-672-6201', springfield: '217-782-8181' },
+    'upper:31': { district: '847-548-5631', springfield: '217-782-7353' },
+    'upper:34': { district: '815-987-7557', springfield: '217-782-8022' },
+    'upper:36': { district: '309-558-3612', springfield: '217-782-4307' },
+    'upper:39': { district: '708-848-2002', springfield: '217-782-8176' },
+    'upper:40': { district: '708-756-0882', springfield: '217-782-7419' },
+    'upper:42': { district: '630-820-8650', springfield: '217-782-0422' },
+    'upper:43': { district: '331-290-0443', springfield: '217-782-8800' },
+    'upper:46': { district: '309-677-0120', springfield: '217-782-8250' },
+    'upper:48': { district: '217-706-5311', springfield: '217-782-0228' },
+    'upper:49': { district: '815-267-6119', springfield: '217-782-0052' },
+    'upper:52': { district: '217-355-5252', springfield: '217-782-2507' },
+    'upper:57': { district: '618-875-1212', springfield: '217-782-5399' },
+    'lower:1':  { district: '773-236-0117', springfield: '217-782-1117' },
+    'lower:2':  { district: '708-222-5240', springfield: '217-782-8173' },
+    'lower:3':  { district: '773-237-4558', springfield: '217-782-0480' },
+    'lower:4':  { district: '773-337-9995', springfield: '217-782-0150' },
+    'lower:5':  { district: '773-924-4614', springfield: '217-782-4535' },
+    'lower:6':  { district: '773-925-6580', springfield: '217-782-5971' },
+    'lower:7':  { district: '708-450-1000', springfield: '217-782-5350' },
+    'lower:8':  { district: '773-750-0866', springfield: '217-782-5962' },
+    'lower:9':  { district: '773-565-4005', springfield: '217-782-8116' },
+    'lower:10': { district: '312-265-1019', springfield: '217-782-8077' },
+    'lower:11': { district: '773-880-9082', springfield: '217-782-2458' },
+    'lower:12': { district: '773-348-8974', springfield: '217-782-8062' },
+    'lower:13': { district: '773-348-3434', springfield: '217-782-4089' },
+    'lower:14': { district: '773-784-2002', springfield: '217-782-8088' },
+    'lower:15': { district: '773-736-0218', springfield: '217-782-8198' },
+    'lower:16': { district: '847-673-1131', springfield: '217-782-1252' },
+    'lower:17': { district: '847-486-8810', springfield: '217-782-4194' },
+    'lower:18': { district: '847-424-5401', springfield: '217-782-8052' },
+    'lower:19': { district: '773-647-1174', springfield: '217-782-8400' },
+    'lower:21': { district: '708-956-7563', springfield: '217-782-5280' },
+    'lower:22': { district: '773-581-8000', springfield: '217-782-0584' },
+    'lower:23': { district: '708-295-9159', springfield: '217-782-7752' },
+    'lower:24': { district: '872-281-5775', springfield: '217-782-2855' },
+    'lower:25': { district: '773-363-8870', springfield: '217-782-8121' },
+    'lower:26': { district: '773-924-1755', springfield: '217-782-2023' },
+    'lower:27': { district: '773-445-9700', springfield: '217-782-0010' },
+    'lower:28': { district: '708-396-2822', springfield: '217-558-1000' },
+    'lower:29': { district: '708-825-1174', springfield: '217-782-8087' },
+    'lower:30': { district: '708-799-7300', springfield: '217-782-8197' },
+    'lower:31': { district: '872-267-7384', springfield: '217-782-4207' },
+    'lower:32': { district: '872-267-7915', springfield: '217-782-1702' },
+    'lower:33': { district: '773-783-8492', springfield: '217-782-8272' },
+    'lower:34': { district: '773-783-8800', springfield: '217-782-6476' },
+    'lower:35': { district: '773-445-8128', springfield: '217-782-8200' },
+    'lower:36': { district: '708-682-4880', springfield: '217-782-0515' },
+    'lower:38': { district: '708-833-7010', springfield: '217-558-1007' },
+    'lower:39': { district: '773-853-2570', springfield: '217-558-1032' },
+    'lower:40': { district: '773-267-2880', springfield: '217-782-8117' },
+    'lower:41': { district: '630-296-4157', springfield: '217-782-6507' },
+    'lower:42': { district: '630-812-9292', springfield: '217-782-8037' },
+    'lower:43': { district: '847-841-7130', springfield: '217-782-8020' },
+    'lower:44': { district: '630-372-3340', springfield: '217-782-0347' },
+    'lower:45': { district: '630-413-1080', springfield: '217-782-1448' },
+    'lower:46': { district: '630-415-3520', springfield: '217-782-8158' },
+    'lower:49': { district: '331-465-9661', springfield: '217-782-1653' },
+    'lower:50': { district: '630-270-1848', springfield: '217-558-1002' },
+    'lower:51': { district: '773-916-6553', springfield: '217-782-3696' },
+    'lower:53': { district: '847-749-1137', springfield: '217-782-3739' },
+    'lower:54': { district: '224-248-8187', springfield: '217-782-8026' },
+    'lower:55': { district: '847-635-6821', springfield: '217-782-8007' },
+    'lower:56': { district: '847-923-9104', springfield: '217-782-3725' },
+    'lower:57': { district: '847-715-9055', springfield: '217-558-1004' },
+    'lower:58': { district: '847-780-8471', springfield: '217-782-0902' },
+    'lower:59': { district: '847-478-9909', springfield: '217-782-0499' },
+    'lower:60': { district: '847-599-2800', springfield: '217-558-1012' },
+    'lower:61': { district: '847-485-9986', springfield: '217-782-8151' },
+    'lower:62': { district: '224-541-4453', springfield: '217-782-7320' },
+    'lower:66': { district: '224-484-8620', springfield: '217-782-0432' },
+    'lower:67': { district: '815-987-7433', springfield: '217-782-3167' },
+    'lower:68': { district: '815-329-6741', springfield: '217-782-0455' },
+    'lower:72': { district: '309-203-1668', springfield: '217-782-5970' },
+    'lower:76': { district: '815-587-7912', springfield: '217-782-0140' },
+    'lower:77': { district: '708-365-8498', springfield: '217-782-3374' },
+    'lower:78': { district: '773-473-7300', springfield: '217-782-6400' },
+    'lower:80': { district: '708-754-7900', springfield: '217-782-1719' },
+    'lower:81': { district: '630-605-0595', springfield: '217-782-6578' },
+    'lower:83': { district: '630-425-3965', springfield: '217-782-1486' },
+    'lower:84': { district: '630-585-1308', springfield: '217-782-8028' },
+    'lower:85': { district: '815-372-0085', springfield: '217-782-4179' },
+    'lower:86': { district: '815-730-8600', springfield: '217-782-8090' },
+    'lower:91': { district: '309-808-2351', springfield: '217-782-5199' },
+    'lower:92': { district: '309-681-1992', springfield: '217-782-3186' },
+    'lower:96': { district: '217-877-9636', springfield: '217-524-0353' },
+    'lower:97': { district: '815-254-0000', springfield: '217-782-1331' },
+    'lower:98': { district: '815-725-2741', springfield: '217-782-3316' },
+    'lower:103':{ district: '217-531-1660', springfield: '217-558-1009' },
+    'lower:112':{ district: '618-365-6650', springfield: '217-782-8018' },
+    'lower:113':{ district: '618-416-7407', springfield: '217-782-0104' }
+  };
+
   function buildRepCard(person) {
     var card = el('div', 'rep-card');
 
@@ -1631,18 +1767,40 @@
 
     var actions = el('div', 'rep-actions');
 
-    var phone = null;
-    (person.offices || []).forEach(function (o) { if (!phone && o.voice) phone = o.voice; });
-    if (phone) {
-      var callA = el('a', 'btn btn-rep-call', '\uD83D\uDCDE Call');
-      callA.href = 'tel:' + phone.replace(/\D/g, '');
-      actions.appendChild(callA);
+    var districtNum = parseInt(district, 10);
+    var orgClass = role.org_classification;
+    var phoneEntry = (!isNaN(districtNum) && orgClass) ? PHONES[orgClass + ':' + districtNum] : null;
+
+    if (phoneEntry) {
+      var phonesDiv = el('div', 'rep-phones');
+
+      var distRow = document.createElement('div');
+      distRow.appendChild(el('span', 'rep-phone-label', '\uD83D\uDCDE District: '));
+      var distLink = el('a', 'rep-phone-link', phoneEntry.district);
+      distLink.href = 'tel:' + phoneEntry.district.replace(/\D/g, '');
+      distRow.appendChild(distLink);
+
+      var spfdRow = document.createElement('div');
+      spfdRow.appendChild(el('span', 'rep-phone-label', '\uD83D\uDCDE Springfield: '));
+      var spfdLink = el('a', 'rep-phone-link', phoneEntry.springfield);
+      spfdLink.href = 'tel:' + phoneEntry.springfield.replace(/\D/g, '');
+      spfdRow.appendChild(spfdLink);
+
+      phonesDiv.appendChild(distRow);
+      phonesDiv.appendChild(spfdRow);
+      card.appendChild(phonesDiv);
+    } else {
+      var phone = null;
+      (person.offices || []).forEach(function (o) { if (!phone && o.voice) phone = o.voice; });
+      if (phone) {
+        var callA = el('a', 'btn btn-rep-call', '\uD83D\uDCDE Call');
+        callA.href = 'tel:' + phone.replace(/\D/g, '');
+        actions.appendChild(callA);
+      }
     }
 
     // PDF fact sheet (actions container is appended to card in both the email and no-email branches)
-    var districtNum = parseInt(district, 10);
     if (isNaN(districtNum)) { console.warn('[BUILD] Unexpected district value:', district); }
-    var orgClass = role.org_classification;
     var pdfEntry = (!isNaN(districtNum) && (orgClass === 'upper' || orgClass === 'lower'))
       ? DISTRICT_INDEX[orgClass + ':' + districtNum]
       : null;
@@ -1725,6 +1883,7 @@
   function runRepLookup() {
     var addr = document.getElementById('rep-address').value.trim();
     if (!addr) return;
+    document.getElementById('rep-input-hint').style.display = 'none';
 
     if (!CONFIG.OPENSTATES_API_KEY || CONFIG.OPENSTATES_API_KEY === 'YOUR_OPENSTATES_KEY_HERE') {
       showRepError('Legislator lookup is not configured. Visit ilga.gov/house/rep/find.asp to find your state representative.');
@@ -1794,6 +1953,14 @@
   document.getElementById('rep-btn').addEventListener('click', runRepLookup);
   document.getElementById('rep-address').addEventListener('keydown', function (e) {
     if (e.key === 'Enter') runRepLookup();
+  });
+
+  var repHint = document.getElementById('rep-input-hint');
+  document.getElementById('rep-address').addEventListener('input', function () {
+    var val = this.value;
+    var hasDigit = /\d/.test(val);
+    var hasLetter = /[a-zA-Z]/.test(val);
+    repHint.style.display = (hasDigit && hasLetter) ? 'block' : 'none';
   });
 
   /* ------------------------------------------------
