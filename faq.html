@@ -392,6 +392,21 @@
       padding: 0.4rem 1rem;
     }
     .btn-share:hover { background: rgba(255,255,255,0.18); }
+
+    .nav-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--amber);
+      color: var(--teal-dark);
+      padding: 0.1em 0.45em;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 0.3em;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -399,7 +414,7 @@
 <!-- =====================================================
      NAVIGATION
 ===================================================== -->
-<nav>
+<nav aria-label="Main">
   <input type="checkbox" id="nav-toggle" />
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">BUILD Affordability Agenda</a>
@@ -410,7 +425,7 @@
       <li><a href="index.html#problem">The Problem</a></li>
       <li><a href="index.html#solution">What BUILD Does</a></li>
       <li><a href="faq.html" class="active">FAQ</a></li>
-      <li><a href="resources.html">Resources</a></li>
+      <li><a href="resources.html">Resources <span class="nav-badge">New</span></a></li>
       <li><a href="index.html#cta">Take Action</a></li>
       <li><a href="index.html#endorsements">Endorsements</a></li>
     </ul>

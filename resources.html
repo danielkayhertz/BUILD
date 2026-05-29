@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>District Fact Sheets — BUILD Affordability Agenda</title>
-  <meta name="description" content="Download Climate Cabinet Action's one-page fact sheets for every Illinois House and Senate district.">
+  <title>Resources — BUILD Affordability Agenda</title>
+  <meta name="description" content="Talking points and district fact sheets for every Illinois House and Senate district — tools for BUILD Act advocates.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://buildforil.org/resources.html">
-  <meta property="og:title" content="District Fact Sheets — BUILD Affordability Agenda">
-  <meta property="og:description" content="Download Climate Cabinet Action's one-page fact sheets for every Illinois House and Senate district.">
+  <meta property="og:title" content="Resources — BUILD Affordability Agenda">
+  <meta property="og:description" content="Talking points and district fact sheets for every Illinois House and Senate district — tools for BUILD Act advocates.">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
@@ -319,6 +319,91 @@
       padding: 0.4rem 1rem;
     }
     .btn-share:hover { background: rgba(255,255,255,0.18); }
+
+    /* =========================================================
+       SCROLL OFFSET (sticky nav is 64px)
+    ========================================================= */
+    html { scroll-padding-top: 72px; }
+
+    /* =========================================================
+       TABLE OF CONTENTS
+    ========================================================= */
+    .resources-toc {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.75rem;
+      margin-bottom: 2.5rem;
+      border-left: 4px solid var(--amber);
+    }
+    .resources-toc p {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-mid);
+      margin-bottom: 0.5rem;
+    }
+    .resources-toc ol { margin: 0; padding-left: 1.25rem; }
+    .resources-toc li { line-height: 2; }
+    .resources-toc a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .resources-toc a:hover { color: var(--amber-dark); text-decoration: underline; }
+
+    /* =========================================================
+       TALKING POINTS CARD
+    ========================================================= */
+    .talking-points-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--amber);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .talking-points-card-text { flex: 1; min-width: 200px; }
+    .talking-points-card-text h3 {
+      font-size: 1.1rem;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .talking-points-card-text p {
+      font-size: 0.9rem;
+      color: var(--slate-mid);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+    .talking-points-card .btn { white-space: nowrap; align-self: center; }
+    @media (max-width: 600px) {
+      .talking-points-card { flex-direction: column; }
+      .talking-points-card .btn { align-self: flex-start; }
+    }
+
+    /* =========================================================
+       NAV BADGE
+    ========================================================= */
+    .nav-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--amber);
+      color: var(--teal-dark);
+      padding: 0.1em 0.45em;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 0.3em;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -326,7 +411,7 @@
 <!-- =====================================================
      NAVIGATION
 ===================================================== -->
-<nav>
+<nav aria-label="Main">
   <input type="checkbox" id="nav-toggle" />
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">BUILD Affordability Agenda</a>
@@ -337,7 +422,7 @@
       <li><a href="index.html#problem">The Problem</a></li>
       <li><a href="index.html#solution">What BUILD Does</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="resources.html" class="active">Resources <span class="nav-badge">New</span></a></li>
       <li><a href="index.html#cta">Take Action</a></li>
       <li><a href="index.html#endorsements">Endorsements</a></li>
     </ul>
@@ -349,8 +434,8 @@
 ===================================================== -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <h1>District Fact Sheets</h1>
-    <p>One-pagers from Climate Cabinet Action for every Illinois House and Senate district. Click any district to preview or download.</p>
+    <h1>Resources</h1>
+    <p>Talking points, district fact sheets, and other materials to help you advocate for the BUILD plan.</p>
   </div>
 </div>
 
@@ -359,15 +444,35 @@
 ===================================================== -->
 <div class="resources-page">
 
+  <nav class="resources-toc fade-in" aria-label="Page contents">
+    <p>On this page</p>
+    <ol>
+      <li><a href="#talking-points">Talking Points — How BUILD has been shaped by feedback</a></li>
+      <li><a href="#house-districts">House District Fact Sheets (118)</a></li>
+      <li><a href="#senate-districts">Senate District Fact Sheets (59)</a></li>
+    </ol>
+  </nav>
+
+  <section id="talking-points">
+    <h2 class="section-divider fade-in">Talking Points</h2>
+    <div class="talking-points-card fade-in">
+      <div class="talking-points-card-text">
+        <h3>How BUILD has been shaped by feedback</h3>
+        <p>A summary of how the BUILD plan has evolved in response to municipal concerns and stakeholder input — useful for conversations with legislators, local officials, and community members.</p>
+      </div>
+      <a class="btn btn-primary" href="docs/how-build-has-been-shaped-by-feedback.docx" download>Download (Word doc)</a>
+    </div>
+  </section>
+
   <div class="download-all-wrap fade-in">
     <p>Download all 177 district fact sheets in a single file.</p>
     <a class="btn btn-primary" href="https://github.com/danielkayhertz/BUILD/releases/download/BUILD/All-District-One-Pagers.zip">Download All Districts (ZIP)</a>
   </div>
 
-  <h3 class="section-divider fade-in">House Districts (118)</h3>
+  <h2 id="house-districts" class="section-divider fade-in">House Districts (118)</h2>
   <div class="district-grid" id="house-grid"></div>
 
-  <h3 class="section-divider fade-in">Senate Districts (59)</h3>
+  <h2 id="senate-districts" class="section-divider fade-in">Senate Districts (59)</h2>
   <div class="district-grid" id="senate-grid"></div>
 
 </div>
