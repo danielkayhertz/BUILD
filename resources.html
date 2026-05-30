@@ -328,12 +328,24 @@
     /* =========================================================
        TABLE OF CONTENTS
     ========================================================= */
+    /* Sidebar layout */
+    .resources-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .resources-sidebar {
+      position: sticky;
+      top: 80px;
+    }
+
     .resources-toc {
       background: white;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 1.25rem 1.75rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0;
       border-left: 4px solid var(--amber);
     }
     .resources-toc p {
@@ -353,6 +365,11 @@
       font-size: 0.95rem;
     }
     .resources-toc a:hover { color: var(--amber-dark); text-decoration: underline; }
+    @media (max-width: 860px) {
+      .resources-layout { grid-template-columns: 1fr; }
+      .resources-sidebar { position: static; }
+      .resources-toc { margin-bottom: 2rem; }
+    }
 
     /* =========================================================
        TALKING POINTS ACCORDIONS
@@ -464,8 +481,9 @@
      MAIN CONTENT
 ===================================================== -->
 <div class="resources-page">
-
-  <nav class="resources-toc fade-in" aria-label="Page contents">
+  <div class="resources-layout">
+    <aside class="resources-sidebar">
+      <nav class="resources-toc fade-in" aria-label="Page contents">
     <p>On this page</p>
     <ol>
       <li><a href="#talking-points">How BUILD has been shaped by feedback</a></li>
@@ -473,7 +491,9 @@
       <li><a href="#house-districts">House District Fact Sheets (118)</a></li>
       <li><a href="#senate-districts">Senate District Fact Sheets (59)</a></li>
     </ol>
-  </nav>
+      </nav>
+    </aside>
+    <div class="resources-main">
 
   <section id="talking-points-wrap">
     <div class="tp-list fade-in">
@@ -558,6 +578,8 @@
   <h2 id="senate-districts" class="section-divider fade-in">Senate Districts (59)</h2>
   <div class="district-grid" id="senate-grid"></div>
 
+    </div><!-- /resources-main -->
+  </div><!-- /resources-layout -->
 </div>
 
 <!-- =====================================================
