@@ -90,13 +90,13 @@
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1rem;
       list-style: none;
     }
     .nav-links a {
       color: rgba(255,255,255,0.85);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       transition: color var(--transition);
     }
@@ -355,36 +355,57 @@
     .resources-toc a:hover { color: var(--amber-dark); text-decoration: underline; }
 
     /* =========================================================
-       TALKING POINTS CARD
+       TALKING POINTS ACCORDIONS
     ========================================================= */
-    .talking-points-card {
+    .tp-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+    .faq-item {
       background: white;
+      border: 1px solid #E5E7EB;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border-top: 4px solid var(--amber);
-      padding: 1.75rem 2rem;
-      margin-bottom: 2.5rem;
+      overflow: hidden;
+    }
+    .faq-header {
       display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .talking-points-card-text { flex: 1; min-width: 200px; }
-    .talking-points-card-text h3 {
-      font-size: 1.1rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
       color: var(--teal);
-      margin-bottom: 0.4rem;
+      gap: 1rem;
+      transition: background var(--transition);
     }
-    .talking-points-card-text p {
-      font-size: 0.9rem;
+    .faq-header:hover { background: var(--green-light); }
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--teal);
+      transition: transform 0.25s ease;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 6000px; }
+    .faq-answer-inner {
+      padding: 0.25rem 1.5rem 1.5rem;
+      font-size: 0.95rem;
       color: var(--slate-mid);
-      margin-bottom: 0;
-      line-height: 1.5;
+      line-height: 1.7;
     }
-    .talking-points-card .btn { white-space: nowrap; align-self: center; }
-    @media (max-width: 600px) {
-      .talking-points-card { flex-direction: column; }
-      .talking-points-card .btn { align-self: flex-start; }
+    .faq-answer-inner p { margin-bottom: 0.75rem; }
+    .faq-answer-inner p:last-child { margin-bottom: 0; }
+    .faq-answer-inner ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .faq-answer-inner li { margin-bottom: 0.5rem; }
+    .faq-answer-inner strong { color: var(--slate); }
+    .faq-answer-inner h4 {
+      color: var(--teal);
+      font-size: 1rem;
+      margin: 1.25rem 0 0.5rem;
     }
 
     /* =========================================================
@@ -447,20 +468,82 @@
   <nav class="resources-toc fade-in" aria-label="Page contents">
     <p>On this page</p>
     <ol>
-      <li><a href="#talking-points">Talking Points — How BUILD has been shaped by feedback</a></li>
+      <li><a href="#talking-points">How BUILD has been shaped by feedback</a></li>
+      <li><a href="#talking-points-2">How BUILD has been changed to support affordability and prevent displacement</a></li>
       <li><a href="#house-districts">House District Fact Sheets (118)</a></li>
       <li><a href="#senate-districts">Senate District Fact Sheets (59)</a></li>
     </ol>
   </nav>
 
-  <section id="talking-points">
-    <h2 class="section-divider fade-in">Talking Points</h2>
-    <div class="talking-points-card fade-in">
-      <div class="talking-points-card-text">
-        <h3>How BUILD has been shaped by feedback</h3>
-        <p>A summary of how the BUILD plan has evolved in response to municipal concerns and stakeholder input — useful for conversations with legislators, local officials, and community members.</p>
+  <section id="talking-points-wrap">
+    <div class="tp-list fade-in">
+
+      <div class="faq-item" id="talking-points">
+        <div class="faq-header">
+          How BUILD has been shaped by feedback
+          <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>BUILD has been narrowed, refined, and strengthened in response to local feedback. The package moving forward is focused on two practical reforms: legalizing modest middle housing options through SB0640 and reducing avoidable permitting delays through SB0643. These bills set reasonable statewide baselines while preserving meaningful local authority over design, infrastructure, safety, stormwater, parking, and implementation.</p>
+            <ul>
+              <li><strong>This is a narrower package than the original BUILD proposal.</strong> The package moving forward is focused on two core reforms: middle housing and third-party review. The broader package has been narrowed to focus on the policies most directly tied to housing production and permitting predictability.</li>
+              <li><strong>SB0640 is not a one-size-fits-all mandate.</strong> SB0640 establishes a statewide baseline for modest housing options, but municipalities retain authority to adopt clear and objective local standards for how that housing looks, fits on a lot, and integrates into the community. Local governments can regulate height, setbacks, lot coverage, floor-area ratio, green space, access, building separation, landscaping, and design.</li>
+              <li><strong>Municipalities can still enforce infrastructure, stormwater, sewer, environmental, health, and safety standards.</strong> SB0640 does not require municipalities to approve projects that cannot meet applicable local standards. Municipalities may deny permits when a project fails to comply with generally applicable health and safety, building, fire, environmental, sewer, stormwater, or infrastructure regulations.</li>
+              <li><strong>The middle housing proposal has been scaled back and made more locally workable.</strong> The revised framework removes the original 8-unit allowances, focuses on smaller housing types such as duplexes, triplexes, four-flats, townhomes, and cottage clusters, gives municipalities more time to update ordinances, and allows communities that adopt conforming local standards to use those standards instead of default state standards.</li>
+              <li><strong>SB0640 balances housing supply, affordability, parking, and displacement concerns.</strong> The bill supports affordability without making small infill projects impossible to finance or build, allows municipalities to protect existing tenant-occupied 2-to-4-unit buildings in designated areas facing displacement pressure, and preserves local parking authority so long as parking rules do not functionally block middle housing.</li>
+              <li><strong>SB0643 is a backstop against unreasonable permitting delays, not a replacement for municipal review.</strong> SB0643 retains municipal authority over permitting and inspections while setting reasonable timelines for plan review and inspection. Applicants may seek third-party review only after a municipality misses the applicable timeline, and the revised bill adds municipal protections, including more time to complete reviews, municipal liability protections, and cost protections.</li>
+            </ul>
+            <h4>Appendix: Detailed Talking Points</h4>
+            <h4>SB0640 — Middle Housing</h4>
+            <ul>
+              <li>SB0640 reflects a substantially revised, more balanced approach to middle housing. This is not the proposal as originally introduced. The updated legislation preserves the core statewide goal of re-legalizing modest, attainable housing options, while making significant changes in response to municipal concerns about implementation, infrastructure, design, parking, displacement, and existing approvals. The result is a more practical framework: A statewide baseline for housing opportunity, paired with clear local authority over how that housing is reviewed, designed, and integrated into each community.</li>
+              <li>SB0640 preserves meaningful local authority over community character and housing form. The revised language makes clear that municipalities can adopt their own clear and objective standards for how middle housing looks and fits on a lot, including standards for height, setbacks, floor-area ratio, lot coverage, access, unit size, building separation, green space, landscaping, and design. In other words, the bill does not require every community to look the same. It sets a minimum housing opportunity standard, while allowing municipalities to shape the form, scale, and site design of that housing through locally adopted rules.</li>
+              <li>SB0640 expressly protects municipal authority to enforce health, safety, environmental, sewer, stormwater, and infrastructure standards. This is one of the most important changes made in response to local government feedback. The updated bill makes clear that middle housing must still comply with generally applicable local health and safety, building, fire, environmental, sewer, stormwater, and infrastructure regulations. A municipality may deny a permit when a proposal does not comply with those standards. That means the bill does not force municipalities to approve projects that overwhelm septic capacity, violate stormwater rules, fail to meet sewer requirements, create fire access problems, or otherwise fail to satisfy applicable health and safety standards.</li>
+              <li>SB0640 scales back the maximum unit allowances. The revised framework removes the original 8-unit allowances and reduces the overall scale of required middle housing entitlements. This was a direct response to concerns that the introduced bill went too far too quickly in some communities. The updated approach focuses on smaller, incremental housing types, such as duplexes, triplexes, four-flats, townhomes, cottage clusters, and other modest middle housing forms that can fit into existing residential neighborhoods.</li>
+              <li>SB0640 gives municipalities significantly more time to implement the law. The revised approach created a longer implementation runway so local governments have time to update zoning ordinances, engage residents, develop locally tailored design standards, and align review processes before the state baseline applies. This is a major shift from the original proposal and reflects the reality that communities need time and technical space to implement a statewide housing framework responsibly.</li>
+              <li>SB0640 allows municipalities to use local standards instead of default state standards. The default standards only matter if a municipality does not adopt conforming local rules. Communities that update their ordinances retain the ability to decide what clear and objective standards make sense locally. That structure creates an incentive for local planning, rather than a one-size-fits-all mandate.</li>
+              <li>SB0640 protects existing development agreements and approved projects. The revised legislation clarifies that projects with contracts or agreements executed before the effective date are not required to reopen or conform to the new middle housing framework unless the developer requests it and the municipality authorizes it. This protects local negotiations, planned developments, approved projects, and existing commitments from being disrupted retroactively.</li>
+              <li>SB0640 balances affordability goals with the practical realities of small-scale housing production. Middle housing projects are typically small, incremental developments, often built by local builders and property owners who do not have the financing tools available to large apartment developers. The revised bill reflects that reality by focusing affordability expectations on projects large enough to support them, while making clear that those requirements should not be applied in a way that stops the housing from being financed, permitted, and built. The goal is not just to require affordability on paper, but to create a framework where smaller, attainable homes can actually move forward.</li>
+              <li>SB0640 creates a new local tool to protect small rental housing in areas experiencing displacement pressure. The revised proposal allows municipalities to designate Protected Small Rental Housing Areas. Within those areas, municipalities can protect existing tenant-occupied 2-to-4-unit buildings from redevelopment pressures. This change directly responds to concerns that middle housing reform should not accelerate the loss of naturally occurring affordable rental housing in vulnerable neighborhoods.</li>
+              <li>SB0640 pares back the parking reform and preserves municipal flexibility. Instead of eliminating local parking authority, the revised language allows municipalities to continue applying parking standards so long as those standards do not functionally prohibit or materially impede middle housing. The bill also preserves standards needed for emergency vehicle access, accessibility, fire and life safety, and building code compliance. This responds directly to concerns from mayors and local officials about congestion, narrow streets, and neighborhood conditions.</li>
+              <li>SB0640 gives municipalities a stronger role in shaping implementation than the introduced bill did. Taken together, the changes are significant: Lower unit allowances, a longer implementation period, express infrastructure and stormwater protections, preservation of health and safety authority, local design authority, protection for existing agreements, targeted anti-displacement tools, and a more flexible parking framework. The updated bill keeps the central promise of BUILD while responding directly to the concerns raised by mayors, planners, and local governments.</li>
+            </ul>
+            <h4>Third-Party Review Reform — SB0643</h4>
+            <ul>
+              <li>SB0643 retains municipal authority over permitting and inspections while setting reasonable statewide timelines. SB0643 is common-sense permitting reform legislation that streamlines plan reviews and inspections for housing and other covered building projects to reduce avoidable delay, cut red tape, and remove costs that too often prevent needed development from moving forward. After engaging municipalities, the timelines for plan reviews and inspections were revised to better reflect current municipal practice. The bill is not intended to replace municipal work. Instead, it serves as a backstop against unreasonable delays that can prevent otherwise viable projects from moving forward.</li>
+              <li>SB0643 gives municipalities significantly more time to complete plan reviews and inspections before an applicant may seek services from an outside third party. In response to suggestions from municipal leaders, initial plan review times were extended to 30 business days after receipt of a complete application, and inspections must be completed within 5 business days after receipt of a request before triggering a project applicant's ability to seek a qualified third party. These timelines are designed to better reflect current municipal practice, increase transparency, reduce avoidable delays, and help advance needed housing development.</li>
+              <li>SB0643 preserves municipal authority over local building code and life-safety standards. The revised bill makes clear that projects must still comply with applicable building codes and life-safety standards. Municipalities also retain audit and enforcement authority, including the ability to address material noncompliance, issue stop-work orders, withhold certificates of occupancy, and pursue enforcement actions when warranted.</li>
+              <li>SB0643 allows municipalities to require documentation of qualifications. The revised legislation gives municipalities authority to require reasonable documentation showing that a third-party inspector or reviewer meets the bill's qualification requirements, including proof that licensure or certification is current and active. Qualified third-party reviewers and inspectors must also demonstrate an understanding of applicable local codes and amendments.</li>
+              <li>SB0643 protects municipalities from third-party liability and cost exposure. The bill clarifies that municipalities are not liable for contracts between applicants and third-party reviewers or inspectors, or for a third party's failure to conduct a required review or inspection. It also makes clear that applicants are responsible for third-party costs, and municipalities are not liable for those fees.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <a class="btn btn-primary" href="docs/how-build-has-been-shaped-by-feedback.docx" download>Download (Word doc)</a>
+
+      <div class="faq-item" id="talking-points-2">
+        <div class="faq-header">
+          How BUILD has been changed to support affordability and prevent displacement
+          <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>BUILD is designed to legalize more diverse, attainable housing options, boost supply, lower development costs, and expand housing access and opportunity across Illinois. In response to feedback from legislators, advocates, local officials, and community leaders, the revised proposal pairs necessary zoning reforms with targeted affordability, preservation, and anti-displacement tools.</p>
+            <p>The updated legislation recognizes that increasing housing supply must be paired with practical tools to preserve affordability, protect residents from displacement, and ensure communities can grow in ways that work for them. SB0640 would re-legalize modest middle housing while adding tools to preserve existing small rental buildings, support community land trusts, encourage permanently affordable housing, and apply affordability expectations to larger middle housing projects. The result is a more balanced proposal that expands housing opportunity while helping communities protect residents, preserve affordability, and shape growth in ways that reflect local needs.</p>
+            <ul>
+              <li>SB0640 strengthens protections of existing small rental housing in areas experiencing displacement pressure. The revised legislation creates a new tool that allows municipalities to designate Protected Small Rental Housing Areas. Within those areas, municipalities can protect existing tenant-occupied two- to four-unit buildings, an important source of naturally occurring affordable housing, from redevelopment pressure and deconversion. This approach preserves middle housing opportunities while recognizing that existing small rental buildings are often among the most affordable homes in a community and should not be lost in neighborhoods facing rising costs and gentrification.</li>
+              <li>SB0640 preserves targeted local preservation and anti-displacement policies. The revised language makes clear that certain existing local preservation, anti-displacement, and anti-gentrification ordinances can continue operating for existing small rental housing, including policies like Chicago's Northwest Preservation Ordinance. This ensures that BUILD complements local policies created to protect tenants and preserve naturally occurring affordable housing in vulnerable neighborhoods.</li>
+              <li>SB0640 creates a statutory framework for a dedicated Community Land Trust Housing Fund. The proposed Community Land Trust Housing Fund would give the Illinois Housing Development Authority a new tool, subject to appropriation, to provide grants, forgivable loans, recoverable grants, loans, or other financial assistance to eligible community land trusts. Funds could support acquisition, rehabilitation, construction, preservation, affordability write-downs, homebuyer assistance, stewardship reserves, technical assistance, and other costs needed to create and preserve permanently affordable housing.</li>
+              <li>SB0640 supports permanent affordability and shared-equity homeownership. The community land trust language focuses on housing that remains affordable over the long term through ground leases, deed restrictions, covenants, resale restrictions, rent restrictions, or other legally enforceable affordability mechanisms. This gives Illinois a stronger policy framework for permanently affordable rental housing and shared-equity homeownership, especially in communities where rising costs threaten long-term resident stability.</li>
+              <li>SB0640 prioritizes preservation of naturally occurring affordable housing and homes at risk of loss. The Community Land Trust Housing Fund language allows IHDA to prioritize projects that preserve small multifamily housing, naturally occurring affordable housing, or housing at risk of loss due to rising costs, vacancy, abandonment, or conversion. It also allows support for projects serving households at risk of displacement or facing barriers to homeownership or stable rental housing.</li>
+              <li>SB0640 creates explicit affordability expectations for certain new middle housing development. Middle housing projects are typically small, incremental developments often built by local builders, property owners, small developers, and mission-driven organizations without the financing tools available to large apartment projects. The revised bill reflects that reality by focusing affordability expectations on larger projects that are better positioned to support them. This approach embeds affordability into the middle housing framework while still recognizing the constraints of small-scale production.</li>
+              <li>SB0640 preserves local authority over community character and housing form. The revised language allows municipalities to adopt clear and objective standards for how middle housing looks, fits on a lot, and integrates into a neighborhood, including standards for height, setbacks, floor-area ratio, lot coverage, access, unit size, building separation, green space, landscaping, and design. BUILD sets a minimum housing opportunity standard, but it does not require every community to look the same.</li>
+              <li>SB0640 balances supply, affordability, and preservation. The revised proposal recognizes that Illinois needs more homes, more diverse housing options, and greater housing affordability. The housing shortage is driving rising rents and housing costs, but supply alone is not enough. Illinois also needs to protect existing residents in gentrifying markets and preserve and expand long-term affordability. By pairing middle housing legalization with small rental preservation, community land trust resources, and targeted affordability expectations, BUILD is better positioned to increase housing supply while helping communities preserve affordability and protect residents from displacement.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -582,6 +665,13 @@
         }
       });
     });
+
+  /* Talking points accordions */
+  document.querySelectorAll('.tp-list .faq-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      header.closest('.faq-item').classList.toggle('open');
+    });
+  });
 
 }());
 </script>
